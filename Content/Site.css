@@ -328,3 +328,134 @@ footer {
 .nav-item-dropdown:hover .dropdown-content {
     display: block; /* Khi hover vào .nav-item-dropdown, menu con sẽ hiện ra */
 }
+/* Content/Site.css */
+
+/* --- 6. COMMUNITY PAGE --- */
+
+/* --- Bố cục chính của trang cộng đồng --- */
+.community-page-main {
+    max-width: 1200px;
+    margin: 40px auto; /* Căn giữa và tạo khoảng cách trên dưới */
+    padding: 0 20px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+    .page-header h1 {
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--primary-text-color);
+    }
+
+    .page-header p {
+        font-size: 18px;
+        color: var(--secondary-text-color);
+        margin-top: 10px;
+    }
+
+/* --- Lưới bài đăng --- */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tạo layout 3 cột */
+    gap: 30px; /* Khoảng cách giữa các bài đăng */
+}
+
+/* --- Thẻ bài đăng --- */
+.post-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden; /* Đảm bảo ảnh bo góc theo thẻ */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .post-card:hover {
+        transform: translateY(-5px); /* Hiệu ứng nhấc lên khi hover */
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+/* Phần hình ảnh của thẻ */
+.card-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Đảm bảo ảnh lấp đầy khung mà không bị méo */
+    display: block;
+}
+
+/* Phần nội dung của thẻ */
+.card-content {
+    padding: 20px;
+    background-color: #f8fcff; /* Màu xanh dương rất nhạt, nhẹ nhàng */
+}
+
+/* Thẻ tags (Thanh lý, Đồ chơi...) */
+.card-tags {
+    margin-bottom: 15px;
+}
+
+    .card-tags span {
+        display: inline-block;
+        background-color: var(--primary-bg-color); /* Màu hồng nhạt */
+        color: #c2637e;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        margin-right: 5px;
+    }
+
+/* Tiêu đề bài đăng */
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    line-height: 1.4;
+}
+
+    .card-title a {
+        color: var(--primary-text-color);
+    }
+
+/* Thông tin tác giả */
+.card-author {
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    margin-bottom: 20px;
+}
+
+/* Link xem chi tiết */
+.details-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 14px;
+    color: #3b82f6; /* Màu xanh dương nổi bật */
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+    .details-link i {
+        transition: transform 0.3s ease;
+    }
+
+    .details-link:hover i {
+        transform: translateX(5px); /* Mũi tên di chuyển khi hover */
+    }
+
+
+/* --- Responsive cho thiết bị di động --- */
+@media (max-width: 992px) {
+    .post-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột trên tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .post-grid {
+        grid-template-columns: 1fr; /* 1 cột trên điện thoại */
+    }
+}
