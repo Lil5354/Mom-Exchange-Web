@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - MomExchange</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-top-links">
+                <a href="#">Góc chia sẻ</a>
+                <a href="#">Về MomExchange</a>
+                <a href="#">Hỗ trợ</a>
+            </div>
+            <div class="header-top-promo">
+                <a href="#"><i class="fa-solid fa-hand-holding-heart"></i> Cho tặng sữa mẹ</a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="nav-links">
+                <div class="nav-item-dropdown">
+                    <a href="#">Thanh lý <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Quần áo</a>
+                        <a href="#">Đồ chơi, Sách</a>
+                        <a href="#">Xe đẩy, Nôi cũi</a>
+                        <a href="#">Máy hút sữa & Dụng cụ</a>
+                        <a href="#">Đồ dùng ăn dặm</a>
+                        <a href="#">An toàn cho bé</a>
+                        <a href="#">Tất cả sản phẩm</a>
+                    </div>
+                </div>
+
+                <a href="#">Trao đổi</a>
+
+                <div class="nav-item-dropdown">
+                    <a href="#">Nhãn hàng <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Bỉm & Sữa chính hãng</a>
+                        <a href="#">Dinh dưỡng cho bé</a>
+                        <a href="#">Thời trang thiết kế</a>
+                        <a href="#">Chăm sóc mẹ & bé</a>
+                        <a href="#">Xem tất cả nhãn hàng</a>
+                    </div>
+                </div>
+
+                <a href="#">Cộng đồng</a>
+            </div>
+            <div class="logo">
+                <a href="#" style="font-size: 24px; font-weight: 700; letter-spacing: 1px;">MomExchange</a>
+            </div>
+            <div class="nav-cart">
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>HỖ TRỢ KHÁCH HÀNG</h4>
+                <a href="#">Chính sách đổi trả</a>
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Quy trình xác thực</a>
+                <a href="#">Các câu hỏi thường gặp</a>
+            </div>
+            <div class="footer-column">
+                <h4>VỀ MOMEXCHANGE</h4>
+                <a href="#">Câu chuyện của chúng tôi</a>
+                <a href="#">Cơ hội cho nhãn hàng</a>
+                <a href="#">Liên hệ</a>
+            </div>
+            <div class="footer-column">
+                <h4>KẾT NỐI VỚI CỘNG ĐỒNG</h4>
+                <p>Cùng chia sẻ và lắng nghe trên hành trình làm mẹ.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; @DateTime.Now.Year - MomExchange. Xây dựng bởi cộng đồng các bà mẹ.</p>
+        </div>
+    </footer>
+</body>
+</html>

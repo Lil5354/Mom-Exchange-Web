@@ -1,0 +1,330 @@
+﻿/* --- BIẾN MÀU VÀ CÀI ĐẶT CHUNG --- */
+:root {
+    --primary-text-color: #4d4d4d;
+    --secondary-text-color: #888;
+    --primary-bg-color: #fdeee9; /* Màu hồng nền giống mẫu */
+    --light-gray-bg: #f9f9f9;
+    --white-color: #ffffff;
+    --border-color: #eeeeee;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    color: var(--primary-text-color);
+    background-color: var(--white-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+    a:hover {
+        color: var(--secondary-text-color);
+    }
+
+.container {
+    padding: 0;
+    max-width: 100%;
+}
+
+/* --- 1. HEADER (ĐẦU TRANG) --- */
+header {
+    width: 100%;
+    background-color: var(--white-color);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 5%;
+    background-color: var(--light-gray-bg);
+    font-size: 13px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+}
+
+.nav-links {
+    flex: 1;
+}
+
+    .nav-links a {
+        margin-right: 25px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+        .nav-links a i {
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+.logo {
+    text-align: center;
+    flex: 0 1 200px;
+}
+
+    .logo img {
+        max-width: 150px;
+    }
+
+.nav-cart {
+    flex: 1;
+    text-align: right;
+    font-size: 14px;
+}
+
+/* --- 2. HERO BANNER (TRANG CHỦ) --- */
+.hero-section {
+    display: flex;
+    background-color: var(--primary-bg-color); /* Sử dụng màu nền chính */
+    margin: 0; /* Bỏ margin để banner sát với header */
+}
+
+.hero-image {
+    flex: 1;
+}
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+/* Content/Site.css */
+
+/* TÌM VÀ THAY THẾ CÁC QUY TẮC CŨ BẰNG CÁC QUY TẮC NÀY */
+
+.hero-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px;
+}
+
+    .hero-text h2 {
+        font-size: 42px;
+        font-weight: 700; /* Tăng độ đậm cho tiêu đề */
+        margin-top: 0;
+        margin-bottom: 15px;
+        text-transform: uppercase; /* VIẾT IN HOA giống mẫu */
+        letter-spacing: 1.5px; /* Tăng khoảng cách ký tự */
+    }
+
+/* === THÊM MỚI QUY TẮC NÀY === */
+.wavy-line {
+    margin-bottom: 25px;
+}
+
+.hero-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 450px;
+    margin-bottom: 30px;
+    font-weight: 500; /* Giảm độ đậm cho đoạn văn, tạo sự tương phản */
+}
+
+.cta-button {
+    border: 1px solid var(--primary-text-color);
+    padding: 14px 35px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+    /* ================================= */
+
+    .cta-button:hover {
+        background-color: var(--primary-text-color);
+        color: var(--white-color);
+    }
+
+/* --- 3. PRODUCT GRID (LƯỚI SẢN PHẨM) --- */
+.product-section {
+    padding: 60px 5%;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+    .section-header h2 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .section-header a {
+        text-decoration: underline;
+        font-size: 14px;
+    }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.product-card {
+    text-align: left;
+}
+
+    .product-card img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+        background-color: #f5f5f5;
+    }
+
+    .product-card h3 {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0 0 5px 0;
+    }
+
+    .product-card .brand {
+        font-size: 14px;
+        color: var(--secondary-text-color);
+        margin: 0 0 8px 0;
+    }
+
+    .product-card .price {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--primary-text-color);
+    }
+
+
+/* --- 4. COMMUNITY QUOTES SECTION --- */
+.community-section {
+    background-color: var(--light-gray-bg);
+    padding: 60px 5%;
+    text-align: center;
+}
+
+    .community-section h2 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+.quote-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.quote-card {
+    background-color: var(--white-color);
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+    .quote-card p {
+        font-style: italic;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .quote-card .author {
+        font-weight: 700;
+    }
+
+/* --- 5. FOOTER (CHÂN TRANG) --- */
+footer {
+    background-color: #2b2b2b; /* Màu nền tối hơn cho sang trọng */
+    color: #a0a0a0;
+    padding: 50px 5%;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #444;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: var(--white-color);
+    font-weight: 700;
+}
+
+.footer-column a, .footer-column p {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 13px;
+}
+/* Content/Site.css */
+
+/* --- NAVIGATION DROPDOWN --- */
+
+/* Vùng chứa item có dropdown (quan trọng để định vị) */
+.nav-item-dropdown {
+    position: relative; /* Thẻ cha phải là relative */
+    display: inline-block; /* Hiển thị trên cùng một hàng */
+}
+
+/* Nội dung dropdown (mặc định ẩn đi) */
+.dropdown-content {
+    display: none; /* Mặc định ẩn menu con */
+    position: absolute; /* Thẻ con là absolute để nổi lên trên nội dung khác */
+    background-color: #ffffff;
+    min-width: 240px; /* Độ rộng của menu con */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); /* Đổ bóng mềm */
+    z-index: 1000; /* Đảm bảo menu nằm trên các thành phần khác */
+    border-top: 3px solid var(--primary-bg-color); /* Thêm một đường viền màu hồng nhẹ ở trên cho đẹp */
+    padding: 10px 0;
+}
+
+    /* Các link bên trong dropdown */
+    .dropdown-content a {
+        color: var(--primary-text-color);
+        padding: 12px 20px;
+        display: block; /* Biến thẻ a thành dạng block để chiếm hết chiều rộng */
+        text-align: left;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+        /* Hiệu ứng khi di chuột qua các link trong dropdown */
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+        }
+
+/* === QUAN TRỌNG: Hiển thị dropdown khi di chuột qua thẻ cha === */
+.nav-item-dropdown:hover .dropdown-content {
+    display: block; /* Khi hover vào .nav-item-dropdown, menu con sẽ hiện ra */
+}
