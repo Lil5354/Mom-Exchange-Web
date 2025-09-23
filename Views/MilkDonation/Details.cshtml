@@ -1,0 +1,94 @@
+﻿@model MomExchange.Models.MilkDonationPost
+
+@{
+    ViewBag.Title = "Chi tiết tặng sữa mẹ";
+}
+
+<div class="product-detail-container">
+    <div class="product-detail-layout milk-details-layout">
+        <div class="product-gallery" data-aos="fade-right">
+            <div class="main-image">
+                <img src="@Model.DonorAvatarUrl" alt="Avatar của @Model.DonorName">
+            </div>
+            <div class="seller-profile">
+                <div class="seller-details">
+                    <h3>Thông tin người cho</h3>
+                    <p><strong>@Model.DonorName</strong> - @Model.Location</p>
+                </div>
+            </div>
+            @if (Model.IsHealthVerified)
+            {
+                <div class="verification-info">
+                    <div class="verified-badge large"><i class="fa-solid fa-shield-heart"></i> Đã xác thực sức khỏe</div>
+                    <p>Người cho đã cung cấp các giấy tờ y tế hợp lệ và được MomExchange kiểm duyệt.</p>
+                </div>
+            }
+            else
+            {
+                <div class="verification-info not-verified">
+                    <div class="verified-badge large"><i class="fa-solid fa-triangle-exclamation"></i> Chưa xác thực sức khỏe</div>
+                    <p>Người cho chưa cung cấp giấy tờ y tế. Vui lòng tìm hiểu kỹ trước khi nhận.</p>
+                </div>
+            }
+        </div>
+
+        <div class="product-info" data-aos="fade-left" data-aos-delay="200">
+            <h1>Thông tin nguồn sữa</h1>
+            <ul class="milk-info-list">
+                <li>
+                    <i class="fa-solid fa-calendar-day"></i>
+                    <div>
+                        <strong>Ngày hút sữa</strong>
+                        <p>@Model.DateOfExpression.ToString("dd/MM/yyyy")</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fa-solid fa-utensils"></i>
+                    <div>
+                        <strong>Chế độ dinh dưỡng/Thuốc men của mẹ</strong>
+                        <p>@Model.DietInfo</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fa-solid fa-snowflake"></i>
+                    <div>
+                        <strong>Phương pháp bảo quản</strong>
+                        <p>@Model.StorageInfo</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    <div>
+                        <strong>Ghi chú thêm</strong>
+                        <p>@Model.Note</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="safety-notice" data-aos="fade-up">
+        <h3><i class="fa-solid fa-circle-info"></i> Lưu ý quan trọng về an toàn</h3>
+        <p>MomExchange là nền tảng kết nối. Chúng tôi không chịu trách nhiệm về chất lượng sữa. Vui lòng trao đổi kỹ với người cho và tuân thủ các quy tắc vận chuyển, bảo quản và rã đông an toàn để đảm bảo sức khỏe cho bé.</p>
+    </div>
+
+    <div class="disclaimer-box" data-aos="fade-up">
+        <label class="checkbox-container">
+            <input type="checkbox" id="disclaimer-check"> Tôi đã đọc, hiểu rõ và đồng ý với các điều khoản miễn trừ trách nhiệm của MomExchange.
+            <span class="checkmark"></span>
+        </label>
+        <button id="contact-donor-btn" class="cta-button primary" disabled><i class="fa-regular fa-comments"></i> Liên hệ người cho</button>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+    // Bật/tắt nút liên hệ dựa trên checkbox
+    const disclaimerCheckbox = document.getElementById('disclaimer-check');
+    const contactButton = document.getElementById('contact-donor-btn');
+
+    disclaimerCheckbox.addEventListener('change', function () {
+        contactButton.disabled = !this.checked;
+    });
+    </script>
+}

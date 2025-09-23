@@ -1,0 +1,105 @@
+﻿@model MomExchange.Models.Product
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div class="product-detail-container">
+    <nav class="breadcrumb" data-aos="fade-down">
+        <a href="@Url.Action("Index", "Home")">Trang chủ</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="#">@Model.Category</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>@Model.Name</span>
+    </nav>
+
+    <div class="product-detail-layout">
+        <div class="product-gallery" data-aos="fade-right">
+            <div class="main-image">
+                <img id="mainProductImage" src="@Model.ImageUrls.FirstOrDefault()" alt="@Model.Name">
+            </div>
+            <div class="thumbnail-images">
+                @foreach (var imageUrl in Model.ImageUrls)
+                {
+                    <img src="@imageUrl" alt="Thumbnail" class="thumbnail" onclick="changeImage(this)">
+                }
+            </div>
+        </div>
+
+        <div class="product-info" data-aos="fade-left" data-aos-delay="200">
+            <span class="product-category">@Model.Category</span>
+            <h1>@Model.Name</h1>
+
+            <div class="seller-profile">
+                <img src="@Model.SellerAvatarUrl" alt="Avatar">
+                <div class="seller-details">
+                    <span>Đăng bởi <strong>@Model.SellerName</strong></span>
+                    <div class="seller-rating">
+                        <i class="fa-solid fa-star"></i> @Model.SellerRating (@Model.SellerReviewCount đánh giá)
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-price">@Model.Price</div>
+
+            <p class="short-description">@Model.ShortDescription</p>
+
+            <div class="action-buttons">
+                <button class="cta-button primary"><i class="fa-regular fa-comments"></i> Nhắn tin cho người bán</button>
+                <button class="cta-button secondary"><i class="fa-solid fa-retweet"></i> Đề nghị trao đổi</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-long-details" data-aos="fade-up">
+        <div class="tab-links">
+            <button class="tab-link active" onclick="openTab(event, 'Description')">Mô tả chi tiết</button>
+            <button class="tab-link" onclick="openTab(event, 'SellerInfo')">Thông tin người bán</button>
+        </div>
+
+        <div id="Description" class="tab-content" style="display: block;">
+            <h3>Tình trạng sản phẩm</h3>
+            <p>@Model.DetailedDescription</p>
+            <ul>
+                <li><strong>Thương hiệu:</strong> @Model.Brand</li>
+                <li><strong>Tình trạng:</strong> @Model.Condition</li>
+                <li><strong>Khu vực:</strong> @Model.Location</li>
+            </ul>
+        </div>
+
+        <div id="SellerInfo" class="tab-content">
+            <h3>Về @Model.SellerName</h3>
+            <p>Là một bà mẹ bỉm sữa tại @Model.Location, mình mong muốn thanh lý lại những món đồ chất lượng bé không còn dùng đến cho các mẹ khác có nhu cầu với giá phải chăng.</p>
+            <a href="#">Xem thêm các sản phẩm khác từ @Model.SellerName</a>
+        </div>
+    </div>
+</div>
+
+<section class="product-section" data-aos="fade-up">
+</section>
+
+
+@section scripts {
+    <script>
+        function changeImage(element) {
+            document.getElementById('mainProductImage').src = element.src;
+            document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+        }
+        document.querySelector('.thumbnail').classList.add('active'); // Thêm active cho ảnh đầu tiên
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+}

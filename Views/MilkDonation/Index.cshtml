@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MomExchange.Models.MilkDonationPost>
+
+@{
+    ViewBag.Title = "Cho Tặng Sữa Mẹ";
+}
+
+<section class="animated-hero milk-hero">
+    <div class="hero-content" data-aos="fade-up">
+        <h1>Cho Tặng Sữa Mẹ - Kết Nối Yêu Thương</h1>
+        <p>Một cộng đồng an toàn và tin cậy, nơi các bà mẹ có thể chia sẻ nguồn sữa quý giá cho những em bé cần nhất.</p>
+    </div>
+</section>
+
+<div class="community-page-main">
+    <div class="filter-bar" data-aos="fade-up">
+        <input type="text" placeholder="Tìm theo khu vực (ví dụ: Quận 1)...">
+        <label class="checkbox-container">
+            <input type="checkbox" checked="checked"> Chỉ hiển thị người cho đã xác thực
+            <span class="checkmark"></span>
+        </label>
+    </div>
+
+    <div class="post-grid">
+        @foreach (var post in Model)
+        {
+            <a href="@Url.Action("Details", "MilkDonation", new { id = post.Id })" class="product-card-link">
+                <div class="donation-card" data-aos="fade-up" data-aos-delay="@(Model.ToList().IndexOf(post) * 100)">
+                    <div class="card-image-container">
+                        <img src="@post.DonorAvatarUrl" alt="Avatar của @post.DonorName">
+                        @if (post.IsHealthVerified)
+                        {
+                            <div class="verified-badge"><i class="fa-solid fa-shield-heart"></i> Đã xác thực sức khỏe</div>
+                        }
+                    </div>
+                    <div class="card-text-content">
+                        <h3>Tặng sữa mẹ tại @post.Location</h3>
+                        <p class="donation-info"><i class="fa-solid fa-calendar-day"></i> Ngày hút: @post.DateOfExpression.ToString("dd/MM/yyyy")</p>
+                        <p class="donation-info"><i class="fa-solid fa-user"></i> Người cho: <strong>@post.DonorName</strong></p>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>

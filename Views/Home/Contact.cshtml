@@ -1,19 +1,41 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Liên Hệ";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <address>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399<br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
-    </address>
+<section class="animated-hero contact-hero">
+    <div class="hero-content" data-aos="fade-up">
+        <h1>Kết nối với <span class="highlight">Chúng tôi</span></h1>
+        <p>MomExchange luôn sẵn lòng lắng nghe mọi ý kiến đóng góp và giải đáp thắc mắc của bạn.</p>
+    </div>
+</section>
 
-    <address>
-        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>
-</main>
+<section class="animated-section split-layout">
+    <div class="split-layout-text" data-aos="fade-right">
+        <h2 class="section-title">Thông tin liên hệ</h2>
+        <div class="contact-info-details">
+            <p><i class="fa-solid fa-location-dot"></i> <strong>Địa chỉ:</strong> 123 Đường ABC, Quận Bình Tân, TP. Hồ Chí Minh</p>
+            <p><i class="fa-solid fa-phone"></i> <strong>Hotline:</strong> 1900 1234</p>
+            <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> pupuckan@momexchange.com</p>
+        </div>
+        <h2 class="section-title" style="margin-top: 40px;">Giờ làm việc</h2>
+        <p>Chúng tôi hỗ trợ từ 8:00 AM đến 5:00 PM, từ thứ Hai đến thứ Sáu.</p>
+    </div>
+    <div class="split-layout-form" data-aos="fade-left" data-aos-delay="200">
+        <h2 class="section-title">Gửi tin nhắn cho chúng tôi</h2>
+        <form class="animated-form">
+            <div class="form-group" data-aos="fade-up" data-aos-delay="300">
+                <label for="name">Họ và tên</label>
+                <input type="text" id="name" placeholder="Họ và tên của bạn" required>
+            </div>
+            <div class="form-group" data-aos="fade-up" data-aos-delay="400">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Địa chỉ email" required>
+            </div>
+            <div class="form-group" data-aos="fade-up" data-aos-delay="500">
+                <label for="message">Nội dung</label>
+                <textarea id="message" rows="6" placeholder="Nội dung tin nhắn..." required></textarea>
+            </div>
+            <button type="submit" class="cta-button" data-aos="fade-up" data-aos-delay="600">GỬI TIN NHẮN</button>
+        </form>
+    </div>
+</section>

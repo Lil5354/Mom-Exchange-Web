@@ -9,51 +9,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="header-top">
             <div class="header-top-links">
                 <a href="#">Góc chia sẻ</a>
-                <a href="#">Về MomExchange</a>
-                <a href="#">Hỗ trợ</a>
+                <a href="@Url.Action("About", "Home")">Về MomExchange</a>
+                <a href="@Url.Action("Contact", "Home")">Hỗ trợ</a>
             </div>
             <div class="header-top-promo">
-                <a href="#"><i class="fa-solid fa-hand-holding-heart"></i> Cho tặng sữa mẹ</a>
+                <a href="@Url.Action("Index", "MilkDonation")"><i class="fa-solid fa-hand-holding-heart"></i> Cho tặng sữa mẹ</a>
             </div>
         </div>
         <nav class="main-nav">
+           
             <div class="nav-links">
-                <div class="nav-item-dropdown">
-                    <a href="#">Thanh lý <i class="fa-solid fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="#">Quần áo</a>
-                        <a href="#">Đồ chơi, Sách</a>
-                        <a href="#">Xe đẩy, Nôi cũi</a>
-                        <a href="#">Máy hút sữa & Dụng cụ</a>
-                        <a href="#">Đồ dùng ăn dặm</a>
-                        <a href="#">An toàn cho bé</a>
-                        <a href="#">Tất cả sản phẩm</a>
-                    </div>
-                </div>
+                <a href="@Url.Action("Index", "Clearance")">Thanh lý</a>
 
-                <a href="#">Trao đổi</a>
+                <a href="@Url.Action("Index", "Trade")">Trao đổi</a>
+               
 
                 <div class="nav-item-dropdown">
-                    <a href="#">Nhãn hàng <i class="fa-solid fa-chevron-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="#">Bỉm & Sữa chính hãng</a>
-                        <a href="#">Dinh dưỡng cho bé</a>
-                        <a href="#">Thời trang thiết kế</a>
-                        <a href="#">Chăm sóc mẹ & bé</a>
-                        <a href="#">Xem tất cả nhãn hàng</a>
-                    </div>
+                    <a href="@Url.Action("Index", "Brand")">Xem tất cả nhãn hàng</a>
                 </div>
 
                 <a href="@Url.Action("Index", "Community")">Cộng đồng</a>
             </div>
             <div class="logo">
-                <a href="#" style="font-size: 24px; font-weight: 700; letter-spacing: 1px;">MomExchange</a>
+                <a href="@Url.Action("Index", "Home")">MomExchange</a>
             </div>
             <div class="nav-cart">
                 <a href="#"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
@@ -93,5 +79,21 @@
             <p>&copy; @DateTime.Now.Year - MomExchange. Xây dựng bởi cộng đồng các bà mẹ.</p>
         </div>
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({
+            duration: 800, // Thời gian diễn ra animation (miliseconds)
+            once: true // Animation chỉ diễn ra 1 lần
+        });</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
