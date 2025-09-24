@@ -1596,3 +1596,573 @@ footer {
         margin-bottom: 30px;
     }
 }
+/* --- 16. TRADE OFFER POPUP --- */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+    .popup-overlay.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+.popup-content {
+    background-color: #fff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--secondary-text-color);
+    cursor: pointer;
+}
+
+.popup-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+    .popup-header h2 {
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
+
+.trade-comparison {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.trade-item {
+    flex: 1;
+    text-align: center;
+}
+
+.trade-label {
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    margin-bottom: 10px;
+}
+
+.trade-item img {
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.trade-item h4 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.item-placeholder {
+    width: 150px;
+    height: 150px;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-text-color);
+    margin: 0 auto;
+}
+
+    .item-placeholder i {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+.trade-separator-popup {
+    font-size: 28px;
+    color: #e15b7f;
+}
+
+.your-item-list-container {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.your-item-list {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px;
+    background-color: var(--light-gray-bg);
+    border-radius: 8px;
+}
+
+.user-product-item {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+    .user-product-item:hover {
+        background-color: #e9ecef;
+    }
+
+    .user-product-item.selected {
+        border-color: #e15b7f;
+        background-color: var(--primary-bg-color);
+    }
+
+    .user-product-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 5px;
+    }
+
+    .user-product-item p {
+        font-size: 13px;
+        margin: 0;
+    }
+
+.popup-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+#send-offer-btn:disabled {
+    background-color: #d1d5db;
+    border-color: #d1d5db;
+    cursor: not-allowed;
+}
+/* --- 17. COMMUNITY PAGE V2 --- */
+
+.community-hero {
+    background-color: #f3e8ff; /* Màu tím lavender nhạt */
+}
+
+.user-dashboard {
+    background-color: var(--white-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 50px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .dashboard-header h2 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+.dashboard-tabs {
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+.dashboard-tab {
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+    .dashboard-tab:hover {
+        background-color: var(--light-gray-bg);
+    }
+
+    .dashboard-tab.active {
+        background-color: var(--primary-bg-color);
+        color: #e15b7f;
+    }
+
+    .dashboard-tab i {
+        margin-right: 8px;
+    }
+
+.post-card .card-author img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-card .card-author {
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* --- Trang chi tiết bài đăng --- */
+.post-detail-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+}
+
+.post-main-content { /* Cột trái */
+}
+
+.post-sidebar { /* Cột phải */
+}
+
+.post-header {
+    margin-bottom: 30px;
+}
+
+    .post-header h1 {
+        font-size: 42px;
+        margin: 15px 0;
+    }
+
+.post-featured-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+    .post-featured-image img {
+        width: 100%;
+        display: block;
+    }
+
+.post-body {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+    .post-body p {
+        margin-bottom: 20px;
+    }
+
+.sidebar-widget {
+    background-color: var(--light-gray-bg);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+    .sidebar-widget h4 {
+        margin-top: 0;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+    }
+
+.author-bio {
+    text-align: center;
+}
+
+    .author-bio img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .author-bio h5 {
+        margin: 0 0 5px 0;
+        font-size: 18px;
+    }
+
+    .author-bio p {
+        margin: 0 0 15px 0;
+        color: var(--secondary-text-color);
+    }
+
+    .author-bio .cta-button.secondary {
+        width: 100%;
+    }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .post-detail-container {
+        grid-template-columns: 1fr;
+    }
+
+    .post-sidebar {
+        grid-row-start: 1;
+    }
+}
+/* --- 18. SOCIAL COMMUNITY PAGE --- */
+
+.social-page-container {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px; /* 3 cột */
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.social-sidebar { /* Dùng chung cho cột trái và phải */
+}
+
+.social-feed { /* Cột giữa */
+}
+
+.sidebar-widget {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.user-profile-widget {
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.user-profile-widget h4 {
+    margin: 0;
+}
+
+.profile-handle {
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    margin-bottom: 15px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+    .profile-stats span {
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    .profile-stats p {
+        font-size: 13px;
+        margin: 0;
+        color: var(--secondary-text-color);
+    }
+
+.navigation-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation-widget li a {
+    display: block;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+    .navigation-widget li.active a, .navigation-widget li a:hover {
+        background-color: var(--primary-bg-color);
+        color: #e15b7f;
+    }
+
+    .navigation-widget li a i {
+        margin-right: 12px;
+        width: 20px;
+    }
+
+
+.create-post-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.create-post-input {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 15px;
+}
+
+    .create-post-input img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+    }
+
+    .create-post-input textarea {
+        width: 100%;
+        border: none;
+        outline: none;
+        resize: none;
+        font-size: 18px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+.create-post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+    .create-post-actions button {
+        background: none;
+        border: none;
+        font-weight: 700;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .create-post-actions button:hover {
+            background-color: var(--light-gray-bg);
+        }
+
+        .create-post-actions button i {
+            margin-right: 8px;
+        }
+
+.feed-post {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+    .post-author img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+    }
+
+    .post-author h4 {
+        margin: 0;
+    }
+
+    .post-author span {
+        font-size: 13px;
+        color: var(--secondary-text-color);
+    }
+
+.post-text {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.post-image {
+    margin: 15px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .post-image img {
+        width: 100%;
+        display: block;
+    }
+
+.post-feedback {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+    .post-actions button {
+        flex: 1;
+        background: none;
+        border: none;
+        font-weight: 700;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .post-actions button:hover {
+            background-color: var(--light-gray-bg);
+        }
+
+        .post-actions button i {
+            margin-right: 8px;
+        }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .social-page-container {
+        grid-template-columns: 220px 1fr;
+    }
+
+    .right-sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .social-page-container {
+        grid-template-columns: 1fr;
+    }
+
+    .left-sidebar {
+        display: none;
+    }
+    /* Hoặc biến thành menu mobile */
+}

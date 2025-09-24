@@ -1,73 +1,80 @@
-﻿@{
-    ViewBag.Title = "Cộng Đồng";
+﻿@model IEnumerable<B_M.Models.SocialPost>
+
+@{
+    ViewBag.Title = "Cộng Đồng Mẹ Bỉm Sữa";
 }
 
-<main class="community-page-main">
-    <div class="page-header">
-        <h1>Chào mừng tới Cộng đồng MomExchange</h1>
-        <p>Nơi các bà mẹ chia sẻ, trao đổi và tìm kiếm những món đồ hữu ích cho bé yêu.</p>
-    </div>
+<div class="social-page-container page-container">
+    <aside class="social-sidebar left-sidebar" data-aos="fade-right">
+        <div class="user-profile-widget sidebar-widget">
+            <img src="/images/avatar1.jpg" alt="Your Avatar" class="profile-avatar">
+            <h4>Mẹ An Nhiên</h4>
+            <p class="profile-handle">me_an_nhien</p>
+            <div class="profile-stats">
+                <div><span>125</span><p>Bạn bè</p></div>
+                <div><span>32</span><p>Bài viết</p></div>
+            </div>
+        </div>
+        <div class="navigation-widget sidebar-widget">
+            <ul>
+                <li class="active"><a href="#"><i class="fa-solid fa-newspaper"></i> Bảng tin</a></li>
+                <li><a href="#"><i class="fa-solid fa-user-group"></i> Bạn bè</a></li>
+                <li><a href="#"><i class="fa-solid fa-comments"></i> Tin nhắn</a></li>
+                <li><a href="#"><i class="fa-solid fa-bell"></i> Thông báo</a></li>
+                <li><a href="#"><i class="fa-regular fa-bookmark"></i> Đã lưu</a></li>
+            </ul>
+        </div>
+    </aside>
 
-    <div class="post-grid">
+    <main class="social-feed" data-aos="fade-up" data-aos-delay="100">
+        <div class="create-post-box">
+            <div class="create-post-input">
+                <img src="/images/avatar1.jpg" alt="Your Avatar">
+                <textarea placeholder="Mẹ An Nhiên ơi, bạn đang nghĩ gì?"></textarea>
+            </div>
+            <div class="create-post-actions">
+                <button><i class="fa-solid fa-image"></i> Thêm ảnh/video</button>
+                <button><i class="fa-solid fa-tags"></i> Gắn thẻ</button>
+                <button class="cta-button primary">Đăng bài</button>
+            </div>
+        </div>
 
-        <article class="post-card">
-            <div class="card-image">
-                <a href="#"><img src="https://xedayembenhatban.com/wp-content/uploads/2019/03/xe-day-second-hand-tp-hcm-4.jpg" alt="Bài đăng 1"></a>
-            </div>
-            <div class="card-content">
-                <div class="card-tags">
-                    <span>Thanh lý</span>
-                    <span>Xe đẩy</span>
+        @foreach (var post in Model)
+        {
+            <div class="feed-post">
+                <div class="post-author">
+                    <img src="@Url.Content(post.AuthorAvatarUrl)" alt="Avatar của @post.AuthorName">
+                    <div>
+                        <h4>@post.AuthorName</h4>
+                        <span>@post.PostTime</span>
+                    </div>
                 </div>
-                <h3 class="card-title"><a href="#">Thanh lý xe đẩy Combi còn mới 95% cho bé</a></h3>
-                <div class="card-author">
-                    <i class="fa-regular fa-user"></i>
-                    <span>Đăng bởi <strong>Mẹ Sóc</strong></span>
+                <p class="post-text">@post.Content</p>
+                @if (!string.IsNullOrEmpty(post.ImageUrl))
+                {
+                    <div class="post-image">
+                        <img src="https://i.pinimg.com/736x/1f/00/c0/1f00c01fd4c44c557f3a705b7b4fa8e2.jpg" alt="Hình ảnh bài đăng">
+                    </div>
+                }
+                <div class="post-feedback">
+                    <span><i class="fa-solid fa-thumbs-up"></i> @post.LikeCount Thích</span>
+                    <span>@post.CommentCount Bình luận</span>
                 </div>
-                <a href="#" class="details-link">
-                    Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <div class="post-actions">
+                    <button><i class="fa-regular fa-thumbs-up"></i> Thích</button>
+                    <button><i class="fa-regular fa-comment"></i> Bình luận</button>
+                    <button><i class="fa-solid fa-share"></i> Chia sẻ</button>
+                </div>
             </div>
-        </article>
+        }
+    </main>
 
-        <article class="post-card">
-            <div class="card-image">
-                <a href="#"><img src="https://vinasave.com/vnt_upload/news/05_2018/mua-ban-thanh-ly-may-ham-sua-cu-cho-be-2.jpg" alt="Bài đăng 2"></a>
-            </div>
-            <div class="card-content">
-                <div class="card-tags">
-                    <span>Trao đổi</span>
-                    <span>Đồ chơi</span>
-                </div>
-                <h3 class="card-title"><a href="#">Cần đổi bộ đồ chơi gỗ lấy máy hâm sữa</a></h3>
-                <div class="card-author">
-                    <i class="fa-regular fa-user"></i>
-                    <span>Đăng bởi <strong>Mẹ Bắp</strong></span>
-                </div>
-                <a href="#" class="details-link">
-                    Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </article>
-
-        <article class="post-card">
-            <div class="card-image">
-                <a href="#"><img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lwfd7vvxypjt39" alt="Bài đăng 3"></a>
-            </div>
-            <div class="card-content">
-                <div class="card-tags">
-                    <span>Thanh lý</span>
-                    <span>Quần áo</span>
-                </div>
-                <h3 class="card-title"><a href="#">Pass nhanh set 5 body Nous cho bé trai 3-6m</a></h3>
-                <div class="card-author">
-                    <i class="fa-regular fa-user"></i>
-                    <span>Đăng bởi <strong>Mẹ An</strong></span>
-                </div>
-                <a href="#" class="details-link">
-                    Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </article>
-    </div>
-</main>
+    <aside class="social-sidebar right-sidebar" data-aos="fade-left" data-aos-delay="200">
+        <div class="sidebar-widget">
+            <h4>Gợi ý kết bạn</h4>
+        </div>
+        <div class="sidebar-widget">
+            <h4>Nhóm cho bạn</h4>
+        </div>
+    </aside>
+</div>
