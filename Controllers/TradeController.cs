@@ -23,7 +23,7 @@ namespace MomExchange.Controllers
                     ItemToOffer = new Product {
                         Id = 7,
                         Name = "Bộ đồ chơi gỗ an toàn",
-                        ImageUrls = new List<string> { "https://i.pinimg.com/564x/0f/52/65/0f52654139a13a82e987178d8a77a941.jpg" }
+                        ImageUrls = new List<string> { "https://i.pinimg.com/1200x/59/18/ca/5918ca7f20164b733a70cbb7c8a281b9.jpg" }
                     },
                     DesiredItemsDescription = "Váy bé gái size 1-2 tuổi; Sách Ehon cho bé; Bỉm Bobby size L",
                     SellerName = "Mẹ Tít",

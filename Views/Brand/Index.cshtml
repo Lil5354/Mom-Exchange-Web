@@ -16,7 +16,7 @@
         @foreach (var brand in Model)
         {
             <div class="brand-card" data-aos="fade-up" data-aos-delay="@(Model.ToList().IndexOf(brand) * 50 + 100)">
-                <a href="#" class="brand-card-link">
+                <a href="@Url.Action("Details", "Brand", new { id = brand.Id })" class="brand-card-link">
                     <div class="brand-logo">
                         <img src="@Url.Content(brand.LogoUrl)" alt="Logo @brand.Name">
                     </div>

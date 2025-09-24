@@ -1400,3 +1400,199 @@ footer {
     }
     /* 1 cột trên tablet/mobile */
 }
+/* --- 15. BRAND DETAIL PAGE (REDESIGN) --- */
+
+/* Header mới, logo ở giữa */
+.brand-detail-header {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: var(--light-gray-bg);
+    margin-bottom: 50px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+    .brand-detail-header .brand-header-logo {
+        width: 150px;
+        height: 150px;
+        background-color: #fff;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        margin-bottom: 25px;
+        transition: transform 0.3s ease;
+    }
+
+        .brand-detail-header .brand-header-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-detail-header .brand-header-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+    .brand-detail-header h1 {
+        font-size: 42px;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    .brand-detail-header p {
+        font-size: 18px;
+        color: var(--secondary-text-color);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+/* Bố cục chính 2 cột */
+.brand-page-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Sidebar rộng hơn một chút */
+    gap: 40px;
+    padding: 0 5%; /* Thêm padding cho toàn bộ layout */
+}
+
+/* --- ĐỊNH DẠNG CHO SIDEBAR LỌC SẢN PHẨM --- */
+.filter-sidebar {
+    /* Container chính cho sidebar */
+}
+
+    .filter-sidebar h4 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e15b7f;
+        display: inline-block;
+    }
+
+        .filter-sidebar h4 i {
+            margin-right: 8px;
+        }
+
+.filter-widget {
+    margin-bottom: 35px;
+}
+
+    .filter-widget h5 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--primary-text-color);
+    }
+
+.filter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .filter-list li {
+        margin-bottom: 5px; /* Giảm khoảng cách giữa các mục */
+    }
+
+        .filter-list li a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: var(--secondary-text-color);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+            .filter-list li a:hover {
+                color: #e15b7f;
+                background-color: var(--primary-bg-color);
+                transform: translateX(5px);
+            }
+
+.price-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+    .price-filter input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+    }
+
+    .price-filter span {
+        color: var(--secondary-text-color);
+    }
+
+.filter-widget .cta-button.secondary {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    background-color: #fff;
+    border: 1px solid var(--primary-text-color);
+    color: var(--primary-text-color);
+}
+
+    .filter-widget .cta-button.secondary:hover {
+        background-color: var(--primary-text-color);
+        color: #fff;
+    }
+
+
+/* --- Nội dung chính bên phải --- */
+.product-list-content {
+    /* không cần style đặc biệt */
+}
+
+/* Thanh công cụ sắp xếp */
+.product-list-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.product-count {
+    font-size: 16px;
+}
+
+.sort-dropdown {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Lưới sản phẩm */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .brand-page-layout {
+        grid-template-columns: 1fr; /* Chỉ còn 1 cột trên mobile */
+    }
+
+    .filter-sidebar {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+}

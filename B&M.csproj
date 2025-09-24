@@ -131,6 +131,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BrandController.cs" />
+    <Compile Include="Models\BrandDetailViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\MilkDonationPostController.cs" />
     <Compile Include="Models\ProductController.cs" />
@@ -196,6 +197,7 @@
     <Content Include="Views\Brand\Index.cshtml" />
     <Content Include="Views\Clearance\Index.cshtml" />
     <Content Include="Views\Trade\Index.cshtml" />
+    <Content Include="Views\Brand\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
