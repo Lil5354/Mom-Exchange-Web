@@ -3,6 +3,7 @@
     "",
     "\\Content",
     "\\Views",
+    "\\Views\\Community",
     "\\Views\\Home",
     "\\Views\\Shared",
     "\\Views\\Trade"

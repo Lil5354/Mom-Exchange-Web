@@ -12,35 +12,47 @@
 </section>
 
 <div class="page-container">
-    @foreach (var category in Model)
+    @if (Model != null && Model.Any())
     {
-        <section class="category-carousel" data-aos="fade-up">
-            <div class="carousel-header">
-                <h2>@category.CategoryName</h2>
-                <a href="#">Xem tất cả <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="horizontal-scroll-container">
-                @foreach (var product in category.Products)
-                {
-                    <div class="carousel-item">
-                        <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="product-card-link">
-                            <div class="product-card">
-                                <div class="card-image-container">
-                                    <img src="@product.ImageUrls.FirstOrDefault()" alt="@product.Name">
-                                    <div class="card-overlay">
-                                        <span class="overlay-text">Xem chi tiết</span>
+        foreach (var category in Model)
+        {
+            <section class="category-carousel" data-aos="fade-up">
+                <div class="carousel-header">
+                    <h2>@category.CategoryName</h2>
+                    <a href="#">Xem tất cả <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="horizontal-scroll-container">
+                    @if (category.Products != null && category.Products.Any())
+                    {
+                        foreach (var product in category.Products)
+                        {
+                            <div class="carousel-item">
+                                <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="product-card-link">
+                                    <div class="product-card">
+                                        <div class="card-image-container">
+                                            <img src="@product.ImageUrls.FirstOrDefault()" alt="@product.Name">
+                                            <div class="card-like-button"><i class="far fa-heart"></i></div>
+                                        </div>
+                                        <div class="card-text-content">
+                                            <h3>@product.Name</h3>
+                                            <p class="price">@product.Price</p>
+                                            <p class="location"><i class="fas fa-map-marker-alt"></i> @product.Location</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card-text-content">
-                                    <h3>@product.Name</h3>
-                                    <p class="brand">Đăng bởi: @product.SellerName</p>
-                                    <p class="price">@product.Price</p>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                }
-            </div>
-        </section>
+                        }
+                    }
+                    else
+                    {
+                        <p style="padding-left: 20px; color: var(--secondary-text-color);"><em>Không có sản phẩm nào trong danh mục này.</em></p>
+                    }
+                </div>
+            </section>
+        }
+    }
+    else
+    {
+        <p>Không có danh mục sản phẩm nào để hiển thị.</p>
     }
 </div>

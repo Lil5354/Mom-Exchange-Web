@@ -1,5 +1,4 @@
-﻿// Controllers/ClearanceController.cs
-using MomExchange.Models;
+﻿using MomExchange.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -8,42 +7,34 @@ namespace MomExchange.Controllers
 {
     public class ClearanceController : Controller
     {
-        // GET: Clearance
         public ActionResult Index()
         {
-            // Lấy tất cả sản phẩm giả lập
             var allProducts = GetSampleProducts();
 
-            // Nhóm các sản phẩm theo từng danh mục
             var viewModel = allProducts
                 .GroupBy(p => p.Category)
                 .Select(g => new CategoryViewModel
                 {
-                    CategoryName = g.Key, // Tên danh mục (ví dụ: "Quần áo")
-                    Products = g.ToList() // Danh sách các sản phẩm trong danh mục đó
-                }).ToList();
+                    CategoryName = g.Key,
+                    Products = g.ToList()
+                })
+                .OrderBy(c => c.CategoryName) // Sắp xếp danh mục theo ABC
+                .ToList();
 
             return View(viewModel);
         }
 
-        // --- Danh sách sản phẩm giả lập (bạn có thể lấy từ ProductController hoặc CSDL sau này) ---
         private List<Product> GetSampleProducts()
         {
-            // (Đây là danh sách sản phẩm giả lập, bạn có thể thêm nhiều sản phẩm hơn cho mỗi danh mục)
             return new List<Product>
             {
-                // Danh mục: Quần áo
-                new Product { Id = 3, Name = "Set body sơ sinh", Category = "Quần áo", Price = "Trao đổi", ImageUrls = new List<string> { "https://i.pinimg.com/1200x/78/29/91/7829917da73ef1917f7b50adc409a37a.jpg" }, SellerName="Mẹ Sóc" },
-                new Product { Id = 5, Name = "Váy công chúa Elsa", Category = "Quần áo", Price = "250.000đ", ImageUrls = new List<string> { "https://i.pinimg.com/736x/9e/ca/f4/9ecaf49b2a1e13822e24689abd4e5b92.jpg" }, SellerName="Mẹ Kem" },
-                new Product { Id = 6, Name = "Bộ quần áo Carter", Category = "Quần áo", Price = "150.000đ", ImageUrls = new List<string> { "https://i.pinimg.com/1200x/3d/b2/f4/3db2f4adf6a1904fd9a8f8d07b0446bf.jpg" }, SellerName="Mẹ Gấu" },
-
-                // Danh mục: Đồ chơi, Sách
-                new Product { Id = 7, Name = "Bộ đồ chơi gỗ", Category = "Đồ chơi, Sách", Price = "300.000đ", ImageUrls = new List<string> { "https://i.pinimg.com/736x/d0/99/f0/d099f07971798530212fbfcb1ac6ac97.jpg" }, SellerName="Mẹ Bắp" },
-                new Product { Id = 8, Name = "Sách ehon cho bé", Category = "Đồ chơi, Sách", Price = "Trao đổi", ImageUrls = new List<string> { "https://i.pinimg.com/736x/82/d4/0e/82d40ed70af0df480682aac183a23722.jpg" }, SellerName="Mẹ Tít" },
-
-                // Danh mục: Xe đẩy, Nôi cũi
-                new Product { Id = 1, Name = "Xe đẩy em bé Aprica", Category = "Xe đẩy, Nôi cũi", Price = "1.200.000₫", ImageUrls = new List<string> { "https://www.kidsplaza.vn/media/catalog/product/a/p/aprica-kroon-hong.jpg" }, SellerName="Mẹ Bắp" },
-                new Product { Id = 4, Name = "Ghế ăn dặm cho bé", Category = "Xe đẩy, Nôi cũi", Price = "400.000₫", ImageUrls = new List<string> { "https://songlongplastic.net/wp-content/uploads/2020/01/gh%E1%BA%BF-%C4%83n-%C4%91a-n%C4%83ng-tr%E1%BA%BB-em-song-long-2575-2.jpg" }, SellerName="Mẹ An" },
+                new Product { Id = 3, Name = "Set body sơ sinh", Category = "Quần áo", Price = "Trao đổi", ImageUrls = new List<string> { "https://i.pinimg.com/1200x/78/29/91/7829917da73ef1917f7b50adc409a37a.jpg" }, SellerName="Mẹ Sóc", Location = "Đà Nẵng" },
+                new Product { Id = 5, Name = "Váy công chúa Elsa", Category = "Quần áo", Price = "250.000đ", ImageUrls = new List<string> { "https://i.pinimg.com/736x/9e/ca/f4/9ecaf49b2a1e13822e24689abd4e5b92.jpg" }, SellerName="Mẹ Kem", Location = "TP. HCM" },
+                new Product { Id = 6, Name = "Bộ quần áo Carter", Category = "Quần áo", Price = "150.000đ", ImageUrls = new List<string> { "https://i.pinimg.com/1200x/3d/b2/f4/3db2f4adf6a1904fd9a8f8d07b0446bf.jpg" }, SellerName="Mẹ Gấu", Location = "Hà Nội" },
+                new Product { Id = 7, Name = "Bộ đồ chơi gỗ", Category = "Đồ chơi, Sách", Price = "300.000đ", ImageUrls = new List<string> { "https://i.pinimg.com/736x/d0/99/f0/d099f07971798530212fbfcb1ac6ac97.jpg" }, SellerName="Mẹ Bắp", Location = "Bình Dương" },
+                new Product { Id = 8, Name = "Sách ehon cho bé", Category = "Đồ chơi, Sách", Price = "Trao đổi", ImageUrls = new List<string> { "https://i.pinimg.com/736x/82/d4/0e/82d40ed70af0df480682aac183a23722.jpg" }, SellerName="Mẹ Tít", Location = "Hà Nội" },
+                new Product { Id = 1, Name = "Xe đẩy em bé Aprica", Category = "Xe đẩy, Nôi cũi", Price = "1.200.000₫", ImageUrls = new List<string> { "https://www.kidsplaza.vn/media/catalog/product/a/p/aprica-kroon-hong.jpg" }, SellerName="Mẹ Bắp", Location = "TP. HCM" },
+                new Product { Id = 4, Name = "Ghế ăn dặm cho bé", Category = "Xe đẩy, Nôi cũi", Price = "400.000₫", ImageUrls = new List<string> { "https://songlongplastic.net/wp-content/uploads/2020/01/gh%E1%BA%BF-%C4%83n-%C4%91a-n%C4%83ng-tr%E1%BA%BB-em-song-long-2575-2.jpg" }, SellerName="Mẹ An", Location = "TP. HCM" },
             };
         }
     }

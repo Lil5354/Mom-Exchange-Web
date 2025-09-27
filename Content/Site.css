@@ -2166,3 +2166,107 @@ footer {
     }
     /* Hoặc biến thành menu mobile */
 }
+/* --- BỔ SUNG MỚI: THANH TÌM KIẾM --- */
+.search-banner {
+    padding: 60px 5%;
+    background-color: var(--primary-bg-color); /* Sử dụng màu nền hồng có sẵn */
+    text-align: center;
+}
+
+.search-container h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.search-container p {
+    font-size: 16px;
+    color: var(--secondary-text-color);
+    margin-bottom: 30px;
+}
+
+.search-box {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    background-color: var(--white-color);
+    border-radius: 50px; /* Bo tròn các góc */
+    padding: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border: 1px solid var(--border-color);
+}
+
+    .search-box i {
+        color: var(--secondary-text-color);
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+
+    .search-box input {
+        flex-grow: 1; /* Cho phép input chiếm hết không gian còn lại */
+        border: none;
+        outline: none;
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        background: transparent;
+    }
+
+    .search-box button {
+        border: none;
+        background-color: #e15b7f; /* Màu hồng đậm chủ đạo */
+        color: var(--white-color);
+        font-size: 14px;
+        font-weight: 700;
+        padding: 12px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .search-box button:hover {
+            background-color: #c2637e; /* Màu hồng đậm hơn khi hover */
+        }
+
+/* --- BỔ SUNG MỚI: LƯỚI DANH MỤC --- */
+.category-section {
+    padding: 60px 5%;
+    background-color: #f8fcff; /* Màu nền xanh dương rất nhạt */
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Tự động chia cột */
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.category-card {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+    .category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        border-color: #e15b7f;
+    }
+
+    .category-card .category-icon {
+        font-size: 32px;
+        color: #e15b7f; /* Màu hồng chủ đạo */
+        margin-bottom: 15px;
+        line-height: 1;
+    }
+
+    .category-card p {
+        margin: 0;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1.4;
+    }
