@@ -132,13 +132,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BrandController.cs" />
+    <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\BrandDetailViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\CommunityPost.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
-    <Compile Include="Models\MilkDonationPostController.cs" />
-    <Compile Include="Models\ProductController.cs" />
+    <Compile Include="Models\MilkDonationPost.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\SocialPost.cs" />
     <Compile Include="Models\TradePost.cs" />
@@ -213,8 +213,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
-    <Folder Include="Views\BrandController\" />
-    <Folder Include="Views\MilkDonationPost\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
