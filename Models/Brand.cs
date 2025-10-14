@@ -1,6 +1,6 @@
 ﻿// Models/Brand.cs
 
-namespace MomExchange.Models
+namespace B_M.Models
 {
     public class Brand
     {

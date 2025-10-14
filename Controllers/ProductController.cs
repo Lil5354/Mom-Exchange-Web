@@ -1,10 +1,10 @@
 ﻿// Controllers/ProductController.cs
-using MomExchange.Models;
+using B_M.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace MomExchange.Controllers // Namespace của bạn có thể khác
+namespace B_M.Controllers // Namespace của bạn có thể khác
 {
     public class ProductController : Controller
     {

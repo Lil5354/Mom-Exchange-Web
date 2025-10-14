@@ -1,13 +1,13 @@
 ﻿// File: Controllers/AccountController.cs
-using MomExchange.Models;
-using MomExchange.Helpers;
+using B_M.Models;
+using B_M.Helpers;
 using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Microsoft.Owin.Security;
 
-namespace MomExchange.Controllers
+namespace B_M.Controllers
 {
     public class AccountController : Controller
     {
@@ -88,14 +88,28 @@ namespace MomExchange.Controllers
                 }
 
                 // Đăng nhập thành công
-                // Tạo authentication cookie
-                FormsAuthentication.SetAuthCookie(user.Email, model.RememberMe);
+                // Tạo OWIN authentication cookie
+                var identity = new System.Security.Claims.ClaimsIdentity(new[] 
+                {
+                    new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Name, user.Email),
+                    new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.NameIdentifier, user.UserID.ToString()),
+                    new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Role, user.Role.ToString()),
+                    new System.Security.Claims.Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "ASP.NET Identity"),
+                    new System.Security.Claims.Claim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", user.UserID.ToString())
+                }, "ApplicationCookie");
+
+                var authManager = HttpContext.GetOwinContext().Authentication;
+                authManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties
+                {
+                    IsPersistent = model.RememberMe
+                }, identity);
 
                 // Lưu thông tin user vào session
                 Session["UserID"] = user.UserID;
                 Session["UserEmail"] = user.Email;
                 Session["FullName"] = user.UserDetails?.FullName ?? "User";
                 Session["Role"] = user.Role;
+                Session["IsActive"] = user.IsActive;
 
                 // Chuyển hướng
                 if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
@@ -193,7 +207,11 @@ namespace MomExchange.Controllers
         // GET: /Account/Logout
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
+            // OWIN SignOut
+            var authManager = HttpContext.GetOwinContext().Authentication;
+            authManager.SignOut("ApplicationCookie");
+            
+            // Clear session
             Session.Clear();
             return RedirectToAction("Index", "Home");
         }
@@ -201,7 +219,6 @@ namespace MomExchange.Controllers
         // POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             // Debug logging
@@ -256,11 +273,20 @@ namespace MomExchange.Controllers
                     // User đã tồn tại - đăng nhập
                     System.Diagnostics.Debug.WriteLine($"EXISTING USER: {existingUser.Email}");
                     
-                    FormsAuthentication.SetAuthCookie(existingUser.Email, false);
+                    // Sử dụng OWIN Authentication như Login action
+                    var identity = new System.Security.Claims.ClaimsIdentity("ApplicationCookie");
+                    identity.AddClaim(new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Name, existingUser.Email));
+                    identity.AddClaim(new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.NameIdentifier, existingUser.UserID.ToString()));
+                    identity.AddClaim(new System.Security.Claims.Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "ASP.NET Identity"));
+                    
+                    var authManager = HttpContext.GetOwinContext().Authentication;
+                    authManager.SignIn(identity);
+                    
                     Session["UserID"] = existingUser.UserID;
                     Session["UserEmail"] = existingUser.Email;
                     Session["FullName"] = existingUser.UserDetails?.FullName ?? name;
                     Session["Role"] = existingUser.Role;
+                    Session["IsActive"] = existingUser.IsActive;
 
                     System.Diagnostics.Debug.WriteLine($"LOGIN SUCCESS: {existingUser.Email}");
                     TempData["SuccessMessage"] = $"Chào mừng trở lại, {existingUser.UserDetails?.FullName ?? name}!";
@@ -298,16 +324,25 @@ namespace MomExchange.Controllers
                         var createdUser = userRepository.GetUserByEmail(email);
                         if (createdUser != null)
                         {
-                            // Lưu thông tin vào session để hiển thị form complete profile
-                            Session["TempUserID"] = createdUser.UserID;
-                            Session["TempEmail"] = createdUser.Email;
-                            Session["TempFullName"] = createdUser.UserDetails?.FullName;
-                            Session["TempRole"] = createdUser.Role;
+                            // Sử dụng OWIN Authentication như Login action
+                            var identity = new System.Security.Claims.ClaimsIdentity("ApplicationCookie");
+                            identity.AddClaim(new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Name, createdUser.Email));
+                            identity.AddClaim(new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.NameIdentifier, createdUser.UserID.ToString()));
+                            identity.AddClaim(new System.Security.Claims.Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "ASP.NET Identity"));
+                            
+                            var authManager = HttpContext.GetOwinContext().Authentication;
+                            authManager.SignIn(identity);
+                            
+                            Session["UserID"] = createdUser.UserID;
+                            Session["UserEmail"] = createdUser.Email;
+                            Session["FullName"] = createdUser.UserDetails?.FullName ?? name;
+                            Session["Role"] = createdUser.Role;
+                            Session["IsActive"] = createdUser.IsActive;
 
                             System.Diagnostics.Debug.WriteLine($"REGISTRATION SUCCESS: {createdUser.Email}");
+                            TempData["SuccessMessage"] = $"Chào mừng, {createdUser.UserDetails?.FullName ?? name}! Tài khoản đã được tạo thành công.";
                             
-                            // Redirect đến trang complete profile thay vì đăng nhập ngay
-                            return RedirectToAction("CompleteProfile");
+                            return RedirectToLocal(returnUrl);
                         }
                         else
                         {
@@ -423,6 +458,7 @@ namespace MomExchange.Controllers
                     Session["UserEmail"] = user.Email;
                     Session["FullName"] = user.UserDetails?.FullName;
                     Session["Role"] = user.Role;
+                    Session["IsActive"] = user.IsActive;
 
                     TempData["SuccessMessage"] = $"Chào mừng đến với MomExchange, {user.UserDetails?.FullName}! Hồ sơ của bạn đã được hoàn thiện.";
                     return RedirectToAction("Index", "Home");

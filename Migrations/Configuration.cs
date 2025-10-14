@@ -1,20 +1,20 @@
-namespace MomExchange.Migrations
+namespace B_M.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using MomExchange.Models;
+    using B_M.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MomExchange.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<B_M.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "MomExchange.Models.ApplicationDbContext";
+            ContextKey = "B_M.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(MomExchange.Models.ApplicationDbContext context)
+        protected override void Seed(B_M.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

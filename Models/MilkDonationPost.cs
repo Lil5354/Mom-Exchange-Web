@@ -1,7 +1,7 @@
 ﻿// Models/MilkDonationPost.cs
 using System;
 
-namespace MomExchange.Models
+namespace B_M.Models
 {
     public class MilkDonationPost
     {

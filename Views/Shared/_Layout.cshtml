@@ -133,13 +133,13 @@
                                     <a href="#" style="display: block; padding: 8px 20px; color: #333; text-decoration: none; transition: background 0.3s ease;">Bobby</a>
                                     <a href="#" style="display: block; padding: 8px 20px; color: #333; text-decoration: none; transition: background 0.3s ease;">Huggies</a>
                                     <a href="@Url.Action("Index", "Brand")" style="display: block; padding: 8px 20px; color: #d63384; text-decoration: none; font-weight: 600; transition: background 0.3s ease;">Xem tất cả nhãn hàng</a>
-                                </div>
-                            </div>
+                     </div>
+                </div>
                             <a href="@Url.Action("Index", "Community")" style="color: #333; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 20px; transition: all 0.3s ease; position: relative; white-space: nowrap;">Cộng đồng</a>
                         </div>
-                    </div>
+            </div>
                     <div class="col-md-4 text-center" style="padding: 0;">
-                        <div class="logo">
+            <div class="logo">
                             <a href="@Url.Action("Index", "Home")" style="font-size: 28px; font-weight: 800; color: #d63384; text-decoration: none; background: linear-gradient(135deg, #d63384, #e91e63); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">MomExchange</a>
                         </div>
                     </div>
@@ -179,6 +179,14 @@
                                             <i class="fa-solid fa-heart" style="margin-right: 10px; color: #d63384; width: 16px;"></i>
                                             Yêu thích
                                         </a>
+                                        @if (Session["Role"] != null && (byte)Session["Role"] == 1)
+                                        {
+                                            <div style="border-top: 1px solid #f0f0f0; margin: 5px 0;"></div>
+                                            <a href="@Url.Action("Index", "Admin", new { area = "Admin" })" style="display: flex; align-items: center; padding: 12px 20px; color: #e74c3c; text-decoration: none; transition: background 0.3s ease; font-size: 14px; font-weight: 600;">
+                                                <i class="fa-solid fa-crown" style="margin-right: 10px; color: #e74c3c; width: 16px;"></i>
+                                                Quản trị viên
+                                            </a>
+                                        }
                                         <div style="border-top: 1px solid #f0f0f0; margin: 5px 0;"></div>
                                         <a href="@Url.Action("Logout", "Account")" style="display: flex; align-items: center; padding: 12px 20px; color: #dc3545; text-decoration: none; transition: background 0.3s ease; font-size: 14px; font-weight: 500;">
                                             <i class="fa-solid fa-sign-out-alt" style="margin-right: 10px; color: #dc3545; width: 16px;"></i>
@@ -198,7 +206,7 @@
                             </a>
                         }
                      </div>
-                </div>
+            </div>
             </div>
         </nav>
     </header>

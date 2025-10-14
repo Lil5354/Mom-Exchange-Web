@@ -1,11 +1,11 @@
 ﻿// Controllers/MilkDonationController.cs
-using MomExchange.Models;
+using B_M.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace MomExchange.Controllers
+namespace B_M.Controllers
 {
     public class MilkDonationController : Controller
     {

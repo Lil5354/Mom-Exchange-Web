@@ -1,9 +1,9 @@
 ﻿// Controllers/TradeController.cs
-using MomExchange.Models;
+using B_M.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace MomExchange.Controllers
+namespace B_M.Controllers
 {
     public class TradeController : Controller
     {

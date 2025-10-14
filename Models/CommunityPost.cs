@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MomExchange.Models
+namespace B_M.Models
 {
     public class CommunityPost
     {

@@ -1,6 +1,6 @@
 using System.Web.Mvc;
 
-namespace MomExchange.Controllers
+namespace B_M.Controllers
 {
     public class ErrorController : Controller
     {

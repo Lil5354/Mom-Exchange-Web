@@ -1,7 +1,7 @@
 // File: Models/ApplicationDbContext.cs
 using System.Data.Entity;
 
-namespace MomExchange.Models
+namespace B_M.Models
 {
     public class ApplicationDbContext : DbContext
     {

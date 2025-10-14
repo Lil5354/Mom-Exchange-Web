@@ -5,9 +5,9 @@ using Microsoft.Owin.Security.Google;
 using Microsoft.AspNet.Identity;
 using System.Configuration;
 
-[assembly: OwinStartup(typeof(MomExchange.Startup))]
+[assembly: OwinStartup(typeof(B_M.Startup))]
 
-namespace MomExchange
+namespace B_M
 {
     public class Startup
     {

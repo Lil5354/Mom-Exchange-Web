@@ -1,4 +1,4 @@
-﻿    namespace MomExchange.Migrations
+﻿    namespace B_M.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

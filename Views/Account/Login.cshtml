@@ -1,4 +1,4 @@
-﻿@using MomExchange.Models
+﻿@using B_M.Models
 @model object
 
 @{
@@ -110,7 +110,6 @@
 
 <!-- Hidden form for Google OAuth -->
 <form id="googleLoginForm" action="@Url.Action("ExternalLogin", "Account")" method="post" style="display: none;">
-    @Html.AntiForgeryToken()
     <input type="hidden" name="provider" value="Google" />
     <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
 </form>

@@ -1,0 +1,244 @@
+@model B_M.Models.AdminUsersViewModel
+@{
+    ViewBag.Title = "Quản lý người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="admin-card">
+    <div class="admin-card-header">
+        <h5><i class="fas fa-users"></i> Danh sách người dùng</h5>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <span style="color: #7f8c8d; font-size: 14px;">Tổng: @Model.Users.Count người dùng</span>
+        </div>
+    </div>
+    <div class="admin-card-body">
+        <!-- Search and Filter -->
+        <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+            @using (Html.BeginForm("Users", "Admin", new { area = "Admin" }, FormMethod.Get, new { @style = "display: flex; gap: 15px; flex-wrap: wrap; width: 100%;" }))
+            {
+                <div style="flex: 1; min-width: 200px;">
+                    <input type="text" name="search" value="@Model.SearchTerm" placeholder="Tìm kiếm theo tên, email..." 
+                           style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
+                </div>
+                <div>
+                    <select name="roleFilter" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+                        <option value="">Tất cả vai trò</option>
+                        <option value="1" @(Model.RoleFilter == "1" ? "selected" : "")>Quản trị viên</option>
+                        <option value="2" @(Model.RoleFilter == "2" ? "selected" : "")>Mẹ bỉm</option>
+                        <option value="3" @(Model.RoleFilter == "3" ? "selected" : "")>Nhãn hàng</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-admin" style="padding: 10px 20px;">
+                    <i class="fas fa-search"></i> Tìm kiếm
+                </button>
+                <a href="@Url.Action("Users", "Admin", new { area = "Admin" })" class="btn-admin-secondary" style="padding: 10px 20px; text-decoration: none;">
+                    <i class="fas fa-refresh"></i> Làm mới
+                </a>
+            }
+        </div>
+
+        <!-- Users Table -->
+        @if (Model.Users.Any())
+        {
+            <div class="table-responsive">
+                <table class="table-admin">
+                    <thead>
+                        <tr>
+                            <th>Thông tin</th>
+                            <th>Email</th>
+                            <th>Vai trò</th>
+                            <th>Trạng thái</th>
+                            <th>Ngày tạo</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model.Users)
+                        {
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #e74c3c, #c0392b); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 16px;">
+                                            @(user.UserDetails?.FullName?.Substring(0, 1).ToUpper() ?? "U")
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 600; color: #2c3e50;">@(user.UserDetails?.FullName ?? "Chưa cập nhật")</div>
+                                            <div style="font-size: 12px; color: #7f8c8d;">@(user.UserName ?? "Không có tên đăng nhập")</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@user.Email</td>
+                                <td>
+                                    @{
+                                        string roleName = "";
+                                        string roleClass = "";
+                                        switch (user.Role)
+                                        {
+                                            case 1:
+                                                roleName = "Quản trị viên";
+                                                roleClass = "badge-danger";
+                                                break;
+                                            case 2:
+                                                roleName = "Mẹ bỉm";
+                                                roleClass = "badge-warning";
+                                                break;
+                                            case 3:
+                                                roleName = "Nhãn hàng";
+                                                roleClass = "badge-info";
+                                                break;
+                                            default:
+                                                roleName = "Không xác định";
+                                                roleClass = "badge-secondary";
+                                                break;
+                                        }
+                                    }
+                                    <span class="badge @roleClass">@roleName</span>
+                                </td>
+                                <td>
+                                    @if (user.IsActive)
+                                    {
+                                        <span class="badge badge-success">Hoạt động</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-danger">Bị khóa</span>
+                                    }
+                                </td>
+                                <td>@user.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>
+                                    <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+                                        <button onclick="toggleUserStatus(@user.UserID, @user.IsActive.ToString().ToLower())" 
+                                                class="btn-admin" style="padding: 5px 10px; font-size: 12px;">
+                                            <i class="fas fa-@(user.IsActive ? "lock" : "unlock")"></i>
+                                            @(user.IsActive ? "Khóa" : "Mở khóa")
+                                        </button>
+                                        
+                                        <select onchange="changeUserRole(@user.UserID, this.value)" 
+                                                style="padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 12px;">
+                                            <option value="1" @(user.Role == 1 ? "selected" : "")>Quản trị viên</option>
+                                            <option value="2" @(user.Role == 2 ? "selected" : "")>Mẹ bỉm</option>
+                                            <option value="3" @(user.Role == 3 ? "selected" : "")>Nhãn hàng</option>
+                                        </select>
+                                        
+                                        <a href="@Url.Action("UserDetails", "Admin", new { area = "Admin", id = user.UserID })" 
+                                           class="btn-admin-secondary" style="padding: 5px 10px; font-size: 12px; text-decoration: none;">
+                                            <i class="fas fa-eye"></i> Chi tiết
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            if (Model.TotalPages > 1)
+            {
+                <div style="display: flex; justify-content: center; margin-top: 20px;">
+                    <nav>
+                        <ul style="display: flex; list-style: none; padding: 0; margin: 0; gap: 5px;">
+                            @if (Model.CurrentPage > 1)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Users", "Admin", new { area = "Admin", page = Model.CurrentPage - 1, search = Model.SearchTerm, roleFilter = Model.RoleFilter })" 
+                                       style="padding: 8px 12px; border: 1px solid #ddd; text-decoration: none; color: #333; border-radius: 3px;">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </a>
+                                </li>
+                            }
+
+                            @for (int i = Math.Max(1, Model.CurrentPage - 2); i <= Math.Min(Model.TotalPages, Model.CurrentPage + 2); i++)
+                            {
+                                <li>
+                                    @{
+                                        string linkColor = i == Model.CurrentPage ? "white" : "#333";
+                                        string linkBgColor = i == Model.CurrentPage ? "#e74c3c" : "white";
+                                    }
+                                    <a href="@Url.Action("Users", "Admin", new { area = "Admin", page = i, search = Model.SearchTerm, roleFilter = Model.RoleFilter })" 
+                                       style="padding: 8px 12px; border: 1px solid #ddd; text-decoration: none; color: @linkColor; background-color: @linkBgColor; border-radius: 3px;">
+                                        @i
+                                    </a>
+                                </li>
+                            }
+
+                            @if (Model.CurrentPage < Model.TotalPages)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Users", "Admin", new { area = "Admin", page = Model.CurrentPage + 1, search = Model.SearchTerm, roleFilter = Model.RoleFilter })" 
+                                       style="padding: 8px 12px; border: 1px solid #ddd; text-decoration: none; color: #333; border-radius: 3px;">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            }
+        }
+        else
+        {
+            <div style="text-align: center; padding: 40px; color: #7f8c8d;">
+                <i class="fas fa-users" style="font-size: 48px; margin-bottom: 15px; opacity: 0.5;"></i>
+                <p>Không tìm thấy người dùng nào</p>
+                @if (!string.IsNullOrEmpty(Model.SearchTerm) || !string.IsNullOrEmpty(Model.RoleFilter))
+                {
+                    <a href="@Url.Action("Users", "Admin", new { area = "Admin" })" class="btn-admin" style="margin-top: 10px; text-decoration: none;">
+                        <i class="fas fa-refresh"></i> Xem tất cả
+                    </a>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        function toggleUserStatus(userId, isActive) {
+            if (confirm(isActive ? 'Bạn có chắc chắn muốn khóa tài khoản này?' : 'Bạn có chắc chắn muốn mở khóa tài khoản này?')) {
+                $.ajax({
+                    url: '@Url.Action("ToggleUserStatus", "Admin", new { area = "Admin" })',
+                    type: 'POST',
+                    data: {
+                        userId: userId,
+                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            alert('Lỗi: ' + response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Có lỗi xảy ra khi cập nhật trạng thái tài khoản.');
+                    }
+                });
+            }
+        }
+
+        function changeUserRole(userId, newRole) {
+            if (confirm('Bạn có chắc chắn muốn thay đổi quyền của người dùng này?')) {
+                $.ajax({
+                    url: '@Url.Action("ChangeUserRole", "Admin", new { area = "Admin" })',
+                    type: 'POST',
+                    data: {
+                        userId: userId,
+                        newRole: newRole,
+                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            alert('Lỗi: ' + response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Có lỗi xảy ra khi cập nhật quyền người dùng.');
+                    }
+                });
+            }
+        }
+    </script>
+}

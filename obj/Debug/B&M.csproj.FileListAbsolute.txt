@@ -235,12 +235,6 @@ D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\obj\Debug\B&M.csproj.CoreCo
 D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\obj\Debug\B&M.csproj.Up2Date
 D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\obj\Debug\B&M.dll
 D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\obj\Debug\B&M.pdb
-D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.csproj.AssemblyReference.cache
-D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\MomExchange.Migrations.InitialCreate.resources
-D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\MomExchange.Migrations.AddUserNameField.resources
-D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\MomExchange.Migrations.FixModelChanges.resources
-D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.csproj.GenerateResource.cache
-D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.csproj.CoreCompileInputs.cache
 D:\Douments\GitHub\Mom-Exchange-Web\bin\B&M.dll.config
 D:\Douments\GitHub\Mom-Exchange-Web\bin\B&M.dll
 D:\Douments\GitHub\Mom-Exchange-Web\bin\B&M.pdb
@@ -336,6 +330,12 @@ D:\Douments\GitHub\Mom-Exchange-Web\bin\System.Web.Razor.xml
 D:\Douments\GitHub\Mom-Exchange-Web\bin\System.Web.WebPages.xml
 D:\Douments\GitHub\Mom-Exchange-Web\bin\System.Web.WebPages.Deployment.xml
 D:\Douments\GitHub\Mom-Exchange-Web\bin\System.Web.WebPages.Razor.xml
+D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.csproj.AssemblyReference.cache
+D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B_M.Migrations.InitialCreate.resources
+D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B_M.Migrations.AddUserNameField.resources
+D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B_M.Migrations.FixModelChanges.resources
+D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.csproj.GenerateResource.cache
+D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.csproj.CoreCompileInputs.cache
 D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.csproj.Up2Date
 D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.dll
 D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.pdb

@@ -1,11 +1,11 @@
 ﻿// Controllers/BrandController.cs
 
-using MomExchange.Models;
+using B_M.Models;
 using System.Collections.Generic;
 using System.Linq; // Cần thêm để sử dụng .Where()
 using System.Web.Mvc;
 
-namespace MomExchange.Controllers // Namespace của bạn có thể khác
+namespace B_M.Controllers // Namespace của bạn có thể khác
 {
     public class BrandController : Controller
     {

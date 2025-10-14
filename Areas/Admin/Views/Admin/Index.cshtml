@@ -1,0 +1,194 @@
+@model B_M.Models.AdminDashboardViewModel
+@{
+    ViewBag.Title = "Tổng quan";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+            <i class="fas fa-users"></i>
+        </div>
+        <div class="stat-number">@Model.TotalUsers</div>
+        <div class="stat-label">Tổng người dùng</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #2ecc71, #27ae60);">
+            <i class="fas fa-user-check"></i>
+        </div>
+        <div class="stat-number">@Model.ActiveUsers</div>
+        <div class="stat-label">Người dùng hoạt động</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="stat-number">@Model.AdminUsers</div>
+        <div class="stat-label">Quản trị viên</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+            <i class="fas fa-baby"></i>
+        </div>
+        <div class="stat-number">@Model.MomUsers</div>
+        <div class="stat-label">Mẹ bỉm</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+            <i class="fas fa-store"></i>
+        </div>
+        <div class="stat-number">@Model.BrandUsers</div>
+        <div class="stat-label">Nhãn hàng</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #1abc9c, #16a085);">
+            <i class="fas fa-user-plus"></i>
+        </div>
+        <div class="stat-number">@Model.NewUsersThisMonth</div>
+        <div class="stat-label">Người dùng mới tháng này</div>
+    </div>
+</div>
+
+<div class="admin-card">
+    <div class="admin-card-header">
+        <h5><i class="fas fa-clock"></i> Người dùng mới gần đây</h5>
+        <a href="@Url.Action("Users", "Admin", new { area = "Admin" })" class="btn-admin">Xem tất cả</a>
+    </div>
+    <div class="admin-card-body">
+        @if (Model.RecentUsers.Any())
+        {
+            <div class="table-responsive">
+                <table class="table-admin">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Email</th>
+                            <th>Vai trò</th>
+                            <th>Trạng thái</th>
+                            <th>Ngày tạo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model.RecentUsers)
+                        {
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <div style="width: 35px; height: 35px; border-radius: 50%; background: linear-gradient(135deg, #e74c3c, #c0392b); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">
+                                            @(user.UserDetails?.FullName?.Substring(0, 1).ToUpper() ?? "U")
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 600; color: #2c3e50;">@(user.UserDetails?.FullName ?? "Chưa cập nhật")</div>
+                                            <div style="font-size: 12px; color: #7f8c8d;">@user.UserName</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@user.Email</td>
+                                <td>
+                                    @{
+                                        string roleName = "";
+                                        string roleClass = "";
+                                        switch (user.Role)
+                                        {
+                                            case 1:
+                                                roleName = "Quản trị viên";
+                                                roleClass = "badge-danger";
+                                                break;
+                                            case 2:
+                                                roleName = "Mẹ bỉm";
+                                                roleClass = "badge-warning";
+                                                break;
+                                            case 3:
+                                                roleName = "Nhãn hàng";
+                                                roleClass = "badge-info";
+                                                break;
+                                            default:
+                                                roleName = "Không xác định";
+                                                roleClass = "badge-secondary";
+                                                break;
+                                        }
+                                    }
+                                    <span class="badge @roleClass">@roleName</span>
+                                </td>
+                                <td>
+                                    @if (user.IsActive)
+                                    {
+                                        <span class="badge badge-success">Hoạt động</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-danger">Bị khóa</span>
+                                    }
+                                </td>
+                                <td>@user.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <div style="text-align: center; padding: 40px; color: #7f8c8d;">
+                <i class="fas fa-users" style="font-size: 48px; margin-bottom: 15px; opacity: 0.5;"></i>
+                <p>Chưa có người dùng nào</p>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="admin-card">
+    <div class="admin-card-header">
+        <h5><i class="fas fa-chart-pie"></i> Thống kê nhanh</h5>
+    </div>
+    <div class="admin-card-body">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <div style="font-size: 24px; font-weight: 700; color: #2ecc71; margin-bottom: 5px;">
+                    @if (Model.TotalUsers > 0)
+                    {
+                        @Math.Round((double)Model.ActiveUsers / Model.TotalUsers * 100, 1)
+                    }
+                    else
+                    {
+                        @:0
+                    }%
+                </div>
+                <div style="color: #7f8c8d; font-size: 14px;">Tỷ lệ người dùng hoạt động</div>
+            </div>
+
+            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <div style="font-size: 24px; font-weight: 700; color: #3498db; margin-bottom: 5px;">
+                    @if (Model.TotalUsers > 0)
+                    {
+                        @Math.Round((double)Model.NewUsersThisMonth / Model.TotalUsers * 100, 1)
+                    }
+                    else
+                    {
+                        @:0
+                    }%
+                </div>
+                <div style="color: #7f8c8d; font-size: 14px;">Tăng trưởng tháng này</div>
+            </div>
+
+            <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <div style="font-size: 24px; font-weight: 700; color: #e74c3c; margin-bottom: 5px;">
+                    @if (Model.TotalUsers > 0)
+                    {
+                        @Math.Round((double)Model.AdminUsers / Model.TotalUsers * 100, 1)
+                    }
+                    else
+                    {
+                        @:0
+                    }%
+                </div>
+                <div style="color: #7f8c8d; font-size: 14px;">Tỷ lệ quản trị viên</div>
+            </div>
+        </div>
+    </div>
+</div>

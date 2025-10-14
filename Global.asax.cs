@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Helpers;
 
 namespace B_M
 {
@@ -16,10 +17,15 @@ namespace B_M
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            
+            // Cấu hình AntiForgeryToken cho Claims-based authentication
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = System.Security.Claims.ClaimTypes.NameIdentifier;
         }
 
         protected void Application_Error()
         {
+            // Tạm thời comment để test routing
+            /*
             var exception = Server.GetLastError();
             var httpException = exception as HttpException;
             
@@ -40,6 +46,7 @@ namespace B_M
                     Response.Redirect("~/Error/ServerError");
                 }
             }
+            */
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// Models/TradePost.cs
-namespace MomExchange.Models
+namespace B_M.Models
 {
     public class TradePost
     {

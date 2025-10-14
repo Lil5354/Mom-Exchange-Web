@@ -2,8 +2,10 @@
 using System;
 using System.Linq;
 using System.Data.Entity;
+using System.Collections.Generic;
 
-namespace MomExchange.Models
+
+namespace B_M.Models
 {
     public class UserRepository : IDisposable
     {
@@ -116,6 +118,114 @@ namespace MomExchange.Models
             }
         }
 
+
+        public List<User> GetAllUsers()
+        {
+            return _context.Users
+                .Include("UserDetails")
+                .OrderByDescending(u => u.CreatedAt)
+                .ToList();
+        }
+
+        public User GetUserById(int userId)
+        {
+            return _context.Users
+                .Include("UserDetails")
+                .FirstOrDefault(u => u.UserID == userId);
+        }
+
+        public List<User> GetUsersByRole(byte role)
+        {
+            return _context.Users
+                .Include("UserDetails")
+                .Where(u => u.Role == role)
+                .OrderByDescending(u => u.CreatedAt)
+                .ToList();
+        }
+
+        public List<User> GetActiveUsers()
+        {
+            return _context.Users
+                .Include("UserDetails")
+                .Where(u => u.IsActive)
+                .OrderByDescending(u => u.CreatedAt)
+                .ToList();
+        }
+
+        public List<User> GetRecentUsers(int count = 10)
+        {
+            return _context.Users
+                .Include("UserDetails")
+                .OrderByDescending(u => u.CreatedAt)
+                .Take(count)
+                .ToList();
+        }
+
+        public int GetUserCount()
+        {
+            return _context.Users.Count();
+        }
+
+        public int GetActiveUserCount()
+        {
+            return _context.Users.Count(u => u.IsActive);
+        }
+
+        public int GetUserCountByRole(byte role)
+        {
+            return _context.Users.Count(u => u.Role == role);
+        }
+
+        public int GetNewUsersThisMonth()
+        {
+            var startOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            return _context.Users.Count(u => u.CreatedAt >= startOfMonth);
+        }
+
+        public bool DeleteUser(int userId)
+        {
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    // Tìm user và user details
+                    var user = _context.Users.Find(userId);
+                    if (user == null)
+                    {
+                        return false;
+                    }
+
+                    var userDetails = _context.UserDetails.Find(userId);
+                    
+                    // Xóa user details trước (foreign key constraint)
+                    if (userDetails != null)
+                    {
+                        _context.UserDetails.Remove(userDetails);
+                    }
+
+                    // Xóa user
+                    _context.Users.Remove(user);
+                    
+                    _context.SaveChanges();
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    System.Diagnostics.Debug.WriteLine($"ERROR in DeleteUser: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"Stack Trace: {ex.StackTrace}");
+                    
+                    if (ex.InnerException != null)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"INNER EXCEPTION: {ex.InnerException.Message}");
+                        System.Diagnostics.Debug.WriteLine($"INNER STACK TRACE: {ex.InnerException.StackTrace}");
+                    }
+                    
+                    return false;
+                }
+            }
+        }
 
         public void Dispose()
         {

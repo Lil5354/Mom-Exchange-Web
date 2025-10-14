@@ -1,7 +1,7 @@
 ﻿// File: Models/LoginViewModel.cs
 using System.ComponentModel.DataAnnotations;
 
-namespace MomExchange.Models
+namespace B_M.Models
 {
     public class LoginViewModel
     {
