@@ -12,6 +12,22 @@
 <link href="~/Content/account-style.css" rel="stylesheet" />
 
 <div class="auth-page-wrapper">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="max-width: 500px; margin: 20px auto; background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 15px; border-radius: 8px;">
+            <strong>Thành công!</strong> @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="max-width: 500px; margin: 20px auto; background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; padding: 15px; border-radius: 8px;">
+            <strong>Lỗi!</strong> @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+        </div>
+    }
+
     <div class="container-auth @(ViewBag.ShowRegister == true ? "right-panel-active" : "")" id="container-auth">
         <div class="form-container sign-up-container">
             @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "auth-form" }))
@@ -20,16 +36,27 @@
                 <h1>Tạo tài khoản</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <button type="button" class="social" onclick="loginWithGoogle()" title="Đăng ký bằng Google">
+                        <i class="fab fa-google"></i>
+                    </button>
                 </div>
                 <span>hoặc sử dụng email của bạn để đăng ký</span>
 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                @Html.EditorFor(m => registerModel.UserName, new { htmlAttributes = new { @placeholder = "Tên tài khoản" } })
-                @Html.EditorFor(m => registerModel.Email, new { htmlAttributes = new { @placeholder = "Email" } })
-                @Html.EditorFor(m => registerModel.Password, new { htmlAttributes = new { @placeholder = "Mật khẩu" } })
-                @Html.EditorFor(m => registerModel.ConfirmPassword, new { htmlAttributes = new { @placeholder = "Xác nhận mật khẩu" } })
+                <input type="text" name="FullName" placeholder="Họ và tên" />
+                @Html.ValidationMessage("FullName", "", new { @class = "text-danger" })
+                
+                <input type="email" name="Email" placeholder="Email" />
+                @Html.ValidationMessage("Email", "", new { @class = "text-danger" })
+                
+                <input type="text" name="PhoneNumber" placeholder="Số điện thoại (không bắt buộc)" />
+                @Html.ValidationMessage("PhoneNumber", "", new { @class = "text-danger" })
+                
+                <input type="password" name="Password" placeholder="Mật khẩu" />
+                @Html.ValidationMessage("Password", "", new { @class = "text-danger" })
+                
+                <input type="password" name="ConfirmPassword" placeholder="Xác nhận mật khẩu" />
+                @Html.ValidationMessage("ConfirmPassword", "", new { @class = "text-danger" })
+                
                 <button class="auth-button" type="submit">Đăng Ký</button>
             }
         </div>
@@ -41,15 +68,25 @@
                 <h1>Đăng Nhập</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <button type="button" class="social" onclick="loginWithGoogle()" title="Đăng nhập bằng Google">
+                        <i class="fab fa-google"></i>
+                    </button>
                 </div>
                 <span>hoặc sử dụng tài khoản của bạn</span>
 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                @Html.EditorFor(m => loginModel.Email, new { htmlAttributes = new { @placeholder = "Email" } })
-                @Html.EditorFor(m => loginModel.Password, new { htmlAttributes = new { @placeholder = "Mật khẩu" } })
-                <a href="#">Quên mật khẩu?</a>
+                <input type="text" name="EmailOrUsername" placeholder="Email" />
+                @Html.ValidationMessage("EmailOrUsername", "", new { @class = "text-danger" })
+                
+                <input type="password" name="Password" placeholder="Mật khẩu" />
+                @Html.ValidationMessage("Password", "", new { @class = "text-danger" })
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin: 15px 0 10px 0;">
+                    <label style="display: flex; align-items: center; gap: 8px; margin: 0; cursor: pointer; font-size: 14px;">
+                        @Html.CheckBox("RememberMe", loginModel.RememberMe, new { style = "cursor: pointer;" })
+                        <span>Ghi nhớ tôi</span>
+                    </label>
+                    <a href="#" style="font-size: 14px;">Quên mật khẩu?</a>
+                </div>
                 <button class="auth-button" type="submit">Đăng Nhập</button>
             }
         </div>
@@ -71,6 +108,13 @@
     </div>
 </div>
 
+<!-- Hidden form for Google OAuth -->
+<form id="googleLoginForm" action="@Url.Action("ExternalLogin", "Account")" method="post" style="display: none;">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="provider" value="Google" />
+    <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+</form>
+
 @section scripts {
     <script>
         const signUpButton = document.getElementById('signUp');
@@ -84,5 +128,11 @@
         signInButton.addEventListener('click', () => {
             container.classList.remove("right-panel-active");
         });
+
+        // Google OAuth login function
+        function loginWithGoogle() {
+            console.log('Google login clicked');
+            document.getElementById('googleLoginForm').submit();
+        }
     </script>
 }

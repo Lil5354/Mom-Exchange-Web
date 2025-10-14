@@ -17,5 +17,29 @@ namespace B_M
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_Error()
+        {
+            var exception = Server.GetLastError();
+            var httpException = exception as HttpException;
+            
+            if (httpException != null)
+            {
+                var statusCode = httpException.GetHttpCode();
+                
+                if (statusCode == 404)
+                {
+                    Response.Clear();
+                    Response.StatusCode = 404;
+                    Response.Redirect("~/Error/NotFound");
+                }
+                else if (statusCode == 500)
+                {
+                    Response.Clear();
+                    Response.StatusCode = 500;
+                    Response.Redirect("~/Error/ServerError");
+                }
+            }
+        }
     }
 }

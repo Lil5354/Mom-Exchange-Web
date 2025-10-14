@@ -262,7 +262,13 @@ p {
 	margin: 20px 0;
 }
 
-	.social-container a {
+	.social-container .social-form {
+		display: inline-block;
+		margin: 0;
+	}
+
+	.social-container a,
+	.social-container button.social {
 		border: 1px solid rgba(255,255,255,0.5);
 		background: rgba(255,255,255,0.8);
 		border-radius: 50%;
@@ -272,12 +278,23 @@ p {
 		margin: 0 5px;
 		height: 40px;
 		width: 40px;
-		text-shadow: none; /* Bỏ shadow cho icon */
+		text-shadow: none;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		padding: 0;
 	}
 
-		.social-container a:hover {
-			background: #fff;
-		}
+	.social-container a:hover,
+	.social-container button.social:hover {
+		background: #fff;
+		transform: scale(1.1);
+	}
+
+	.social-container a i,
+	.social-container button.social i {
+		color: #e15b7f;
+		font-size: 18px;
+	}
 
 /* Định dạng cơ bản cho chữ của thông báo lỗi */
 .text-danger {
@@ -296,3 +313,18 @@ p {
 		border-radius: 4px;
 		padding: 8px; /* Tăng padding một chút cho đẹp hơn */
 	}
+
+/* Checkbox "Ghi nhớ tôi" - Fix hiển thị ngang */
+.auth-form input[type="checkbox"] {
+	width: auto;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.auth-form label {
+	display: inline-flex;
+	align-items: center;
+	color: #fff;
+	text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	white-space: nowrap;
+}

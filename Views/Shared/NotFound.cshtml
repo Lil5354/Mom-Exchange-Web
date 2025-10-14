@@ -1,0 +1,1123 @@
+@{
+    ViewBag.Title = "404 - Không tìm thấy trang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="not-found-container">
+    <div class="not-found-content">
+        <!-- Left side: 404 Text and Message -->
+        <div class="left-section">
+            <!-- 404 Text with gradient -->
+            <div class="error-404">
+                <span class="four">4</span>
+                <span class="zero">0</span>
+                <span class="four">4</span>
+            </div>
+            
+            <!-- Error message -->
+            <div class="error-message">
+                <h1>Oops! Trang không tồn tại</h1>
+                <p>Có vẻ như mẹ hoặc em đã lạc mất trang web này rồi!</p>
+            </div>
+        </div>
+        
+        <!-- Right side: Baby illustration with bottle and buttons -->
+        <div class="right-section">
+            <div class="illustration">
+                <div class="baby-container">
+                    <div class="baby">
+                        <div class="baby-head">
+                            <div class="beanie-hat">
+                                <div class="hat-pom-pom"></div>
+                            </div>
+                            <div class="eyes">
+                                <div class="eye left">
+                                    <div class="eyeball"></div>
+                                    <div class="highlight"></div>
+                                </div>
+                                <div class="eye right">
+                                    <div class="eyeball"></div>
+                                    <div class="highlight"></div>
+                                </div>
+                            </div>
+                            <div class="nose"></div>
+                            <div class="mouth"></div>
+                            <div class="cheeks">
+                                <div class="cheek left"></div>
+                                <div class="cheek right"></div>
+                            </div>
+                        </div>
+                        <div class="baby-body">
+                            <div class="onesie">
+                                <div class="polka-dots">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottle">
+                        <div class="bottle-body">
+                            <div class="measurement-lines">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                        <div class="bottle-neck"></div>
+                        <div class="bottle-nipple"></div>
+                    </div>
+                </div>
+                <div class="decorative-elements">
+                    <div class="heart heart-1"></div>
+                    <div class="heart heart-2"></div>
+                    <div class="heart heart-3"></div>
+                    <div class="star star-1"></div>
+                    <div class="star star-2"></div>
+                    <div class="star star-3"></div>
+                </div>
+            </div>
+            
+            <!-- Action Buttons moved here -->
+            <div class="error-actions">
+                <a href="@Url.Action("Index", "Home")" class="btn-primary">
+                    <i class="fa-solid fa-home"></i>
+                    Về trang chủ
+                </a>
+                <a href="javascript:history.back()" class="btn-secondary">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Quay lại
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body, html {
+        width: 100%;
+        height: 100%;
+        font-family: 'Poppins', 'Arial', sans-serif;
+        background: linear-gradient(135deg, #fce4ec 0%, #f8e8f0 50%, #e8f5e8 100%);
+        background-size: 400% 400%;
+        animation: background-shift 8s ease-in-out infinite;
+        overflow-x: hidden;
+    }
+
+    .not-found-container {
+        height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 40px 20px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .not-found-content {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+        height: auto;
+        gap: 60px;
+        margin-top: 50px;
+    }
+
+    .left-section {
+        flex: 1;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: auto;
+    }
+
+    .right-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: auto;
+    }
+
+    /* 404 Text with gradient */
+    .error-404 {
+        font-size: 200px;
+        font-weight: 900;
+        margin-bottom: 20px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .error-404 .four, .error-404 .zero {
+        background: linear-gradient(45deg, #ff6b9d, #c44569, #f8b500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: bounce 2s ease-in-out infinite;
+        text-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
+    }
+
+    .error-404 .zero {
+        animation-delay: 0.2s;
+    }
+
+    .error-404 .four:last-child {
+        animation-delay: 0.4s;
+    }
+
+    /* Baby illustration */
+    .illustration {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .baby-container {
+        position: relative;
+        animation: gentle-float 3s ease-in-out infinite;
+    }
+
+    .baby {
+        position: relative;
+        z-index: 2;
+    }
+
+    .baby-head {
+        width: 120px;
+        height: 120px;
+        background: #ffeaa7;
+        border-radius: 50%;
+        position: relative;
+        margin: 0 auto 0;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        animation: head-gentle 4s ease-in-out infinite;
+    }
+
+    .beanie-hat {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 50px;
+        background: #ffb6c1;
+        border-radius: 40px 40px 0 0;
+        animation: hat-gentle 3s ease-in-out infinite;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .hat-pom-pom {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 16px;
+        height: 16px;
+        background: white;
+        border-radius: 50%;
+        animation: pom-pom-gentle 2s ease-in-out infinite;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .eyes {
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 20px;
+    }
+
+    .eye {
+        width: 20px;
+        height: 20px;
+        background: #2d3436;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        animation: eye-gentle 4s ease-in-out infinite;
+    }
+
+    .eyeball {
+        width: 100%;
+        height: 100%;
+        background: #2d3436;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    .highlight {
+        position: absolute;
+        top: 3px;
+        left: 4px;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        animation: highlight-gentle 3s ease-in-out infinite;
+    }
+
+    .eye.left {
+        left: 0;
+    }
+
+    .eye.right {
+        right: 0;
+    }
+
+    .eyeball {
+        width: 100%;
+        height: 100%;
+        background: #2d3436;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    .highlight {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        top: 3px;
+        left: 4px;
+        animation: highlight-shine 2s ease-in-out infinite;
+    }
+
+    .eyebrows {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 10px;
+    }
+
+    .eyebrow {
+        position: absolute;
+        width: 15px;
+        height: 3px;
+        background: #8b4513;
+        border-radius: 2px;
+        top: 0;
+        animation: eyebrow-raise 3s ease-in-out infinite;
+    }
+
+    .eyebrow.left {
+        left: 0;
+    }
+
+    .eyebrow.right {
+        right: 0;
+    }
+
+    .nose {
+        position: absolute;
+        width: 6px;
+        height: 4px;
+        background: #fdcb6e;
+        border-radius: 50%;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: nose-gentle 3s ease-in-out infinite;
+    }
+
+    .mouth {
+        position: absolute;
+        width: 16px;
+        height: 8px;
+        background: #e17055;
+        border-radius: 0 0 8px 8px;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: mouth-gentle 3s ease-in-out infinite;
+    }
+
+    .cheeks {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .cheek {
+        position: absolute;
+        width: 15px;
+        height: 12px;
+        background: #ff7675;
+        border-radius: 50%;
+        top: 40px;
+        opacity: 0.6;
+        animation: blush 3s ease-in-out infinite;
+    }
+
+    .cheek.left {
+        left: 10px;
+    }
+
+    .cheek.right {
+        right: 10px;
+    }
+
+    .baby-body {
+        width: 100px;
+        height: 140px;
+        position: relative;
+        margin: 0 auto;
+    }
+
+
+    .onesie {
+        width: 100%;
+        height: 100%;
+        background: #ffb6c1;
+        border-radius: 50px 50px 25px 25px;
+        position: relative;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        animation: body-gentle 3s ease-in-out infinite;
+    }
+
+    .polka-dots {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .dot {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: white;
+        border-radius: 50%;
+        animation: dot-twinkle 2s ease-in-out infinite;
+    }
+
+    .dot:nth-child(1) { top: 20px; left: 20px; animation-delay: 0s; }
+    .dot:nth-child(2) { top: 20px; right: 20px; animation-delay: 0.3s; }
+    .dot:nth-child(3) { top: 50px; left: 15px; animation-delay: 0.6s; }
+    .dot:nth-child(4) { top: 50px; right: 15px; animation-delay: 0.9s; }
+    .dot:nth-child(5) { top: 80px; left: 25px; animation-delay: 1.2s; }
+    .dot:nth-child(6) { top: 80px; right: 25px; animation-delay: 1.5s; }
+
+    /* Bottle */
+    .bottle {
+        position: absolute;
+        right: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+        animation: bottle-gentle 3s ease-in-out infinite;
+    }
+
+    .bottle-body {
+        width: 40px;
+        height: 90px;
+        background: #f5f5dc;
+        border-radius: 20px 20px 10px 10px;
+        position: relative;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .measurement-lines {
+        position: absolute;
+        left: 5px;
+        top: 10px;
+        width: 25px;
+        height: 60px;
+    }
+
+    .line {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: #999;
+        left: 0;
+    }
+
+    .line:nth-child(1) { top: 0; }
+    .line:nth-child(2) { top: 15px; }
+    .line:nth-child(3) { top: 30px; }
+    .line:nth-child(4) { top: 45px; }
+
+    .bottle-neck {
+        width: 18px;
+        height: 15px;
+        background: #ffb6c1;
+        border-radius: 9px 9px 0 0;
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .bottle-nipple {
+        width: 12px;
+        height: 8px;
+        background: #f5f5dc;
+        border-radius: 6px 6px 0 0;
+        position: absolute;
+        top: -23px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Decorative elements */
+    .decorative-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .heart {
+        position: absolute;
+        width: 20px;
+        height: 18px;
+        background: #ffb6c1;
+        transform: rotate(-45deg);
+        animation: heart-float 3s ease-in-out infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 18px;
+        background: #ffb6c1;
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -9px;
+        left: 0;
+    }
+
+    .heart::after {
+        top: 0;
+        left: 9px;
+    }
+
+    .heart-1 {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+    }
+
+    .heart-2 {
+        top: 60%;
+        right: 15%;
+        animation-delay: 1s;
+    }
+
+    .heart-3 {
+        top: 40%;
+        left: 5%;
+        animation-delay: 2s;
+        opacity: 0.6;
+    }
+
+    .star {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: #ffb6c1;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        animation: star-twinkle 2s ease-in-out infinite;
+    }
+
+    .star-1 {
+        top: 30%;
+        right: 20%;
+        animation-delay: 0.5s;
+    }
+
+    .star-2 {
+        top: 70%;
+        left: 20%;
+        animation-delay: 1.5s;
+    }
+
+    .star-3 {
+        top: 50%;
+        right: 5%;
+        animation-delay: 2.5s;
+        opacity: 0.7;
+    }
+
+    /* Error message */
+    .error-message {
+        margin: 30px 0;
+    }
+
+    .error-message h1 {
+        font-size: 2.5rem;
+        color: #2d3436;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    .error-message p {
+        font-size: 1.2rem;
+        color: #636e72;
+        line-height: 1.6;
+    }
+
+    /* Buttons */
+    .error-actions {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #ff6b9d, #c44569);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        color: white;
+        text-decoration: none;
+    }
+
+    .btn-secondary {
+        background: white;
+        color: #2d3436;
+        border: 2px solid #ddd;
+    }
+
+    .btn-secondary:hover {
+        background: #f8f9fa;
+        transform: translateY(-3px);
+        color: #2d3436;
+        text-decoration: none;
+    }
+
+    /* Animations */
+    @@keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @@keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    @@keyframes wave {
+        0%, 100% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(20deg);
+        }
+    }
+
+    @@keyframes kick {
+        0%, 100% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(10deg);
+        }
+    }
+
+    @@keyframes twinkle {
+        0%, 100% {
+            opacity: 0.3;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+    }
+
+    @@keyframes blink {
+        0%, 90%, 100% {
+            transform: scaleY(1);
+        }
+        95% {
+            transform: scaleY(0.1);
+        }
+    }
+
+    @@keyframes smile {
+        0%, 100% {
+            transform: translateX(-50%) scale(1);
+        }
+        50% {
+            transform: translateX(-50%) scale(1.1);
+        }
+    }
+
+    @@keyframes blush {
+        0%, 100% {
+            opacity: 0.6;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    }
+
+    /* New baby gentle animations */
+    @@keyframes gentle-float {
+        0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-10px) rotate(2deg);
+        }
+    }
+
+    @@keyframes head-gentle {
+        0%, 100% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(1deg);
+        }
+    }
+
+    @@keyframes hat-gentle {
+        0%, 100% {
+            transform: translateX(-50%) rotate(0deg);
+        }
+        50% {
+            transform: translateX(-50%) rotate(2deg);
+        }
+    }
+
+    @@keyframes pom-pom-gentle {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0px);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-3px);
+        }
+    }
+
+    @@keyframes eye-gentle {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+
+    @@keyframes highlight-gentle {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+    }
+
+    @@keyframes nose-gentle {
+        0%, 100% {
+            transform: translateX(-50%) scale(1);
+        }
+        50% {
+            transform: translateX(-50%) scale(1.1);
+        }
+    }
+
+    @@keyframes mouth-gentle {
+        0%, 100% {
+            transform: translateX(-50%) scale(1);
+        }
+        50% {
+            transform: translateX(-50%) scale(1.1);
+        }
+    }
+
+    @@keyframes body-gentle {
+        0%, 100% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(1deg);
+        }
+    }
+
+    @@keyframes bottle-gentle {
+        0%, 100% {
+            transform: translateY(-50%) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-50%) rotate(2deg);
+        }
+    }
+
+    @@keyframes hat-tilt {
+        0%, 100% {
+            transform: translateX(-50%) rotate(0deg);
+        }
+        50% {
+            transform: translateX(-50%) rotate(3deg);
+        }
+    }
+
+    @@keyframes pom-pom-bounce {
+        0%, 100% {
+            transform: translateX(-50%) translateY(0px);
+        }
+        50% {
+            transform: translateX(-50%) translateY(-2px);
+        }
+    }
+
+    @@keyframes sleep-blink {
+        0%, 90%, 100% {
+            height: 9px;
+        }
+        95% {
+            height: 2px;
+        }
+    }
+
+    @@keyframes sleep-smile {
+        0%, 100% {
+            transform: translateX(-50%) scale(1);
+        }
+        50% {
+            transform: translateX(-50%) scale(1.1);
+        }
+    }
+
+    @@keyframes arm-sleep {
+        0%, 100% {
+            transform: rotate(-20deg);
+        }
+        50% {
+            transform: rotate(-15deg);
+        }
+    }
+
+    @@keyframes hair-bounce {
+        0%, 100% {
+            transform: translateX(-50%) scale(1);
+        }
+        50% {
+            transform: translateX(-50%) scale(1.1);
+        }
+    }
+
+    @@keyframes highlight-shine {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.7;
+            transform: scale(1.2);
+        }
+    }
+
+    @@keyframes eyebrow-raise {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-1px);
+        }
+    }
+
+    @@keyframes mouth-move {
+        0%, 100% {
+            transform: translateX(-50%) scale(1);
+        }
+        50% {
+            transform: translateX(-50%) scale(1.1);
+        }
+    }
+
+    @@keyframes body-sway {
+        0%, 100% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(3deg);
+        }
+    }
+
+    @@keyframes dot-twinkle {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.7;
+            transform: scale(1.1);
+        }
+    }
+
+    @@keyframes bottle-sway {
+        0%, 100% {
+            transform: translateY(-50%) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-50%) rotate(5deg);
+        }
+    }
+
+    @@keyframes heart-float {
+        0%, 100% {
+            transform: rotate(-45deg) translateY(0px);
+            opacity: 0.8;
+        }
+        50% {
+            transform: rotate(-45deg) translateY(-5px);
+            opacity: 1;
+        }
+    }
+
+    @@keyframes star-twinkle {
+        0%, 100% {
+            opacity: 0.7;
+            transform: scale(1) rotate(0deg);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.2) rotate(180deg);
+        }
+    }
+
+    /* Enhanced 404 background animations */
+    @@keyframes background-shift {
+        0%, 100% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+
+    /* Responsive */
+    @@media (max-width: 1024px) {
+        .not-found-content {
+            flex-direction: column;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .left-section {
+            text-align: center;
+        }
+
+        .right-section {
+            align-items: center;
+        }
+
+        .error-404 {
+            font-size: 150px;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .not-found-container {
+            height: 100vh;
+            padding: 10px;
+        }
+
+        .not-found-content {
+            gap: 30px;
+        }
+
+        .error-404 {
+            font-size: 120px;
+            gap: 10px;
+        }
+
+        .illustration {
+            width: 300px;
+            height: 300px;
+        }
+
+        .baby-head {
+            width: 80px;
+            height: 80px;
+        }
+
+        .baby-body {
+            width: 60px;
+            height: 80px;
+        }
+
+        .error-message h1 {
+            font-size: 1.8rem;
+        }
+
+        .error-message p {
+            font-size: 1rem;
+        }
+
+        .error-actions {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+    }
+
+    @@media (max-width: 480px) {
+        .error-404 {
+            font-size: 80px;
+        }
+
+        .illustration {
+            width: 250px;
+            height: 250px;
+        }
+
+        .baby-head {
+            width: 60px;
+            height: 60px;
+        }
+
+        .baby-body {
+            width: 45px;
+            height: 60px;
+        }
+
+        .error-message h1 {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
+@section scripts {
+    <script>
+        // Simple JavaScript for enhanced interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click animation to buttons
+            const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.classList.add('ripple');
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Add random floating animation to stars
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                const randomDelay = Math.random() * 2;
+                const randomDuration = 2 + Math.random() * 2;
+                star.style.animationDelay = randomDelay + 's';
+                star.style.animationDuration = randomDuration + 's';
+            });
+
+            // Add hover effect to baby
+            const baby = document.querySelector('.baby');
+            if (baby) {
+                baby.addEventListener('mouseenter', function() {
+                    this.style.animationPlayState = 'paused';
+                    this.style.transform = 'scale(1.1)';
+                });
+                
+                baby.addEventListener('mouseleave', function() {
+                    this.style.animationPlayState = 'running';
+                    this.style.transform = 'scale(1)';
+                });
+            }
+        });
+    </script>
+    
+    <style>
+        /* Ripple effect for buttons */
+        .btn-primary, .btn-secondary {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+        
+        @@keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+}

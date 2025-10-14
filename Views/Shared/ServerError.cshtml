@@ -1,0 +1,207 @@
+@{
+    ViewBag.Title = "500 - Lỗi máy chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="server-error-container">
+    <div class="server-error-content">
+        <!-- Error Icon -->
+        <div class="error-icon">
+            <i class="fa-solid fa-server"></i>
+        </div>
+        
+        <!-- Error Text -->
+        <div class="error-text">
+            <h1 class="error-code">500</h1>
+            <h2 class="error-title">Oops! Lỗi máy chủ</h2>
+            <p class="error-description">
+                Có vẻ như máy chủ đang gặp sự cố. Chúng tôi đang khắc phục vấn đề này.
+            </p>
+            
+            <!-- Action Buttons -->
+            <div class="error-actions">
+                <a href="@Url.Action("Index", "Home")" class="btn-home">
+                    <i class="fa-solid fa-home"></i>
+                    Về trang chủ
+                </a>
+                <a href="javascript:history.back()" class="btn-back">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Quay lại
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .server-error-container {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .server-error-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        max-width: 1200px;
+        width: 100%;
+        padding: 40px 20px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .error-icon {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    .error-icon i {
+        font-size: 120px;
+        color: white;
+        opacity: 0.8;
+    }
+    
+    .error-text {
+        color: white;
+        text-align: left;
+        max-width: 500px;
+    }
+    
+    .error-code {
+        font-size: 120px;
+        font-weight: 800;
+        margin: 0;
+        background: linear-gradient(45deg, #ffffff, #f8f9fa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+    
+    .error-title {
+        font-size: 36px;
+        font-weight: 600;
+        margin: 20px 0;
+        color: #ffffff;
+    }
+    
+    .error-description {
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 20px 0 40px 0;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .error-actions {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .btn-home, .btn-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-home {
+        background: linear-gradient(45deg, #ffffff, #f8f9fa);
+        color: #ff6b6b;
+    }
+    
+    .btn-home:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+        color: #ff6b6b;
+        text-decoration: none;
+    }
+    
+    .btn-back {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-back:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+        color: white;
+        text-decoration: none;
+    }
+    
+    /* Animations */
+    @@keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 0.8;
+        }
+        50% {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+    }
+    
+    @@keyframes glow {
+        0% {
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+        100% {
+            text-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+        }
+    }
+    
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .server-error-content {
+            flex-direction: column;
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .error-icon {
+            width: 250px;
+            height: 250px;
+        }
+        
+        .error-icon i {
+            font-size: 80px;
+        }
+        
+        .error-code {
+            font-size: 80px;
+        }
+        
+        .error-title {
+            font-size: 28px;
+        }
+        
+        .error-description {
+            font-size: 16px;
+        }
+        
+        .error-actions {
+            justify-content: center;
+        }
+    }
+</style>

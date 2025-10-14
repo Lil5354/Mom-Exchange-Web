@@ -12,6 +12,81 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Header hover effects */
+        .nav-links a:hover {
+            background: linear-gradient(135deg, #fce4ec, #f8e8f0) !important;
+            color: #d63384 !important;
+            transform: translateY(-2px);
+        }
+        
+        .header-top-links a:hover {
+            color: #d63384 !important;
+        }
+        
+        .header-top-promo a:hover {
+            color: #e91e63 !important;
+        }
+        
+        /* Dropdown hover effect */
+        .nav-item-dropdown:hover .dropdown-content {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+        
+        .dropdown-content a:hover {
+            background: linear-gradient(135deg, #fce4ec, #f8e8f0) !important;
+            color: #d63384 !important;
+        }
+        
+        /* Button hover effects */
+        .btn-gradient:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.4) !important;
+        }
+        
+        /* User info hover */
+        .user-info:hover {
+            background: linear-gradient(135deg, #f8e8f0, #fce4ec) !important;
+            transform: translateY(-1px);
+        }
+        
+        /* User dropdown */
+        .user-dropdown:hover .user-dropdown-content {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+        
+        .user-dropdown:hover .user-info i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        
+        .user-dropdown-content a:hover {
+            background: linear-gradient(135deg, #fce4ec, #f8e8f0) !important;
+            color: #d63384 !important;
+        }
+        
+        /* Responsive */
+        @@media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+            
+            .header-top-links {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+            
+            .col-md-4 {
+                text-align: center !important;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none;">
@@ -25,35 +100,105 @@
     </svg>
 
     <header>
-        <div class="header-top">
-            <div class="header-top-links">
-                <a href="@Url.Action("Index", "Blog")">Góc chia sẻ</a>
-                <a href="@Url.Action("About", "Home")">Về MomExchange</a>
-                <a href="@Url.Action("Login", "Account")">Đăng nhập / Đăng ký</a>
+        <div class="header-top" style="background: linear-gradient(135deg, #f8e8f0, #fce4ec); padding: 8px 0; border-bottom: 1px solid #fce4ec;">
+            <div class="container-fluid" style="max-width: 100%; padding: 0 20px;">
+                <div class="row align-items-center" style="margin: 0;">
+                    <div class="col-md-6" style="padding: 0;">
+                        <div class="header-top-links" style="display: flex; gap: 20px; align-items: center; flex-wrap: nowrap;">
+                            <a href="@Url.Action("Index", "Blog")" style="color: #8e4a6b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; white-space: nowrap;">Góc chia sẻ</a>
+                            <a href="@Url.Action("About", "Home")" style="color: #8e4a6b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; white-space: nowrap;">Về MomExchange</a>
+                            <a href="@Url.Action("Contact", "Home")" style="color: #8e4a6b; text-decoration: none; font-weight: 500; transition: color 0.3s ease; white-space: nowrap;">Liên hệ</a>
+                        </div>
             </div>
+                    <div class="col-md-6 text-end" style="padding: 0;">
             <div class="header-top-promo">
-                <a href="@Url.Action("Index", "MilkDonation")"><i class="fa-solid fa-hand-holding-heart"></i> Cho tặng sữa mẹ</a>
+                            <a href="@Url.Action("Index", "MilkDonation")" style="color: #d63384; text-decoration: none; font-weight: 600; transition: color 0.3s ease; white-space: nowrap;">
+                                <i class="fa-solid fa-hand-holding-heart" style="margin-right: 5px;"></i> Cho tặng sữa mẹ
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <nav class="main-nav">
-            <div class="nav-links">
-                <a href="@Url.Action("Index", "Clearance")">Thanh lý</a>
-                <a href="@Url.Action("Index", "Trade")">Trao đổi</a>
-                <div class="nav-item-dropdown">
-                     <a href="@Url.Action("Index", "Brand")">Nhãn hàng <i class="fa-solid fa-chevron-down"></i></a>
-                     <div class="dropdown-content">
-                         <a href="#">Bobby</a>
-                         <a href="#">Huggies</a>
-                         <a href="@Url.Action("Index", "Brand")">Xem tất cả nhãn hàng</a>
+        <nav class="main-nav" style="background: white; padding: 15px 0; box-shadow: 0 2px 10px rgba(214, 51, 132, 0.1);">
+            <div class="container-fluid" style="max-width: 100%; padding: 0 20px;">
+                <div class="row align-items-center" style="margin: 0;">
+                    <div class="col-md-4" style="padding: 0;">
+                        <div class="nav-links" style="display: flex; gap: 15px; align-items: center; flex-wrap: nowrap;">
+                            <a href="@Url.Action("Index", "Clearance")" style="color: #333; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 20px; transition: all 0.3s ease; position: relative; white-space: nowrap;">Thanh lý</a>
+                            <a href="@Url.Action("Index", "Trade")" style="color: #333; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 20px; transition: all 0.3s ease; position: relative; white-space: nowrap;">Trao đổi</a>
+                            <div class="nav-item-dropdown" style="position: relative;">
+                                <a href="@Url.Action("Index", "Brand")" style="color: #333; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 20px; transition: all 0.3s ease; position: relative; white-space: nowrap;">Nhãn hàng <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                                <div class="dropdown-content" style="position: absolute; top: 100%; left: 0; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 10px; padding: 10px 0; min-width: 200px; z-index: 1000; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease;">
+                                    <a href="#" style="display: block; padding: 8px 20px; color: #333; text-decoration: none; transition: background 0.3s ease;">Bobby</a>
+                                    <a href="#" style="display: block; padding: 8px 20px; color: #333; text-decoration: none; transition: background 0.3s ease;">Huggies</a>
+                                    <a href="@Url.Action("Index", "Brand")" style="display: block; padding: 8px 20px; color: #d63384; text-decoration: none; font-weight: 600; transition: background 0.3s ease;">Xem tất cả nhãn hàng</a>
+                                </div>
+                            </div>
+                            <a href="@Url.Action("Index", "Community")" style="color: #333; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 20px; transition: all 0.3s ease; position: relative; white-space: nowrap;">Cộng đồng</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center" style="padding: 0;">
+                        <div class="logo">
+                            <a href="@Url.Action("Index", "Home")" style="font-size: 28px; font-weight: 800; color: #d63384; text-decoration: none; background: linear-gradient(135deg, #d63384, #e91e63); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">MomExchange</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end" style="padding: 0;">
+                        @if (Session["FullName"] != null)
+                        {
+                            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: nowrap;">
+                                <!-- User Dropdown -->
+                                <div class="user-dropdown" style="position: relative;">
+                                    <div class="user-info" style="display: flex; align-items: center; gap: 8px; padding: 8px 15px; background: linear-gradient(135deg, #fce4ec, #f8e8f0); border-radius: 25px; border: 1px solid #fce4ec; transition: all 0.3s ease; cursor: pointer; white-space: nowrap;">
+                                        <i class="fa-solid fa-user-circle" style="color: #d63384; font-size: 18px;"></i>
+                                        <span style="color: #8e4a6b; font-weight: 500;">Xin chào, <strong style="color: #d63384;">@Session["FullName"]</strong></span>
+                                        <i class="fa-solid fa-chevron-down" style="color: #d63384; font-size: 12px; margin-left: 5px; transition: transform 0.3s ease;"></i>
+                                    </div>
+                                    <div class="user-dropdown-content" style="position: absolute; top: 100%; right: 0; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 15px; padding: 10px 0; min-width: 220px; z-index: 1000; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; margin-top: 5px;">
+                                        <div style="padding: 10px 20px; border-bottom: 1px solid #f0f0f0;">
+                                            <div style="font-weight: 600; color: #d63384; font-size: 14px;">@Session["FullName"]</div>
+                                            <div style="color: #8e4a6b; font-size: 12px;">@Session["UserEmail"]</div>
+                                        </div>
+                                        <a href="@Url.Action("Profile", "Account")" style="display: flex; align-items: center; padding: 12px 20px; color: #333; text-decoration: none; transition: background 0.3s ease; font-size: 14px;">
+                                            <i class="fa-solid fa-user-edit" style="margin-right: 10px; color: #d63384; width: 16px;"></i>
+                                            Chỉnh sửa thông tin
+                                        </a>
+                                        <a href="@Url.Action("ChangePassword", "Account")" style="display: flex; align-items: center; padding: 12px 20px; color: #333; text-decoration: none; transition: background 0.3s ease; font-size: 14px;">
+                                            <i class="fa-solid fa-key" style="margin-right: 10px; color: #d63384; width: 16px;"></i>
+                                            Đổi mật khẩu
+                                        </a>
+                                        <a href="@Url.Action("ForgotPassword", "Account")" style="display: flex; align-items: center; padding: 12px 20px; color: #333; text-decoration: none; transition: background 0.3s ease; font-size: 14px;">
+                                            <i class="fa-solid fa-question-circle" style="margin-right: 10px; color: #d63384; width: 16px;"></i>
+                                            Quên mật khẩu
+                                        </a>
+                                        <a href="@Url.Action("Orders", "Account")" style="display: flex; align-items: center; padding: 12px 20px; color: #333; text-decoration: none; transition: background 0.3s ease; font-size: 14px;">
+                                            <i class="fa-solid fa-shopping-bag" style="margin-right: 10px; color: #d63384; width: 16px;"></i>
+                                            Đơn hàng của tôi
+                                        </a>
+                                        <a href="@Url.Action("Favorites", "Account")" style="display: flex; align-items: center; padding: 12px 20px; color: #333; text-decoration: none; transition: background 0.3s ease; font-size: 14px;">
+                                            <i class="fa-solid fa-heart" style="margin-right: 10px; color: #d63384; width: 16px;"></i>
+                                            Yêu thích
+                                        </a>
+                                        <div style="border-top: 1px solid #f0f0f0; margin: 5px 0;"></div>
+                                        <a href="@Url.Action("Logout", "Account")" style="display: flex; align-items: center; padding: 12px 20px; color: #dc3545; text-decoration: none; transition: background 0.3s ease; font-size: 14px; font-weight: 500;">
+                                            <i class="fa-solid fa-sign-out-alt" style="margin-right: 10px; color: #dc3545; width: 16px;"></i>
+                                            Đăng xuất
+                                        </a>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn-gradient" style="background: linear-gradient(135deg, #d63384, #e91e63); color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(214, 51, 132, 0.3); white-space: nowrap;">
+                                    <i class="fa-solid fa-cart-shopping" style="margin-right: 5px;"></i> Giỏ hàng
+                                </a>
+                            </div>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "Account")" class="btn-gradient" style="background: linear-gradient(135deg, #d63384, #e91e63); color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(214, 51, 132, 0.3); display: inline-block;">
+                                <i class="fa-solid fa-user" style="margin-right: 8px;"></i> Đăng nhập / Đăng ký
+                            </a>
+                        }
                      </div>
                 </div>
-                <a href="@Url.Action("Index", "Community")">Cộng đồng</a>
-            </div>
-            <div class="logo">
-                <a href="@Url.Action("Index", "Home")">MomExchange</a>
-            </div>
-            <div class="nav-cart">
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
             </div>
         </nav>
     </header>
@@ -141,6 +286,48 @@
         AOS.init({
             duration: 800, // Thời gian diễn ra animation (miliseconds)
             once: true // Animation chỉ diễn ra 1 lần
+        });
+        
+        // User dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const userDropdown = document.querySelector('.user-dropdown');
+            const userInfo = document.querySelector('.user-info');
+            const dropdownContent = document.querySelector('.user-dropdown-content');
+            const chevronIcon = document.querySelector('.user-info i.fa-chevron-down');
+            
+            if (userDropdown && userInfo && dropdownContent) {
+                let isOpen = false;
+                
+                userInfo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (isOpen) {
+                        dropdownContent.style.opacity = '0';
+                        dropdownContent.style.visibility = 'hidden';
+                        dropdownContent.style.transform = 'translateY(-10px)';
+                        if (chevronIcon) chevronIcon.style.transform = 'rotate(0deg)';
+                        isOpen = false;
+                    } else {
+                        dropdownContent.style.opacity = '1';
+                        dropdownContent.style.visibility = 'visible';
+                        dropdownContent.style.transform = 'translateY(0)';
+                        if (chevronIcon) chevronIcon.style.transform = 'rotate(180deg)';
+                        isOpen = true;
+                    }
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!userDropdown.contains(e.target) && isOpen) {
+                        dropdownContent.style.opacity = '0';
+                        dropdownContent.style.visibility = 'hidden';
+                        dropdownContent.style.transform = 'translateY(-10px)';
+                        if (chevronIcon) chevronIcon.style.transform = 'rotate(0deg)';
+                        isOpen = false;
+                    }
+                });
+            }
         });
     </script>
 

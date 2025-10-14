@@ -5,9 +5,9 @@ namespace MomExchange.Models
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "Vui lòng nhập email của bạn")]
-        [EmailAddress(ErrorMessage = "Địa chỉ email không hợp lệ")]
-        public string Email { get; set; }
+        [Required(ErrorMessage = "Vui lòng nhập email hoặc tên đăng nhập")]
+        [Display(Name = "Email hoặc Tên đăng nhập")]
+        public string EmailOrUsername { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập mật khẩu")]
         [DataType(DataType.Password)]
