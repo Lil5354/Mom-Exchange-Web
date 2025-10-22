@@ -3,156 +3,39 @@
   "WorkspaceRootPath": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|d:\\douments\\github\\mom-exchange-web\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\views\\admin\\users.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\views\\admin\\posts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\views\\admin\\posts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\views\\admin\\reports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\views\\admin\\reports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\views\\admin\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\views\\admin\\settings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\views\\admin\\userdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\views\\admin\\userdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\filters\\adminauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:filters\\adminauthorizeattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\adminarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\adminarearegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\areas\\admin\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:areas\\admin\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\views\\shared\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|d:\\douments\\github\\mom-exchange-web\\views\\shared\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:views\\shared\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\Documents\\IISExpress\\config\\aspnet.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\models\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:models\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\models\\userdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:models\\userdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\models\\socialpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:models\\socialpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\models\\milkdonationpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:models\\milkdonationpost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\models\\completeprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:models\\completeprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\models\\communitypost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:models\\communitypost.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\models\\branddetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:models\\branddetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\controllers\\milkdonationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:controllers\\milkdonationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:controllers\\brandcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\views\\shared\\servererror.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:views\\shared\\servererror.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|D:\\Douments\\GitHub\\Mom-Exchange-Web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{392639E4-991A-4C10-9239-1604B2DCD5BA}|B\u0026M.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -162,7 +45,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 109,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -174,461 +57,113 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAYwHcAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T13:04:20.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserDetails.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\UserDetails.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Admin\\UserDetails.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\UserDetails.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Admin\\UserDetails.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T12:30:27.395Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Settings.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\Settings.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Admin\\Settings.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\Settings.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Admin\\Settings.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T12:30:24.94Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Reports.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\Reports.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Admin\\Reports.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\Reports.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Admin\\Reports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T12:30:17.475Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Posts.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\Posts.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Admin\\Posts.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\Posts.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Admin\\Posts.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T12:30:14.388Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Admin\\Index.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\Index.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Admin\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T12:30:03.478Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "_AdminLayout.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
-              "ViewState": "AgIAAIwBAAAAAAAAAAAmwJEBAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T13:07:35.217Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\AdminController.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Areas\\Admin\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwDcAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:53.138Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Users.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\Users.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Admin\\Users.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\Admin\\Users.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\Admin\\Users.cshtml",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAEwHsAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T12:30:25.496Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T12:37:20.23Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "BundleConfig.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\App_Start\\BundleConfig.cs",
-              "RelativeDocumentMoniker": "App_Start\\BundleConfig.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\App_Start\\BundleConfig.cs",
-              "RelativeToolTip": "App_Start\\BundleConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T13:19:10.504Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "FilterConfig.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\App_Start\\FilterConfig.cs",
-              "RelativeDocumentMoniker": "App_Start\\FilterConfig.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\App_Start\\FilterConfig.cs",
-              "RelativeToolTip": "App_Start\\FilterConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:28:59.9Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "Areas\\Admin\\Views\\_ViewStart.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T13:07:13.427Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AdminAuthorizeAttribute.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Filters\\AdminAuthorizeAttribute.cs",
-              "RelativeDocumentMoniker": "Filters\\AdminAuthorizeAttribute.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Filters\\AdminAuthorizeAttribute.cs",
-              "RelativeToolTip": "Filters\\AdminAuthorizeAttribute.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T12:46:47.591Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AdminAreaRegistration.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\AdminAreaRegistration.cs",
-              "RelativeDocumentMoniker": "Areas\\Admin\\AdminAreaRegistration.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\AdminAreaRegistration.cs",
-              "RelativeToolTip": "Areas\\Admin\\AdminAreaRegistration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T12:46:34.35Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:45:44.245Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
               "Title": "NotFound.cshtml",
               "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Shared\\NotFound.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\NotFound.cshtml",
               "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Shared\\NotFound.cshtml",
               "RelativeToolTip": "Views\\Shared\\NotFound.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T12:30:40.811Z"
+              "WhenOpened": "2025-10-22T02:47:37.618Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "web.config",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\web.config",
-              "RelativeDocumentMoniker": "Areas\\Admin\\web.config",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Areas\\Admin\\web.config",
-              "RelativeToolTip": "Areas\\Admin\\web.config",
+              "DocumentIndex": 2,
+              "Title": "aspnet.config",
+              "DocumentMoniker": "C:\\Users\\Admin\\Documents\\IISExpress\\config\\aspnet.config",
+              "ToolTip": "C:\\Users\\Admin\\Documents\\IISExpress\\config\\aspnet.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-10-20T12:11:16.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "packages.config",
+              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\packages.config",
+              "RelativeDocumentMoniker": "packages.config",
+              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\packages.config",
+              "RelativeToolTip": "packages.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-10-14T12:33:33.085Z"
+              "WhenOpened": "2025-10-20T11:42:40.705Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "SocialPost.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\SocialPost.cs",
-              "RelativeDocumentMoniker": "Models\\SocialPost.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\SocialPost.cs",
-              "RelativeToolTip": "Models\\SocialPost.cs",
+              "DocumentIndex": 5,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Startup.cs",
+              "RelativeDocumentMoniker": "Startup.cs",
+              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Startup.cs",
+              "RelativeToolTip": "Startup.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:40.369Z"
+              "WhenOpened": "2025-10-20T11:42:38.602Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "MilkDonationPost.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\MilkDonationPost.cs",
-              "RelativeDocumentMoniker": "Models\\MilkDonationPost.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\MilkDonationPost.cs",
-              "RelativeToolTip": "Models\\MilkDonationPost.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:39.822Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "CompleteProfileViewModel.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\CompleteProfileViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\CompleteProfileViewModel.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\CompleteProfileViewModel.cs",
-              "RelativeToolTip": "Models\\CompleteProfileViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:39.156Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 3,
               "Title": "Web.config",
               "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Web.config",
               "RelativeDocumentMoniker": "Web.config",
               "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Web.config",
               "RelativeToolTip": "Web.config",
-              "ViewState": "AgIAACkAAAAAAAAAAAAAADIAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-10-14T10:45:35.803Z",
+              "WhenOpened": "2025-10-15T09:48:06.588Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 8,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T10:54:33.749Z"
+              "WhenOpened": "2025-10-15T09:23:02.827Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "UserDetails.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\UserDetails.cs",
-              "RelativeDocumentMoniker": "Models\\UserDetails.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\UserDetails.cs",
-              "RelativeToolTip": "Models\\UserDetails.cs",
+              "DocumentIndex": 6,
+              "Title": "BundleConfig.cs",
+              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\App_Start\\BundleConfig.cs",
+              "RelativeDocumentMoniker": "App_Start\\BundleConfig.cs",
+              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\App_Start\\BundleConfig.cs",
+              "RelativeToolTip": "App_Start\\BundleConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:40.971Z"
+              "WhenOpened": "2025-10-15T09:20:53.968Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "FilterConfig.cs",
+              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\App_Start\\FilterConfig.cs",
+              "RelativeDocumentMoniker": "App_Start\\FilterConfig.cs",
+              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\App_Start\\FilterConfig.cs",
+              "RelativeToolTip": "App_Start\\FilterConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:46.59Z"
+              "WhenOpened": "2025-10-15T09:20:51.606Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "CommunityPost.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\CommunityPost.cs",
-              "RelativeDocumentMoniker": "Models\\CommunityPost.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\CommunityPost.cs",
-              "RelativeToolTip": "Models\\CommunityPost.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:38.383Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Brand.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\Brand.cs",
-              "RelativeDocumentMoniker": "Models\\Brand.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\Brand.cs",
-              "RelativeToolTip": "Models\\Brand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:37.637Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\UserRepository.cs",
-              "RelativeDocumentMoniker": "Models\\UserRepository.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\UserRepository.cs",
-              "RelativeToolTip": "Models\\UserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHwAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:29:00.591Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "BrandDetailViewModel.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\BrandDetailViewModel.cs",
-              "RelativeDocumentMoniker": "Models\\BrandDetailViewModel.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\BrandDetailViewModel.cs",
-              "RelativeToolTip": "Models\\BrandDetailViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:36.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Models\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Models\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:34.658Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "MilkDonationController.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Controllers\\MilkDonationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MilkDonationController.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Controllers\\MilkDonationController.cs",
-              "RelativeToolTip": "Controllers\\MilkDonationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:46:28.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "BrandController.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Controllers\\BrandController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BrandController.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Controllers\\BrandController.cs",
-              "RelativeToolTip": "Controllers\\BrandController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:45:59.726Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 7,
               "Title": "RouteConfig.cs",
               "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\App_Start\\RouteConfig.cs",
               "RelativeDocumentMoniker": "App_Start\\RouteConfig.cs",
               "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\App_Start\\RouteConfig.cs",
               "RelativeToolTip": "App_Start\\RouteConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:43:34.248Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Global.asax.cs",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Global.asax.cs",
-              "RelativeDocumentMoniker": "Global.asax.cs",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Global.asax.cs",
-              "RelativeToolTip": "Global.asax.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T11:43:16.519Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "About.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Home\\About.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\About.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Home\\About.cshtml",
-              "RelativeToolTip": "Views\\Home\\About.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T11:24:14.301Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Web.config",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Web.config",
-              "RelativeDocumentMoniker": "Views\\Web.config",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Web.config",
-              "RelativeToolTip": "Views\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-10-14T10:54:54.909Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "ServerError.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Shared\\ServerError.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\ServerError.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Shared\\ServerError.cshtml",
-              "RelativeToolTip": "Views\\Shared\\ServerError.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T10:54:24.491Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Contact.cshtml",
-              "DocumentMoniker": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Home\\Contact.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Contact.cshtml",
-              "ToolTip": "D:\\Douments\\GitHub\\Mom-Exchange-Web\\Views\\Home\\Contact.cshtml",
-              "RelativeToolTip": "Views\\Home\\Contact.cshtml",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAEwCQAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T09:20:23.491Z"
+              "WhenOpened": "2025-10-15T05:37:10.485Z"
             }
           ]
         },

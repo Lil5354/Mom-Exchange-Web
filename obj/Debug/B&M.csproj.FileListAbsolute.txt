@@ -1,292 +1,6 @@
-E:\B&M\bin\B&M.dll.config
-E:\B&M\bin\B&M.dll
-E:\B&M\bin\B&M.pdb
-E:\B&M\bin\roslyn\csc.exe
-E:\B&M\bin\roslyn\csc.exe.config
-E:\B&M\bin\roslyn\csc.rsp
-E:\B&M\bin\roslyn\csi.exe
-E:\B&M\bin\roslyn\csi.exe.config
-E:\B&M\bin\roslyn\csi.rsp
-E:\B&M\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\B&M\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\B&M\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-E:\B&M\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\B&M\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-E:\B&M\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\B&M\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\B&M\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-E:\B&M\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-E:\B&M\bin\roslyn\Microsoft.Managed.Core.targets
-E:\B&M\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\B&M\bin\roslyn\Microsoft.Win32.Primitives.dll
-E:\B&M\bin\roslyn\System.AppContext.dll
-E:\B&M\bin\roslyn\System.Collections.Immutable.dll
-E:\B&M\bin\roslyn\System.Console.dll
-E:\B&M\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-E:\B&M\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-E:\B&M\bin\roslyn\System.Diagnostics.StackTrace.dll
-E:\B&M\bin\roslyn\System.Globalization.Calendars.dll
-E:\B&M\bin\roslyn\System.IO.Compression.dll
-E:\B&M\bin\roslyn\System.IO.Compression.ZipFile.dll
-E:\B&M\bin\roslyn\System.IO.FileSystem.dll
-E:\B&M\bin\roslyn\System.IO.FileSystem.Primitives.dll
-E:\B&M\bin\roslyn\System.Net.Http.dll
-E:\B&M\bin\roslyn\System.Net.Sockets.dll
-E:\B&M\bin\roslyn\System.Reflection.Metadata.dll
-E:\B&M\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-E:\B&M\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-E:\B&M\bin\roslyn\System.Security.Cryptography.Encoding.dll
-E:\B&M\bin\roslyn\System.Security.Cryptography.Primitives.dll
-E:\B&M\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-E:\B&M\bin\roslyn\System.Text.Encoding.CodePages.dll
-E:\B&M\bin\roslyn\System.Threading.Tasks.Extensions.dll
-E:\B&M\bin\roslyn\System.ValueTuple.dll
-E:\B&M\bin\roslyn\System.Xml.ReaderWriter.dll
-E:\B&M\bin\roslyn\System.Xml.XmlDocument.dll
-E:\B&M\bin\roslyn\System.Xml.XPath.dll
-E:\B&M\bin\roslyn\System.Xml.XPath.XDocument.dll
-E:\B&M\bin\roslyn\vbc.exe
-E:\B&M\bin\roslyn\vbc.exe.config
-E:\B&M\bin\roslyn\vbc.rsp
-E:\B&M\bin\roslyn\VBCSCompiler.exe
-E:\B&M\bin\roslyn\VBCSCompiler.exe.config
-E:\B&M\bin\Antlr3.Runtime.dll
-E:\B&M\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-E:\B&M\bin\Microsoft.Web.Infrastructure.dll
-E:\B&M\bin\Newtonsoft.Json.dll
-E:\B&M\bin\System.Web.Helpers.dll
-E:\B&M\bin\System.Web.Mvc.dll
-E:\B&M\bin\System.Web.Optimization.dll
-E:\B&M\bin\System.Web.Razor.dll
-E:\B&M\bin\System.Web.WebPages.Deployment.dll
-E:\B&M\bin\System.Web.WebPages.dll
-E:\B&M\bin\System.Web.WebPages.Razor.dll
-E:\B&M\bin\WebGrease.dll
-E:\B&M\bin\System.Web.Helpers.xml
-E:\B&M\bin\System.Web.Mvc.xml
-E:\B&M\bin\System.Web.Optimization.xml
-E:\B&M\bin\System.Web.Razor.xml
-E:\B&M\bin\System.Web.WebPages.xml
-E:\B&M\bin\System.Web.WebPages.Deployment.xml
-E:\B&M\bin\System.Web.WebPages.Razor.xml
-E:\B&M\bin\Newtonsoft.Json.xml
-E:\B&M\bin\Antlr3.Runtime.pdb
-E:\B&M\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\B&M\obj\Debug\B&M.csproj.AssemblyReference.cache
-E:\B&M\obj\Debug\B&M.csproj.CoreCompileInputs.cache
-E:\B&M\obj\Debug\B&M.csproj.Up2Date
-E:\B&M\obj\Debug\B&M.dll
-E:\B&M\obj\Debug\B&M.pdb
-D:\Mom-Exchange\bin\roslyn\csc.exe
-D:\Mom-Exchange\bin\roslyn\csc.exe.config
-D:\Mom-Exchange\bin\roslyn\csc.rsp
-D:\Mom-Exchange\bin\roslyn\csi.exe
-D:\Mom-Exchange\bin\roslyn\csi.exe.config
-D:\Mom-Exchange\bin\roslyn\csi.rsp
-D:\Mom-Exchange\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\Mom-Exchange\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\Mom-Exchange\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-D:\Mom-Exchange\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\Mom-Exchange\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-D:\Mom-Exchange\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\Mom-Exchange\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\Mom-Exchange\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-D:\Mom-Exchange\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-D:\Mom-Exchange\bin\roslyn\Microsoft.Managed.Core.targets
-D:\Mom-Exchange\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\Mom-Exchange\bin\roslyn\Microsoft.Win32.Primitives.dll
-D:\Mom-Exchange\bin\roslyn\System.AppContext.dll
-D:\Mom-Exchange\bin\roslyn\System.Collections.Immutable.dll
-D:\Mom-Exchange\bin\roslyn\System.Console.dll
-D:\Mom-Exchange\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-D:\Mom-Exchange\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-D:\Mom-Exchange\bin\roslyn\System.Diagnostics.StackTrace.dll
-D:\Mom-Exchange\bin\roslyn\System.Globalization.Calendars.dll
-D:\Mom-Exchange\bin\roslyn\System.IO.Compression.dll
-D:\Mom-Exchange\bin\roslyn\System.IO.Compression.ZipFile.dll
-D:\Mom-Exchange\bin\roslyn\System.IO.FileSystem.dll
-D:\Mom-Exchange\bin\roslyn\System.IO.FileSystem.Primitives.dll
-D:\Mom-Exchange\bin\roslyn\System.Net.Http.dll
-D:\Mom-Exchange\bin\roslyn\System.Net.Sockets.dll
-D:\Mom-Exchange\bin\roslyn\System.Reflection.Metadata.dll
-D:\Mom-Exchange\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-D:\Mom-Exchange\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-D:\Mom-Exchange\bin\roslyn\System.Security.Cryptography.Encoding.dll
-D:\Mom-Exchange\bin\roslyn\System.Security.Cryptography.Primitives.dll
-D:\Mom-Exchange\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-D:\Mom-Exchange\bin\roslyn\System.Text.Encoding.CodePages.dll
-D:\Mom-Exchange\bin\roslyn\System.Threading.Tasks.Extensions.dll
-D:\Mom-Exchange\bin\roslyn\System.ValueTuple.dll
-D:\Mom-Exchange\bin\roslyn\System.Xml.ReaderWriter.dll
-D:\Mom-Exchange\bin\roslyn\System.Xml.XmlDocument.dll
-D:\Mom-Exchange\bin\roslyn\System.Xml.XPath.dll
-D:\Mom-Exchange\bin\roslyn\System.Xml.XPath.XDocument.dll
-D:\Mom-Exchange\bin\roslyn\vbc.exe
-D:\Mom-Exchange\bin\roslyn\vbc.exe.config
-D:\Mom-Exchange\bin\roslyn\vbc.rsp
-D:\Mom-Exchange\bin\roslyn\VBCSCompiler.exe
-D:\Mom-Exchange\bin\roslyn\VBCSCompiler.exe.config
-D:\Mom-Exchange\bin\Antlr3.Runtime.dll
-D:\Mom-Exchange\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\Mom-Exchange\bin\Microsoft.Web.Infrastructure.dll
-D:\Mom-Exchange\bin\Newtonsoft.Json.dll
-D:\Mom-Exchange\bin\System.Web.Helpers.dll
-D:\Mom-Exchange\bin\System.Web.Mvc.dll
-D:\Mom-Exchange\bin\System.Web.Optimization.dll
-D:\Mom-Exchange\bin\System.Web.Razor.dll
-D:\Mom-Exchange\bin\System.Web.WebPages.Deployment.dll
-D:\Mom-Exchange\bin\System.Web.WebPages.dll
-D:\Mom-Exchange\bin\System.Web.WebPages.Razor.dll
-D:\Mom-Exchange\bin\WebGrease.dll
-D:\Mom-Exchange\bin\System.Web.Helpers.xml
-D:\Mom-Exchange\bin\System.Web.Mvc.xml
-D:\Mom-Exchange\bin\System.Web.Optimization.xml
-D:\Mom-Exchange\bin\System.Web.Razor.xml
-D:\Mom-Exchange\bin\System.Web.WebPages.xml
-D:\Mom-Exchange\bin\System.Web.WebPages.Deployment.xml
-D:\Mom-Exchange\bin\System.Web.WebPages.Razor.xml
-D:\Mom-Exchange\bin\Newtonsoft.Json.xml
-D:\Mom-Exchange\bin\Antlr3.Runtime.pdb
-D:\Mom-Exchange\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Mom-Exchange\obj\Debug\B&M.csproj.AssemblyReference.cache
-D:\Mom-Exchange\obj\Debug\B&M.csproj.CoreCompileInputs.cache
-D:\Mom-Exchange\obj\Debug\B&M.csproj.Up2Date
-D:\Mom-Exchange\bin\B&M.dll.config
-D:\Mom-Exchange\bin\B&M.dll
-D:\Mom-Exchange\bin\B&M.pdb
-D:\Mom-Exchange\obj\Debug\B&M.dll
-D:\Mom-Exchange\obj\Debug\B&M.pdb
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\B&M.dll.config
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\B&M.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\B&M.pdb
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\csc.exe
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\csc.exe.config
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\csc.rsp
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\csi.exe
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\csi.exe.config
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\csi.rsp
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.Managed.Core.targets
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\Microsoft.Win32.Primitives.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.AppContext.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Collections.Immutable.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Console.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Diagnostics.StackTrace.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Globalization.Calendars.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.IO.Compression.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.IO.Compression.ZipFile.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.IO.FileSystem.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.IO.FileSystem.Primitives.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Net.Http.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Net.Sockets.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Reflection.Metadata.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Security.Cryptography.Encoding.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Security.Cryptography.Primitives.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Text.Encoding.CodePages.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Threading.Tasks.Extensions.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.ValueTuple.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Xml.ReaderWriter.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Xml.XmlDocument.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Xml.XPath.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\System.Xml.XPath.XDocument.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\vbc.exe
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\vbc.exe.config
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\vbc.rsp
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\VBCSCompiler.exe
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\roslyn\VBCSCompiler.exe.config
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\Antlr3.Runtime.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\Microsoft.Web.Infrastructure.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\Newtonsoft.Json.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.Helpers.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.Mvc.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.Optimization.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.Razor.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.WebPages.Deployment.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.WebPages.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.WebPages.Razor.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\WebGrease.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.Helpers.xml
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.Mvc.xml
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.Optimization.xml
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.Razor.xml
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.WebPages.xml
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.WebPages.Deployment.xml
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\System.Web.WebPages.Razor.xml
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\Newtonsoft.Json.xml
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\Antlr3.Runtime.pdb
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\obj\Debug\B&M.csproj.AssemblyReference.cache
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\obj\Debug\B&M.csproj.CoreCompileInputs.cache
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\obj\Debug\B&M.csproj.Up2Date
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\obj\Debug\B&M.dll
-D:\Tài liệu học tập\Mom-Exchange\Mom-Exchange\obj\Debug\B&M.pdb
 D:\Douments\GitHub\Mom-Exchange-Web\bin\B&M.dll.config
 D:\Douments\GitHub\Mom-Exchange-Web\bin\B&M.dll
 D:\Douments\GitHub\Mom-Exchange-Web\bin\B&M.pdb
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csc.exe
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csc.exe.config
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csc.rsp
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csi.exe
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csi.exe.config
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csi.rsp
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.Managed.Core.targets
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.Win32.Primitives.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.AppContext.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Collections.Immutable.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Console.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Diagnostics.StackTrace.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Globalization.Calendars.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.IO.Compression.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.IO.Compression.ZipFile.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.IO.FileSystem.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Net.Http.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Net.Sockets.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Reflection.Metadata.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Text.Encoding.CodePages.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.ValueTuple.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Xml.ReaderWriter.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Xml.XmlDocument.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Xml.XPath.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Xml.XPath.XDocument.dll
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\vbc.exe
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\vbc.exe.config
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\vbc.rsp
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\VBCSCompiler.exe
-D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\VBCSCompiler.exe.config
 D:\Douments\GitHub\Mom-Exchange-Web\bin\Antlr3.Runtime.dll
 D:\Douments\GitHub\Mom-Exchange-Web\bin\EntityFramework.dll
 D:\Douments\GitHub\Mom-Exchange-Web\bin\EntityFramework.SqlServer.dll
@@ -339,3 +53,52 @@ D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.csproj.CoreCompileInputs.cache
 D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.csproj.Up2Date
 D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.dll
 D:\Douments\GitHub\Mom-Exchange-Web\obj\Debug\B&M.pdb
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csc.exe
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csc.exe.config
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csc.rsp
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csi.exe
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csi.exe.config
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\csi.rsp
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.AppContext.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Collections.Immutable.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Console.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Globalization.Calendars.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.IO.Compression.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.IO.FileSystem.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Net.Http.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Net.Sockets.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.ValueTuple.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Xml.XPath.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\vbc.exe
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\vbc.exe.config
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\vbc.rsp
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\VBCSCompiler.exe
+D:\Douments\GitHub\Mom-Exchange-Web\bin\roslyn\VBCSCompiler.exe.config
