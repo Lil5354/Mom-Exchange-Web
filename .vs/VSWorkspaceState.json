@@ -1,6 +1,7 @@
 {
   "ExpandedNodes": [
     "",
+    "\\App_Start",
     "\\Content",
     "\\Views",
     "\\Views\\Community",
@@ -8,6 +9,6 @@
     "\\Views\\Shared",
     "\\Views\\Trade"
   ],
-  "SelectedNode": "\\B\u0026M.sln",
+  "SelectedNode": "\\App_Start\\FilterConfig.cs",
   "PreviewInSolutionExplorer": false
 }

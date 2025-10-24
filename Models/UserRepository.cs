@@ -227,6 +227,85 @@ namespace B_M.Models
             }
         }
 
+        // Admin CRUD Methods
+        public User GetUserForAdminEdit(int userId)
+        {
+            return _context.Users
+                .Include("UserDetails")
+                .FirstOrDefault(u => u.UserID == userId);
+        }
+        
+        public bool UpdateUserProfile(User user, UserDetails userDetails)
+        {
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    _context.Entry(user).State = EntityState.Modified;
+                    _context.Entry(userDetails).State = EntityState.Modified;
+                    _context.SaveChanges();
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    System.Diagnostics.Debug.WriteLine($"ERROR in UpdateUserProfile: {ex.Message}");
+                    return false;
+                }
+            }
+        }
+        
+        public bool UpdateUserRole(int userId, byte newRole)
+        {
+            try
+            {
+                var user = _context.Users.Find(userId);
+                if (user == null) return false;
+                
+                user.Role = newRole;
+                _context.Entry(user).State = EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"ERROR in UpdateUserRole: {ex.Message}");
+                return false;
+            }
+        }
+        
+        public bool UpdateUserStatus(int userId, bool isActive)
+        {
+            try
+            {
+                var user = _context.Users.Find(userId);
+                if (user == null) return false;
+                
+                user.IsActive = isActive;
+                _context.Entry(user).State = EntityState.Modified;
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"ERROR in UpdateUserStatus: {ex.Message}");
+                return false;
+            }
+        }
+        
+        public bool UsernameExistsExcludingUser(string username, int excludeUserId)
+        {
+            if (string.IsNullOrEmpty(username))
+                return false;
+            return _context.Users.Any(u => u.UserName == username && u.UserID != excludeUserId);
+        }
+        
+        public bool EmailExistsExcludingUser(string email, int excludeUserId)
+        {
+            return _context.Users.Any(u => u.Email == email && u.UserID != excludeUserId);
+        }
+
         public void Dispose()
         {
             _context?.Dispose();

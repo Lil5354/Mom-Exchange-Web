@@ -12,6 +12,8 @@
         </div>
     </div>
     <div class="admin-card-body">
+        @Html.AntiForgeryToken()
+        
         <!-- Search and Filter -->
         <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
             @using (Html.BeginForm("Users", "Admin", new { area = "Admin" }, FormMethod.Get, new { @style = "display: flex; gap: 15px; flex-wrap: wrap; width: 100%;" }))
@@ -107,13 +109,13 @@
                                 <td>@user.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
                                 <td>
                                     <div style="display: flex; gap: 5px; flex-wrap: wrap;">
-                                        <button onclick="toggleUserStatus(@user.UserID, @user.IsActive.ToString().ToLower())" 
+                                        <button data-user-id="@user.UserID" data-is-active="@user.IsActive.ToString().ToLower()" 
                                                 class="btn-admin" style="padding: 5px 10px; font-size: 12px;">
                                             <i class="fas fa-@(user.IsActive ? "lock" : "unlock")"></i>
                                             @(user.IsActive ? "Khóa" : "Mở khóa")
                                         </button>
                                         
-                                        <select onchange="changeUserRole(@user.UserID, this.value)" 
+                                        <select data-user-id="@user.UserID" 
                                                 style="padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 12px;">
                                             <option value="1" @(user.Role == 1 ? "selected" : "")>Quản trị viên</option>
                                             <option value="2" @(user.Role == 2 ? "selected" : "")>Mẹ bỉm</option>
@@ -194,24 +196,50 @@
 
 @section scripts {
     <script>
+        $(document).ready(function() {
+            // Toggle User Status
+            $('button[data-user-id]').on('click', function() {
+                var userId = $(this).data('user-id');
+                var isActive = $(this).data('is-active');
+                toggleUserStatus(userId, isActive);
+            });
+
+            // Change User Role
+            $('select[data-user-id]').on('change', function() {
+                var userId = $(this).data('user-id');
+                var newRole = $(this).val();
+                changeUserRole(userId, newRole);
+            });
+        });
+
         function toggleUserStatus(userId, isActive) {
             if (confirm(isActive ? 'Bạn có chắc chắn muốn khóa tài khoản này?' : 'Bạn có chắc chắn muốn mở khóa tài khoản này?')) {
                 $.ajax({
                     url: '@Url.Action("ToggleUserStatus", "Admin", new { area = "Admin" })',
                     type: 'POST',
                     data: {
-                        userId: userId,
+                        UserID: userId,
+                        IsActive: !isActive,
                         __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
                     },
                     success: function(response) {
                         if (response.success) {
-                            location.reload();
+                            showAlert('success', response.message);
+                            // Update UI elements
+                            var statusBadge = $('button[data-user-id="' + userId + '"]').closest('tr').find('.badge-success, .badge-danger');
+                            statusBadge.removeClass('badge-success badge-danger')
+                                .addClass(response.data.statusClass)
+                                .text(response.data.statusName);
+                            
+                            var toggleBtn = $('button[data-user-id="' + userId + '"]');
+                            toggleBtn.data('is-active', response.data.isActive)
+                                .html('<i class="fas fa-' + response.data.buttonIcon + '"></i> ' + response.data.buttonText);
                         } else {
-                            alert('Lỗi: ' + response.message);
+                            showAlert('error', response.message);
                         }
                     },
                     error: function() {
-                        alert('Có lỗi xảy ra khi cập nhật trạng thái tài khoản.');
+                        showAlert('error', 'Có lỗi xảy ra khi cập nhật trạng thái tài khoản.');
                     }
                 });
             }
@@ -223,22 +251,42 @@
                     url: '@Url.Action("ChangeUserRole", "Admin", new { area = "Admin" })',
                     type: 'POST',
                     data: {
-                        userId: userId,
-                        newRole: newRole,
+                        UserID: userId,
+                        NewRole: newRole,
                         __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
                     },
                     success: function(response) {
                         if (response.success) {
-                            location.reload();
+                            showAlert('success', response.message);
+                            // Update UI elements
+                            var roleBadge = $('select[data-user-id="' + userId + '"]').closest('tr').find('.badge-danger, .badge-warning, .badge-info, .badge-secondary');
+                            roleBadge.removeClass('badge-danger badge-warning badge-info badge-secondary')
+                                .addClass(response.data.roleClass)
+                                .text(response.data.roleName);
                         } else {
-                            alert('Lỗi: ' + response.message);
+                            showAlert('error', response.message);
                         }
                     },
                     error: function() {
-                        alert('Có lỗi xảy ra khi cập nhật quyền người dùng.');
+                        showAlert('error', 'Có lỗi xảy ra khi cập nhật quyền người dùng.');
                     }
                 });
             }
+        }
+
+        function showAlert(type, message) {
+            var alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+            var alertHtml = '<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert" style="margin-bottom: 20px;">' +
+                '<strong>' + (type === 'success' ? 'Thành công!' : 'Lỗi!') + '</strong> ' + message +
+                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>' +
+                '</div>';
+            
+            $('.admin-content').prepend(alertHtml);
+            
+            // Auto-hide after 5 seconds
+            setTimeout(function() {
+                $('.alert').fadeOut();
+            }, 5000);
         }
     </script>
 }

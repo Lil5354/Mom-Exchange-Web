@@ -119,14 +119,30 @@ namespace B_M.Areas.Admin.Controllers
         {
             try
             {
-                var user = userRepository.GetUserById(id);
+                var user = userRepository.GetUserForAdminEdit(id);
                 if (user == null)
                 {
                     TempData["ErrorMessage"] = "Không tìm thấy người dùng.";
                     return RedirectToAction("Users");
                 }
 
-                return View(user);
+                var viewModel = new B_M.Models.AdminUserEditViewModel
+                {
+                    UserID = user.UserID,
+                    Email = user.Email,
+                    UserName = user.UserName ?? "Chưa thiết lập",
+                    PhoneNumber = user.PhoneNumber ?? "Chưa cập nhật",
+                    FullName = user.UserDetails?.FullName ?? "Chưa cập nhật",
+                    Address = user.UserDetails?.Address ?? "Chưa cập nhật",
+                    IsActive = user.IsActive,
+                    Role = user.Role,
+                    RoleName = GetRoleName(user.Role),
+                    StatusName = user.IsActive ? "HOẠT ĐỘNG" : "BỊ KHÓA",
+                    CreatedAt = user.CreatedAt,
+                    ReputationScore = user.UserDetails?.ReputationScore ?? 0
+                };
+
+                return View(viewModel);
             }
             catch (Exception ex)
             {
@@ -138,11 +154,11 @@ namespace B_M.Areas.Admin.Controllers
         // POST: Admin/ToggleUserStatus
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ToggleUserStatus(int userId)
+        public ActionResult ToggleUserStatus(int UserID, bool IsActive)
         {
             try
             {
-                var user = userRepository.GetUserById(userId);
+                var user = userRepository.GetUserById(UserID);
                 if (user == null)
                 {
                     return Json(new { success = false, message = "Không tìm thấy người dùng." });
@@ -151,18 +167,26 @@ namespace B_M.Areas.Admin.Controllers
                 // Không cho phép admin tự vô hiệu hóa tài khoản của mình
                 if (user.UserID == (int)Session["UserID"])
                 {
-                    return Json(new { success = false, message = "Bạn không thể vô hiệu hóa tài khoản của chính mình." });
+                    return Json(new { success = false, message = "Bạn không thể khóa tài khoản của chính mình." });
                 }
 
-                user.IsActive = !user.IsActive;
-                bool result = userRepository.UpdateUser(user);
+                bool result = userRepository.UpdateUserStatus(UserID, IsActive);
 
                 if (result)
                 {
+                    string statusName = IsActive ? "HOẠT ĐỘNG" : "BỊ KHÓA";
+                    string actionText = IsActive ? "mở khóa" : "khóa";
+                    
                     return Json(new { 
                         success = true, 
-                        message = user.IsActive ? "Đã kích hoạt tài khoản." : "Đã vô hiệu hóa tài khoản.",
-                        isActive = user.IsActive
+                        message = $"Đã {actionText} tài khoản thành công.",
+                        data = new {
+                            isActive = IsActive,
+                            statusName = statusName,
+                            statusClass = IsActive ? "badge-success" : "badge-danger",
+                            buttonText = IsActive ? "Khóa" : "Mở khóa",
+                            buttonIcon = IsActive ? "lock" : "unlock"
+                        }
                     });
                 }
                 else
@@ -179,11 +203,11 @@ namespace B_M.Areas.Admin.Controllers
         // POST: Admin/ChangeUserRole
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangeUserRole(int userId, byte newRole)
+        public ActionResult ChangeUserRole(int UserID, byte NewRole)
         {
             try
             {
-                var user = userRepository.GetUserById(userId);
+                var user = userRepository.GetUserById(UserID);
                 if (user == null)
                 {
                     return Json(new { success = false, message = "Không tìm thấy người dùng." });
@@ -196,27 +220,113 @@ namespace B_M.Areas.Admin.Controllers
                 }
 
                 // Kiểm tra role hợp lệ
-                if (newRole < 1 || newRole > 3)
+                if (NewRole < 1 || NewRole > 3)
                 {
                     return Json(new { success = false, message = "Quyền không hợp lệ." });
                 }
 
-                user.Role = newRole;
-                bool result = userRepository.UpdateUser(user);
+                bool result = userRepository.UpdateUserRole(UserID, NewRole);
 
                 if (result)
                 {
-                    string roleName = GetRoleName(newRole);
+                    string roleName = GetRoleName(NewRole);
                     return Json(new { 
                         success = true, 
                         message = $"Đã thay đổi quyền thành {roleName}.",
-                        role = newRole,
-                        roleName = roleName
+                        data = new {
+                            role = NewRole,
+                            roleName = roleName,
+                            roleClass = GetRoleClass(NewRole)
+                        }
                     });
                 }
                 else
                 {
                     return Json(new { success = false, message = "Có lỗi xảy ra khi cập nhật quyền." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Có lỗi xảy ra: " + ex.Message });
+            }
+        }
+
+        // POST: Admin/UpdateUserProfile
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateUserProfile(B_M.Models.AdminUserEditViewModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Json(new { success = false, message = "Dữ liệu không hợp lệ." });
+                }
+
+                // Get current user
+                var user = userRepository.GetUserForAdminEdit(model.UserID);
+                if (user == null)
+                {
+                    return Json(new { success = false, message = "Không tìm thấy người dùng." });
+                }
+
+                // Validation: Check for duplicate email (excluding current user)
+                if (userRepository.EmailExistsExcludingUser(model.Email, model.UserID))
+                {
+                    return Json(new { success = false, message = "Email này đã được sử dụng bởi người dùng khác." });
+                }
+
+                // Validation: Check for duplicate username (excluding current user)
+                if (!string.IsNullOrEmpty(model.UserName) && 
+                    userRepository.UsernameExistsExcludingUser(model.UserName, model.UserID))
+                {
+                    return Json(new { success = false, message = "Tên đăng nhập này đã được sử dụng bởi người dùng khác." });
+                }
+
+                // Update User information
+                user.Email = model.Email;
+                user.UserName = string.IsNullOrEmpty(model.UserName) ? null : model.UserName;
+                user.PhoneNumber = string.IsNullOrEmpty(model.PhoneNumber) ? null : model.PhoneNumber;
+
+                // Update UserDetails
+                var userDetails = userRepository.GetUserDetails(model.UserID);
+                if (userDetails != null)
+                {
+                    userDetails.FullName = model.FullName;
+                    userDetails.Address = string.IsNullOrEmpty(model.Address) ? null : model.Address;
+                }
+                else
+                {
+                    // Create UserDetails if not exists
+                    userDetails = new UserDetails
+                    {
+                        UserID = model.UserID,
+                        FullName = model.FullName,
+                        Address = string.IsNullOrEmpty(model.Address) ? null : model.Address,
+                        ReputationScore = 0
+                    };
+                }
+
+                // Save changes
+                bool result = userRepository.UpdateUserProfile(user, userDetails);
+
+                if (result)
+                {
+                    return Json(new { 
+                        success = true, 
+                        message = "Cập nhật thông tin người dùng thành công.",
+                        data = new {
+                            email = user.Email,
+                            username = user.UserName ?? "Chưa thiết lập",
+                            phoneNumber = user.PhoneNumber ?? "Chưa cập nhật",
+                            fullName = userDetails.FullName,
+                            address = userDetails.Address ?? "Chưa cập nhật"
+                        }
+                    });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Có lỗi xảy ra khi cập nhật thông tin." });
                 }
             }
             catch (Exception ex)
@@ -352,6 +462,17 @@ namespace B_M.Areas.Admin.Controllers
                 case 2: return "Mẹ bỉm";
                 case 3: return "Nhãn hàng";
                 default: return "Không xác định";
+            }
+        }
+
+        private string GetRoleClass(byte role)
+        {
+            switch (role)
+            {
+                case 1: return "badge-danger";
+                case 2: return "badge-warning";
+                case 3: return "badge-info";
+                default: return "badge-secondary";
             }
         }
     }

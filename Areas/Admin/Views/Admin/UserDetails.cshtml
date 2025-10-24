@@ -1,4 +1,4 @@
-@model B_M.Models.User
+@model B_M.Models.AdminUserEditViewModel
 @{
     ViewBag.Title = "Chi tiết người dùng";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -8,189 +8,293 @@
     <div class="admin-card-header">
         <h5><i class="fas fa-user"></i> Thông tin chi tiết người dùng</h5>
         <a href="@Url.Action("Users", "Admin", new { area = "Admin" })" class="btn-admin-secondary">
-            <i class="fas fa-arrow-left"></i> Quay lại
+            <i class="fas fa-arrow-left"></i> Quay lại danh sách
         </a>
     </div>
     <div class="admin-card-body">
-        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px; margin-bottom: 30px;">
-            <!-- User Avatar and Basic Info -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px;">
+            <!-- Left Column - User Summary -->
             <div>
-                <div style="text-align: center; margin-bottom: 20px;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #e74c3c, #c0392b); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 48px; margin: 0 auto 15px;">
-                        @(Model.UserDetails?.FullName?.Substring(0, 1).ToUpper() ?? "U")
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #e74c3c, #c0392b); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 48px; margin: 0 auto 20px;">
+                        @(Model.FullName?.Substring(0, 1).ToUpper() ?? "U")
                     </div>
-                    <h4 style="margin: 0; color: #2c3e50;">@(Model.UserDetails?.FullName ?? "Chưa cập nhật")</h4>
-                    <p style="margin: 5px 0 0 0; color: #7f8c8d;">@(Model.UserName ?? "Không có tên đăng nhập")</p>
+                    <h4 style="margin: 0; color: #2c3e50;">@Model.FullName</h4>
+                    <p style="color: #7f8c8d; margin: 5px 0;">@(Model.UserName ?? "Không có tên đăng nhập")</p>
                 </div>
 
-                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
-                    <h6 style="margin: 0 0 15px 0; color: #2c3e50; font-weight: 600;">Trạng thái tài khoản</h6>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <span>Trạng thái:</span>
-                        @if (Model.IsActive)
-                        {
-                            <span class="badge badge-success">Hoạt động</span>
-                        }
-                        else
-                        {
-                            <span class="badge badge-danger">Bị khóa</span>
-                        }
+                <div class="admin-card" style="margin-bottom: 20px;">
+                    <div class="admin-card-header">
+                        <h6><i class="fas fa-info-circle"></i> Trạng thái tài khoản</h6>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                        <span>Vai trò:</span>
-                        @{
-                            string roleName = "";
-                            string roleClass = "";
-                            switch (Model.Role)
-                            {
-                                case 1:
-                                    roleName = "Quản trị viên";
-                                    roleClass = "badge-danger";
-                                    break;
-                                case 2:
-                                    roleName = "Mẹ bỉm";
-                                    roleClass = "badge-warning";
-                                    break;
-                                case 3:
-                                    roleName = "Nhãn hàng";
-                                    roleClass = "badge-info";
-                                    break;
-                                default:
-                                    roleName = "Không xác định";
-                                    roleClass = "badge-secondary";
-                                    break;
-                            }
-                        }
-                        <span class="badge @roleClass">@roleName</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span>Ngày tạo:</span>
-                        <span style="color: #7f8c8d;">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</span>
+                    <div class="admin-card-body">
+                        <div style="margin-bottom: 15px;">
+                            <label style="font-weight: 600; color: #2c3e50;">Trạng thái:</label>
+                            <span class="badge @(Model.IsActive ? "badge-success" : "badge-danger")" id="statusBadge">
+                                @Model.StatusName
+                            </span>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="font-weight: 600; color: #2c3e50;">Vai trò:</label>
+                            <span class="badge @GetRoleClass(Model.Role)" id="roleBadge">
+                                @Model.RoleName
+                            </span>
+                        </div>
+                        <div>
+                            <label style="font-weight: 600; color: #2c3e50;">Ngày tạo:</label>
+                            <span style="color: #7f8c8d;">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Detailed Information -->
+            <!-- Right Column - User Details Form -->
             <div>
-                <h6 style="margin: 0 0 20px 0; color: #2c3e50; font-weight: 600;">Thông tin chi tiết</h6>
-                
-                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-                    <h6 style="margin: 0 0 15px 0; color: #2c3e50; font-weight: 600;">Thông tin đăng nhập</h6>
-                    <div style="margin-bottom: 10px;">
-                        <label style="font-weight: 600; color: #7f8c8d; display: block; margin-bottom: 5px;">Email:</label>
-                        <div style="padding: 10px; background: white; border: 1px solid #ddd; border-radius: 5px; color: #2c3e50;">@Model.Email</div>
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h6><i class="fas fa-edit"></i> Thông tin chi tiết</h6>
                     </div>
-                    <div style="margin-bottom: 10px;">
-                        <label style="font-weight: 600; color: #7f8c8d; display: block; margin-bottom: 5px;">Tên đăng nhập:</label>
-                        <div style="padding: 10px; background: white; border: 1px solid #ddd; border-radius: 5px; color: #2c3e50;">@(Model.UserName ?? "Chưa thiết lập")</div>
-                    </div>
-                    <div>
-                        <label style="font-weight: 600; color: #7f8c8d; display: block; margin-bottom: 5px;">Số điện thoại:</label>
-                        <div style="padding: 10px; background: white; border: 1px solid #ddd; border-radius: 5px; color: #2c3e50;">@(Model.PhoneNumber ?? "Chưa cập nhật")</div>
-                    </div>
-                </div>
-
-                @if (Model.UserDetails != null)
-                {
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
-                        <h6 style="margin: 0 0 15px 0; color: #2c3e50; font-weight: 600;">Thông tin cá nhân</h6>
-                        <div style="margin-bottom: 10px;">
-                            <label style="font-weight: 600; color: #7f8c8d; display: block; margin-bottom: 5px;">Họ và tên:</label>
-                            <div style="padding: 10px; background: white; border: 1px solid #ddd; border-radius: 5px; color: #2c3e50;">@Model.UserDetails.FullName</div>
-                        </div>
-                        <div style="margin-bottom: 10px;">
-                            <label style="font-weight: 600; color: #7f8c8d; display: block; margin-bottom: 5px;">Địa chỉ:</label>
-                            <div style="padding: 10px; background: white; border: 1px solid #ddd; border-radius: 5px; color: #2c3e50;">@(Model.UserDetails.Address ?? "Chưa cập nhật")</div>
-                        </div>
-                        <div style="margin-bottom: 10px;">
-                            <label style="font-weight: 600; color: #7f8c8d; display: block; margin-bottom: 5px;">Điểm uy tín:</label>
-                            <div style="padding: 10px; background: white; border: 1px solid #ddd; border-radius: 5px; color: #2c3e50;">
-                                <span class="badge badge-info">@Model.UserDetails.ReputationScore điểm</span>
-                            </div>
-                        </div>
-                        @if (!string.IsNullOrEmpty(Model.UserDetails.ProfilePictureURL))
+                    <div class="admin-card-body">
+                        @using (Html.BeginForm("UpdateUserProfile", "Admin", new { area = "Admin" }, FormMethod.Post, new { @id = "userProfileForm" }))
                         {
-                            <div>
-                                <label style="font-weight: 600; color: #7f8c8d; display: block; margin-bottom: 5px;">Ảnh đại diện:</label>
-                                <div style="padding: 10px; background: white; border: 1px solid #ddd; border-radius: 5px;">
-                                    <img src="@Model.UserDetails.ProfilePictureURL" alt="Ảnh đại diện" style="max-width: 100px; max-height: 100px; border-radius: 5px;" />
+                            @Html.HiddenFor(m => m.UserID)
+                            @Html.AntiForgeryToken()
+
+                            <!-- Login Information -->
+                            <div style="margin-bottom: 25px;">
+                                <h6 style="color: #2c3e50; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #ecf0f1;">
+                                    <i class="fas fa-key"></i> Thông tin đăng nhập
+                                </h6>
+                                
+                                <div style="margin-bottom: 15px;">
+                                    <label style="font-weight: 600; color: #2c3e50;">Email:</label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @style = "margin-top: 5px;" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                 </div>
+
+                                <div style="margin-bottom: 15px;">
+                                    <label style="font-weight: 600; color: #2c3e50;">Tên đăng nhập:</label>
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @style = "margin-top: 5px;", @placeholder = "Tùy chọn", @value = Model.UserName == "Chưa thiết lập" ? "" : Model.UserName })
+                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div style="margin-bottom: 15px;">
+                                    <label style="font-weight: 600; color: #2c3e50;">Số điện thoại:</label>
+                                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", @style = "margin-top: 5px;", @placeholder = "Tùy chọn", @value = Model.PhoneNumber == "Chưa cập nhật" ? "" : Model.PhoneNumber })
+                                    @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <!-- Personal Information -->
+                            <div style="margin-bottom: 25px;">
+                                <h6 style="color: #2c3e50; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #ecf0f1;">
+                                    <i class="fas fa-user"></i> Thông tin cá nhân
+                                </h6>
+                                
+                                <div style="margin-bottom: 15px;">
+                                    <label style="font-weight: 600; color: #2c3e50;">Họ và tên:</label>
+                                    @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @style = "margin-top: 5px;" })
+                                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div style="margin-bottom: 15px;">
+                                    <label style="font-weight: 600; color: #2c3e50;">Địa chỉ:</label>
+                                    @Html.TextAreaFor(m => m.Address, new { @class = "form-control", @style = "margin-top: 5px; height: 80px;", @placeholder = "Tùy chọn", @value = Model.Address == "Chưa cập nhật" ? "" : Model.Address })
+                                    @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div style="margin-bottom: 15px;">
+                                    <label style="font-weight: 600; color: #2c3e50;">Điểm uy tín:</label>
+                                    <div class="badge badge-info" style="margin-top: 5px;">
+                                        @Model.ReputationScore ĐIỂM
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: right;">
+                                <button type="submit" class="btn-admin" id="saveProfileBtn">
+                                    <i class="fas fa-save"></i> Lưu thay đổi
+                                </button>
                             </div>
                         }
                     </div>
-                }
+                </div>
             </div>
         </div>
 
-        <!-- Action Buttons -->
-        <div style="border-top: 1px solid #ecf0f1; padding-top: 20px; display: flex; gap: 10px; justify-content: center;">
-            <button onclick="toggleUserStatus(@Model.UserID, @Model.IsActive.ToString().ToLower())" 
-                    class="btn-admin" style="padding: 10px 20px;">
-                <i class="fas fa-@(Model.IsActive ? "lock" : "unlock")"></i>
-                @(Model.IsActive ? "Khóa tài khoản" : "Mở khóa tài khoản")
-            </button>
-            
-            <select onchange="changeUserRole(@Model.UserID, this.value)" 
-                    style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-                <option value="1" @(Model.Role == 1 ? "selected" : "")>Quản trị viên</option>
-                <option value="2" @(Model.Role == 2 ? "selected" : "")>Mẹ bỉm</option>
-                <option value="3" @(Model.Role == 3 ? "selected" : "")>Nhãn hàng</option>
-            </select>
-            
-            <a href="@Url.Action("Users", "Admin", new { area = "Admin" })" class="btn-admin-secondary" style="padding: 10px 20px; text-decoration: none;">
-                <i class="fas fa-arrow-left"></i> Quay lại danh sách
-            </a>
+        <!-- Action Controls -->
+        <div class="admin-card" style="margin-top: 20px;">
+            <div class="admin-card-header">
+                <h6><i class="fas fa-cogs"></i> Thao tác quản lý</h6>
+            </div>
+            <div class="admin-card-body">
+                <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                    <!-- Lock/Unlock Account -->
+                    <button type="button" class="btn-admin @(Model.IsActive ? "" : "btn-admin-secondary")" 
+                            id="toggleStatusBtn" data-user-id="@Model.UserID" data-is-active="@Model.IsActive.ToString().ToLower()">
+                        <i class="fas fa-@(Model.IsActive ? "lock" : "unlock")"></i>
+                        @(Model.IsActive ? "Khóa tài khoản" : "Mở khóa tài khoản")
+                    </button>
+
+                    <!-- Change Role -->
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label style="font-weight: 600; color: #2c3e50;">Thay đổi vai trò:</label>
+                        <select id="roleSelect" data-user-id="@Model.UserID" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 5px;">
+                            <option value="1" @(Model.Role == 1 ? "selected" : "")>Quản trị viên</option>
+                            <option value="2" @(Model.Role == 2 ? "selected" : "")>Mẹ bỉm</option>
+                            <option value="3" @(Model.Role == 3 ? "selected" : "")>Nhãn hàng</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 @section scripts {
     <script>
-        function toggleUserStatus(userId, isActive) {
-            if (confirm(isActive ? 'Bạn có chắc chắn muốn khóa tài khoản này?' : 'Bạn có chắc chắn muốn mở khóa tài khoản này?')) {
+        $(document).ready(function() {
+            // Update User Profile
+            $('#userProfileForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                var formData = $(this).serialize();
+                var saveBtn = $('#saveProfileBtn');
+                
+                // Disable button and show loading
+                saveBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Đang lưu...');
+                
                 $.ajax({
-                    url: '@Url.Action("ToggleUserStatus", "Admin", new { area = "Admin" })',
+                    url: '@Url.Action("UpdateUserProfile", "Admin", new { area = "Admin" })',
                     type: 'POST',
-                    data: {
-                        userId: userId,
-                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
-                    },
+                    data: formData,
                     success: function(response) {
                         if (response.success) {
-                            location.reload();
+                            showAlert('success', response.message);
+                            // Update display values
+                            if (response.data) {
+                                $('input[name="Email"]').val(response.data.email);
+                                $('input[name="UserName"]').val(response.data.username);
+                                $('input[name="PhoneNumber"]').val(response.data.phoneNumber);
+                                $('input[name="FullName"]').val(response.data.fullName);
+                                $('textarea[name="Address"]').val(response.data.address);
+                            }
                         } else {
-                            alert('Lỗi: ' + response.message);
+                            showAlert('error', response.message);
                         }
                     },
                     error: function() {
-                        alert('Có lỗi xảy ra khi cập nhật trạng thái tài khoản.');
+                        showAlert('error', 'Có lỗi xảy ra khi cập nhật thông tin.');
+                    },
+                    complete: function() {
+                        saveBtn.prop('disabled', false).html('<i class="fas fa-save"></i> Lưu thay đổi');
                     }
                 });
-            }
-        }
+            });
 
-        function changeUserRole(userId, newRole) {
-            if (confirm('Bạn có chắc chắn muốn thay đổi quyền của người dùng này?')) {
-                $.ajax({
-                    url: '@Url.Action("ChangeUserRole", "Admin", new { area = "Admin" })',
-                    type: 'POST',
-                    data: {
-                        userId: userId,
-                        newRole: newRole,
-                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
-                    },
-                    success: function(response) {
-                        if (response.success) {
-                            location.reload();
-                        } else {
-                            alert('Lỗi: ' + response.message);
+            // Toggle User Status
+            $('#toggleStatusBtn').on('click', function() {
+                var userId = $(this).data('user-id');
+                var isActive = $(this).data('is-active');
+                var action = isActive ? 'khóa' : 'mở khóa';
+                
+                if (confirm('Bạn có chắc chắn muốn ' + action + ' tài khoản này?')) {
+                    $.ajax({
+                        url: '@Url.Action("ToggleUserStatus", "Admin", new { area = "Admin" })',
+                        type: 'POST',
+                        data: {
+                            UserID: userId,
+                            IsActive: !isActive,
+                            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                showAlert('success', response.message);
+                                // Update UI
+                                $('#statusBadge').removeClass('badge-success badge-danger')
+                                    .addClass(response.data.statusClass)
+                                    .text(response.data.statusName);
+                                $('#toggleStatusBtn')
+                                    .data('is-active', response.data.isActive)
+                                    .html('<i class="fas fa-' + response.data.buttonIcon + '"></i> ' + response.data.buttonText);
+                            } else {
+                                showAlert('error', response.message);
+                            }
+                        },
+                        error: function() {
+                            showAlert('error', 'Có lỗi xảy ra khi cập nhật trạng thái tài khoản.');
                         }
-                    },
-                    error: function() {
-                        alert('Có lỗi xảy ra khi cập nhật quyền người dùng.');
-                    }
-                });
-            }
+                    });
+                }
+            });
+
+            // Change User Role
+            $('#roleSelect').on('change', function() {
+                var userId = $(this).data('user-id');
+                var newRole = $(this).val();
+                var roleName = $(this).find('option:selected').text();
+                
+                if (confirm('Bạn có chắc chắn muốn thay đổi vai trò thành "' + roleName + '"?')) {
+                    $.ajax({
+                        url: '@Url.Action("ChangeUserRole", "Admin", new { area = "Admin" })',
+                        type: 'POST',
+                        data: {
+                            UserID: userId,
+                            NewRole: newRole,
+                            __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                showAlert('success', response.message);
+                                // Update UI
+                                $('#roleBadge').removeClass('badge-danger badge-warning badge-info badge-secondary')
+                                    .addClass(response.data.roleClass)
+                                    .text(response.data.roleName);
+                            } else {
+                                showAlert('error', response.message);
+                                // Revert selection
+                                $('#roleSelect').val('@Model.Role');
+                            }
+                        },
+                        error: function() {
+                            showAlert('error', 'Có lỗi xảy ra khi cập nhật vai trò.');
+                            // Revert selection
+                            $('#roleSelect').val('@Model.Role');
+                        }
+                    });
+                } else {
+                    // Revert selection
+                    $(this).val('@Model.Role');
+                }
+            });
+        });
+
+        function showAlert(type, message) {
+            var alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+            var alertHtml = '<div class="alert ' + alertClass + ' alert-dismissible fade show" role="alert" style="margin-bottom: 20px;">' +
+                '<strong>' + (type === 'success' ? 'Thành công!' : 'Lỗi!') + '</strong> ' + message +
+                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="float: right; background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>' +
+                '</div>';
+            
+            $('.admin-content').prepend(alertHtml);
+            
+            // Auto-hide after 5 seconds
+            setTimeout(function() {
+                $('.alert').fadeOut();
+            }, 5000);
         }
     </script>
+}
+
+@functions {
+    private string GetRoleClass(byte role)
+    {
+        switch (role)
+        {
+            case 1: return "badge-danger";
+            case 2: return "badge-warning";
+            case 3: return "badge-info";
+            default: return "badge-secondary";
+        }
+    }
 }
