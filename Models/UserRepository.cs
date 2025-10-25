@@ -306,6 +306,35 @@ namespace B_M.Models
             return _context.Users.Any(u => u.Email == email && u.UserID != excludeUserId);
         }
 
+        // Batch operations for Excel import
+        public bool CreateUserBatch(List<User> users, List<UserDetails> userDetailsList)
+        {
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    for (int i = 0; i < users.Count; i++)
+                    {
+                        _context.Users.Add(users[i]);
+                        _context.SaveChanges(); // Get UserID
+
+                        userDetailsList[i].UserID = users[i].UserID;
+                        _context.UserDetails.Add(userDetailsList[i]);
+                    }
+
+                    _context.SaveChanges();
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    System.Diagnostics.Debug.WriteLine($"ERROR in CreateUserBatch: {ex.Message}");
+                    return false;
+                }
+            }
+        }
+
         public void Dispose()
         {
             _context?.Dispose();

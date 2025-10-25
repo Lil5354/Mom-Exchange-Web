@@ -1,0 +1,251 @@
+@model B_M.Models.AdminCreateUserViewModel
+@{
+    ViewBag.Title = "Tạo tài khoản người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="admin-card">
+    <div class="admin-card-header">
+        <h5><i class="fas fa-user-plus"></i> Tạo tài khoản người dùng mới</h5>
+        <a href="@Url.Action("Users", "Admin", new { area = "Admin" })" class="btn-admin-secondary">
+            <i class="fas fa-arrow-left"></i> Quay lại danh sách
+        </a>
+    </div>
+    <div class="admin-card-body">
+        @using (Html.BeginForm("CreateUser", "Admin", new { area = "Admin" }, FormMethod.Post, new { @id = "createUserForm" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <!-- Left Column - Basic Information -->
+                <div>
+                    <h6 style="color: #2c3e50; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid #ecf0f1;">
+                        <i class="fas fa-info-circle"></i> Thông tin cơ bản
+                    </h6>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 600; color: #2c3e50; display: block; margin-bottom: 5px;">
+                            Email <span style="color: #e74c3c;">*</span>
+                        </label>
+                        @Html.TextBoxFor(m => m.Email, new { 
+                            @class = "form-control", 
+                            @style = "padding: 12px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 14px;",
+                            @placeholder = "example@email.com"
+                        })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger", @style = "font-size: 12px; margin-top: 5px;" })
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 600; color: #2c3e50; display: block; margin-bottom: 5px;">
+                            Tên đăng nhập
+                        </label>
+                        @Html.TextBoxFor(m => m.UserName, new { 
+                            @class = "form-control", 
+                            @style = "padding: 12px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 14px;",
+                            @placeholder = "Tùy chọn"
+                        })
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger", @style = "font-size: 12px; margin-top: 5px;" })
+                        <small style="color: #7f8c8d; font-size: 12px;">Nếu để trống, người dùng sẽ đăng nhập bằng email</small>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 600; color: #2c3e50; display: block; margin-bottom: 5px;">
+                            Họ và tên <span style="color: #e74c3c;">*</span>
+                        </label>
+                        @Html.TextBoxFor(m => m.FullName, new { 
+                            @class = "form-control", 
+                            @style = "padding: 12px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 14px;",
+                            @placeholder = "Nguyễn Văn A"
+                        })
+                        @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger", @style = "font-size: 12px; margin-top: 5px;" })
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 600; color: #2c3e50; display: block; margin-bottom: 5px;">
+                            Số điện thoại
+                        </label>
+                        @Html.TextBoxFor(m => m.PhoneNumber, new { 
+                            @class = "form-control", 
+                            @style = "padding: 12px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 14px;",
+                            @placeholder = "0123456789"
+                        })
+                        @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger", @style = "font-size: 12px; margin-top: 5px;" })
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 600; color: #2c3e50; display: block; margin-bottom: 5px;">
+                            Địa chỉ
+                        </label>
+                        @Html.TextAreaFor(m => m.Address, new { 
+                            @class = "form-control", 
+                            @style = "padding: 12px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 14px; height: 80px;",
+                            @placeholder = "Địa chỉ chi tiết..."
+                        })
+                        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger", @style = "font-size: 12px; margin-top: 5px;" })
+                    </div>
+                </div>
+
+                <!-- Right Column - Account Settings -->
+                <div>
+                    <h6 style="color: #2c3e50; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid #ecf0f1;">
+                        <i class="fas fa-cog"></i> Cài đặt tài khoản
+                    </h6>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 600; color: #2c3e50; display: block; margin-bottom: 5px;">
+                            Vai trò <span style="color: #e74c3c;">*</span>
+                        </label>
+                        @Html.DropDownListFor(m => m.Role, new SelectList(new[]
+                        {
+                            new { Value = "1", Text = "Quản trị viên" },
+                            new { Value = "2", Text = "Mẹ bỉm" },
+                            new { Value = "3", Text = "Nhãn hàng" }
+                        }, "Value", "Text", Model.Role), new { 
+                            @class = "form-control", 
+                            @style = "padding: 12px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 14px;"
+                        })
+                        @Html.ValidationMessageFor(m => m.Role, "", new { @class = "text-danger", @style = "font-size: 12px; margin-top: 5px;" })
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 600; color: #2c3e50; display: block; margin-bottom: 5px;">
+                            Mật khẩu <span style="color: #e74c3c;">*</span>
+                        </label>
+                        @Html.PasswordFor(m => m.Password, new { 
+                            @class = "form-control", 
+                            @id = "passwordField",
+                            @style = "padding: 12px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 14px;",
+                            @placeholder = "Nhập mật khẩu..."
+                        })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger", @style = "font-size: 12px; margin-top: 5px;" })
+                        <small style="color: #7f8c8d; font-size: 12px;">Tối thiểu 8 ký tự, có chữ hoa, chữ thường và số</small>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: 600; color: #2c3e50; display: block; margin-bottom: 5px;">
+                            Xác nhận mật khẩu <span style="color: #e74c3c;">*</span>
+                        </label>
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { 
+                            @class = "form-control", 
+                            @style = "padding: 12px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 14px;",
+                            @placeholder = "Nhập lại mật khẩu..."
+                        })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger", @style = "font-size: 12px; margin-top: 5px;" })
+                    </div>
+
+                    <!-- Options -->
+                    <div style="margin-bottom: 20px;">
+                        <h6 style="color: #2c3e50; margin-bottom: 15px;">Tùy chọn</h6>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: flex; align-items: center; gap: 10px; font-weight: 500; color: #2c3e50;">
+                                @Html.CheckBoxFor(m => m.GenerateRandomPassword, new { @id = "generatePasswordCheck" })
+                                <span>Tự động tạo mật khẩu ngẫu nhiên</span>
+                            </label>
+                            <small style="color: #7f8c8d; font-size: 12px; margin-left: 25px;">Mật khẩu sẽ được tạo tự động và hiển thị sau khi tạo tài khoản</small>
+                        </div>
+
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: flex; align-items: center; gap: 10px; font-weight: 500; color: #2c3e50;">
+                                @Html.CheckBoxFor(m => m.IsActive)
+                                <span>Tài khoản hoạt động ngay</span>
+                            </label>
+                        </div>
+
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: flex; align-items: center; gap: 10px; font-weight: 500; color: #2c3e50;">
+                                @Html.CheckBoxFor(m => m.SendEmailNotification)
+                                <span>Gửi email thông báo</span>
+                            </label>
+                            <small style="color: #7f8c8d; font-size: 12px; margin-left: 25px;">Gửi thông tin tài khoản qua email cho người dùng</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #ecf0f1;">
+                <button type="submit" class="btn-admin" id="createUserBtn" style="padding: 15px 40px; font-size: 16px;">
+                    <i class="fas fa-user-plus"></i> Tạo tài khoản
+                </button>
+                <a href="@Url.Action("Users", "Admin", new { area = "Admin" })" class="btn-admin-secondary" style="padding: 15px 40px; font-size: 16px; text-decoration: none; margin-left: 15px;">
+                    <i class="fas fa-times"></i> Hủy bỏ
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function() {
+            // Toggle password field based on checkbox
+            $('#generatePasswordCheck').on('change', function() {
+                var passwordField = $('#passwordField');
+                var confirmPasswordField = $('input[name="ConfirmPassword"]');
+                
+                if ($(this).is(':checked')) {
+                    passwordField.prop('disabled', true).val('').attr('placeholder', 'Mật khẩu sẽ được tạo tự động');
+                    confirmPasswordField.prop('disabled', true).val('').attr('placeholder', 'Mật khẩu sẽ được tạo tự động');
+                } else {
+                    passwordField.prop('disabled', false).attr('placeholder', 'Nhập mật khẩu...');
+                    confirmPasswordField.prop('disabled', false).attr('placeholder', 'Nhập lại mật khẩu...');
+                }
+            });
+
+            // Form submission
+            $('#createUserForm').on('submit', function(e) {
+                var createBtn = $('#createUserBtn');
+                
+                // Disable button and show loading
+                createBtn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Đang tạo...');
+                
+                // Re-enable button after 10 seconds (in case of error)
+                setTimeout(function() {
+                    createBtn.prop('disabled', false).html('<i class="fas fa-user-plus"></i> Tạo tài khoản');
+                }, 10000);
+            });
+
+            // Real-time validation
+            $('input[name="Email"]').on('blur', function() {
+                var email = $(this).val();
+                if (email && !isValidEmail(email)) {
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+
+            $('input[name="Password"]').on('input', function() {
+                var password = $(this).val();
+                if (password && !isValidPassword(password)) {
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+
+            $('input[name="ConfirmPassword"]').on('input', function() {
+                var password = $('input[name="Password"]').val();
+                var confirmPassword = $(this).val();
+                
+                if (confirmPassword && password !== confirmPassword) {
+                    $(this).addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-invalid');
+                }
+            });
+        });
+
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidPassword(password) {
+            return password.length >= 8 && /[a-z]/.test(password) && /[A-Z]/.test(password) && /[0-9]/.test(password);
+        }
+    </script>
+}
+
+

@@ -8,34 +8,150 @@
     <div class="admin-card-header">
         <h5><i class="fas fa-users"></i> Danh sách người dùng</h5>
         <div style="display: flex; gap: 10px; align-items: center;">
-            <span style="color: #7f8c8d; font-size: 14px;">Tổng: @Model.Users.Count người dùng</span>
+            <a href="@Url.Action("CreateUser", "Admin", new { area = "Admin" })" class="btn-admin" style="text-decoration: none;">
+                <i class="fas fa-user-plus"></i> Tạo tài khoản
+            </a>
+            <a href="@Url.Action("ImportUsers", "Admin", new { area = "Admin" })" class="btn-admin-secondary" style="text-decoration: none;">
+                <i class="fas fa-file-import"></i> Import Excel
+            </a>
+            <span style="color: #7f8c8d; font-size: 14px;">Tổng: @Model.TotalUsers người dùng</span>
+            @if (Model.Users.Count != Model.TotalUsers)
+            {
+                <span style="color: #3498db; font-size: 14px;">| Hiển thị: @Model.Users.Count kết quả</span>
+            }
         </div>
     </div>
     <div class="admin-card-body">
         @Html.AntiForgeryToken()
         
         <!-- Search and Filter -->
-        <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
-            @using (Html.BeginForm("Users", "Admin", new { area = "Admin" }, FormMethod.Get, new { @style = "display: flex; gap: 15px; flex-wrap: wrap; width: 100%;" }))
+        <div style="margin-bottom: 20px;">
+            @using (Html.BeginForm("Users", "Admin", new { area = "Admin" }, FormMethod.Get, new { @id = "searchForm" }))
             {
-                <div style="flex: 1; min-width: 200px;">
-                    <input type="text" name="search" value="@Model.SearchTerm" placeholder="Tìm kiếm theo tên, email..." 
-                           style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
+                <!-- Basic Search -->
+                <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; align-items: center;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <input type="text" name="search" value="@Model.SearchTerm" placeholder="Tìm kiếm nhanh theo tên, email..." 
+                               style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
+                    </div>
+                    <div>
+                        <select name="roleFilter" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+                            <option value="">Tất cả vai trò</option>
+                            <option value="1" @(Model.RoleFilter == "1" ? "selected" : "")>Quản trị viên</option>
+                            <option value="2" @(Model.RoleFilter == "2" ? "selected" : "")>Mẹ bỉm</option>
+                            <option value="3" @(Model.RoleFilter == "3" ? "selected" : "")>Nhãn hàng</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select name="statusFilter" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+                            <option value="all" @(Model.StatusFilter == "all" ? "selected" : "")>Tất cả trạng thái</option>
+                            <option value="active" @(Model.StatusFilter == "active" ? "selected" : "")>Hoạt động</option>
+                            <option value="inactive" @(Model.StatusFilter == "inactive" ? "selected" : "")>Bị khóa</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-admin" style="padding: 10px 20px;">
+                        <i class="fas fa-search"></i> Tìm kiếm
+                    </button>
+                    <button type="button" id="toggleAdvancedSearch" class="btn-admin-secondary" style="padding: 10px 20px;">
+                        <i class="fas fa-cog"></i> Tìm kiếm nâng cao
+                    </button>
+                    <a href="@Url.Action("Users", "Admin", new { area = "Admin" })" class="btn-admin-secondary" style="padding: 10px 20px; text-decoration: none;">
+                        <i class="fas fa-refresh"></i> Làm mới
+                    </a>
                 </div>
-                <div>
-                    <select name="roleFilter" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-                        <option value="">Tất cả vai trò</option>
-                        <option value="1" @(Model.RoleFilter == "1" ? "selected" : "")>Quản trị viên</option>
-                        <option value="2" @(Model.RoleFilter == "2" ? "selected" : "")>Mẹ bỉm</option>
-                        <option value="3" @(Model.RoleFilter == "3" ? "selected" : "")>Nhãn hàng</option>
-                    </select>
+
+                <!-- Advanced Search Panel -->
+                <div id="advancedSearchPanel" style="display: @(Model.ShowAdvancedSearch ? "block" : "none"); background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e9ecef;">
+                    <h6 style="margin-bottom: 15px; color: #495057; font-weight: 600;">
+                        <i class="fas fa-search-plus"></i> Tìm kiếm nâng cao
+                    </h6>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 15px;">
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #495057;">Email:</label>
+                            <input type="text" name="emailSearch" value="@Model.EmailSearch" placeholder="Tìm theo email..." 
+                                   style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" />
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #495057;">Tên đăng nhập:</label>
+                            <input type="text" name="usernameSearch" value="@Model.UsernameSearch" placeholder="Tìm theo username..." 
+                                   style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" />
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #495057;">Họ và tên:</label>
+                            <input type="text" name="fullNameSearch" value="@Model.FullNameSearch" placeholder="Tìm theo họ tên..." 
+                                   style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" />
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #495057;">Số điện thoại:</label>
+                            <input type="text" name="phoneSearch" value="@Model.PhoneSearch" placeholder="Tìm theo số điện thoại..." 
+                                   style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" />
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #495057;">Địa chỉ:</label>
+                            <input type="text" name="addressSearch" value="@Model.AddressSearch" placeholder="Tìm theo địa chỉ..." 
+                                   style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" />
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #495057;">Ngày tạo từ:</label>
+                            <input type="date" name="createdFrom" value="@(Model.CreatedFrom?.ToString("yyyy-MM-dd"))" 
+                                   style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" />
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #495057;">Ngày tạo đến:</label>
+                            <input type="date" name="createdTo" value="@(Model.CreatedTo?.ToString("yyyy-MM-dd"))" 
+                                   style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" />
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #495057;">Sắp xếp theo:</label>
+                            <select name="sortBy" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                                <option value="created" @(Model.SortBy == "created" ? "selected" : "")>Ngày tạo</option>
+                                <option value="name" @(Model.SortBy == "name" ? "selected" : "")>Họ tên</option>
+                                <option value="email" @(Model.SortBy == "email" ? "selected" : "")>Email</option>
+                                <option value="role" @(Model.SortBy == "role" ? "selected" : "")>Vai trò</option>
+                                <option value="status" @(Model.SortBy == "status" ? "selected" : "")>Trạng thái</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600; color: #495057;">Thứ tự:</label>
+                            <select name="sortOrder" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                                <option value="desc" @(Model.SortOrder == "desc" ? "selected" : "")>Giảm dần</option>
+                                <option value="asc" @(Model.SortOrder == "asc" ? "selected" : "")>Tăng dần</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 15px;">
+                        <label style="display: flex; align-items: center; gap: 5px; font-weight: 500;">
+                            <input type="checkbox" name="caseSensitive" @(Model.CaseSensitive ? "checked" : "") />
+                            Phân biệt hoa thường
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 5px; font-weight: 500;">
+                            <input type="checkbox" name="exactMatch" @(Model.ExactMatch ? "checked" : "") />
+                            Tìm kiếm chính xác
+                        </label>
+                    </div>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <button type="submit" class="btn-admin" style="padding: 8px 16px;">
+                            <i class="fas fa-search"></i> Tìm kiếm nâng cao
+                        </button>
+                        <button type="button" id="clearAdvancedSearch" class="btn-admin-secondary" style="padding: 8px 16px;">
+                            <i class="fas fa-times"></i> Xóa bộ lọc
+                        </button>
+                    </div>
                 </div>
-                <button type="submit" class="btn-admin" style="padding: 10px 20px;">
-                    <i class="fas fa-search"></i> Tìm kiếm
-                </button>
-                <a href="@Url.Action("Users", "Admin", new { area = "Admin" })" class="btn-admin-secondary" style="padding: 10px 20px; text-decoration: none;">
-                    <i class="fas fa-refresh"></i> Làm mới
-                </a>
+
+                <!-- Hidden fields to preserve advanced search state -->
+                <input type="hidden" name="showAdvancedSearch" value="@Model.ShowAdvancedSearch.ToString().ToLower()" />
             }
         </div>
 
@@ -143,7 +259,7 @@
                             @if (Model.CurrentPage > 1)
                             {
                                 <li>
-                                    <a href="@Url.Action("Users", "Admin", new { area = "Admin", page = Model.CurrentPage - 1, search = Model.SearchTerm, roleFilter = Model.RoleFilter })" 
+                                    <a href="@Url.Action("Users", "Admin", new { area = "Admin", page = Model.CurrentPage - 1, search = Model.SearchTerm, roleFilter = Model.RoleFilter, emailSearch = Model.EmailSearch, usernameSearch = Model.UsernameSearch, fullNameSearch = Model.FullNameSearch, phoneSearch = Model.PhoneSearch, addressSearch = Model.AddressSearch, statusFilter = Model.StatusFilter, createdFrom = Model.CreatedFrom, createdTo = Model.CreatedTo, sortBy = Model.SortBy, sortOrder = Model.SortOrder, showAdvancedSearch = Model.ShowAdvancedSearch, caseSensitive = Model.CaseSensitive, exactMatch = Model.ExactMatch })" 
                                        style="padding: 8px 12px; border: 1px solid #ddd; text-decoration: none; color: #333; border-radius: 3px;">
                                         <i class="fas fa-chevron-left"></i>
                                     </a>
@@ -157,7 +273,7 @@
                                         string linkColor = i == Model.CurrentPage ? "white" : "#333";
                                         string linkBgColor = i == Model.CurrentPage ? "#e74c3c" : "white";
                                     }
-                                    <a href="@Url.Action("Users", "Admin", new { area = "Admin", page = i, search = Model.SearchTerm, roleFilter = Model.RoleFilter })" 
+                                    <a href="@Url.Action("Users", "Admin", new { area = "Admin", page = i, search = Model.SearchTerm, roleFilter = Model.RoleFilter, emailSearch = Model.EmailSearch, usernameSearch = Model.UsernameSearch, fullNameSearch = Model.FullNameSearch, phoneSearch = Model.PhoneSearch, addressSearch = Model.AddressSearch, statusFilter = Model.StatusFilter, createdFrom = Model.CreatedFrom, createdTo = Model.CreatedTo, sortBy = Model.SortBy, sortOrder = Model.SortOrder, showAdvancedSearch = Model.ShowAdvancedSearch, caseSensitive = Model.CaseSensitive, exactMatch = Model.ExactMatch })" 
                                        style="padding: 8px 12px; border: 1px solid #ddd; text-decoration: none; color: @linkColor; background-color: @linkBgColor; border-radius: 3px;">
                                         @i
                                     </a>
@@ -167,7 +283,7 @@
                             @if (Model.CurrentPage < Model.TotalPages)
                             {
                                 <li>
-                                    <a href="@Url.Action("Users", "Admin", new { area = "Admin", page = Model.CurrentPage + 1, search = Model.SearchTerm, roleFilter = Model.RoleFilter })" 
+                                    <a href="@Url.Action("Users", "Admin", new { area = "Admin", page = Model.CurrentPage + 1, search = Model.SearchTerm, roleFilter = Model.RoleFilter, emailSearch = Model.EmailSearch, usernameSearch = Model.UsernameSearch, fullNameSearch = Model.FullNameSearch, phoneSearch = Model.PhoneSearch, addressSearch = Model.AddressSearch, statusFilter = Model.StatusFilter, createdFrom = Model.CreatedFrom, createdTo = Model.CreatedTo, sortBy = Model.SortBy, sortOrder = Model.SortOrder, showAdvancedSearch = Model.ShowAdvancedSearch, caseSensitive = Model.CaseSensitive, exactMatch = Model.ExactMatch })" 
                                        style="padding: 8px 12px; border: 1px solid #ddd; text-decoration: none; color: #333; border-radius: 3px;">
                                         <i class="fas fa-chevron-right"></i>
                                     </a>
@@ -197,6 +313,44 @@
 @section scripts {
     <script>
         $(document).ready(function() {
+            // Toggle Advanced Search Panel
+            $('#toggleAdvancedSearch').on('click', function() {
+                var panel = $('#advancedSearchPanel');
+                var isVisible = panel.is(':visible');
+                
+                if (isVisible) {
+                    panel.slideUp();
+                    $(this).html('<i class="fas fa-cog"></i> Tìm kiếm nâng cao');
+                } else {
+                    panel.slideDown();
+                    $(this).html('<i class="fas fa-cog"></i> Ẩn tìm kiếm nâng cao');
+                }
+                
+                // Update hidden field
+                $('input[name="showAdvancedSearch"]').val(!isVisible);
+            });
+
+            // Clear Advanced Search
+            $('#clearAdvancedSearch').on('click', function() {
+                $('#advancedSearchPanel input[type="text"]').val('');
+                $('#advancedSearchPanel input[type="date"]').val('');
+                $('#advancedSearchPanel select').prop('selectedIndex', 0);
+                $('#advancedSearchPanel input[type="checkbox"]').prop('checked', false);
+                
+                // Submit form to clear all filters
+                var form = $('#searchForm');
+                form.find('input[name="search"]').val('');
+                form.find('select[name="roleFilter"]').val('');
+                form.find('select[name="statusFilter"]').val('all');
+                form.find('input[name="showAdvancedSearch"]').val('false');
+                form.submit();
+            });
+
+            // Auto-submit form when sorting changes
+            $('select[name="sortBy"], select[name="sortOrder"]').on('change', function() {
+                $('#searchForm').submit();
+            });
+
             // Toggle User Status
             $('button[data-user-id]').on('click', function() {
                 var userId = $(this).data('user-id');
@@ -210,6 +364,14 @@
                 var newRole = $(this).val();
                 changeUserRole(userId, newRole);
             });
+
+            // Show search results info
+            @if (!string.IsNullOrEmpty(Model.SearchTerm) || !string.IsNullOrEmpty(Model.EmailSearch) || !string.IsNullOrEmpty(Model.UsernameSearch) || !string.IsNullOrEmpty(Model.FullNameSearch) || !string.IsNullOrEmpty(Model.PhoneSearch) || !string.IsNullOrEmpty(Model.AddressSearch) || !string.IsNullOrEmpty(Model.StatusFilter) || Model.CreatedFrom.HasValue || Model.CreatedTo.HasValue)
+            {
+                <text>
+                showSearchInfo();
+                </text>
+            }
         });
 
         function toggleUserStatus(userId, isActive) {
@@ -272,6 +434,68 @@
                     }
                 });
             }
+        }
+
+        function showSearchInfo() {
+            var searchInfo = [];
+            
+            @if (!string.IsNullOrEmpty(Model.SearchTerm))
+            {
+                <text>searchInfo.push('Tìm kiếm: "@Model.SearchTerm"');</text>
+            }
+            
+            @if (!string.IsNullOrEmpty(Model.EmailSearch))
+            {
+                <text>searchInfo.push('Email: "@Model.EmailSearch"');</text>
+            }
+            
+            @if (!string.IsNullOrEmpty(Model.UsernameSearch))
+            {
+                <text>searchInfo.push('Username: "@Model.UsernameSearch"');</text>
+            }
+            
+            @if (!string.IsNullOrEmpty(Model.FullNameSearch))
+            {
+                <text>searchInfo.push('Họ tên: "@Model.FullNameSearch"');</text>
+            }
+            
+            @if (!string.IsNullOrEmpty(Model.PhoneSearch))
+            {
+                <text>searchInfo.push('SĐT: "@Model.PhoneSearch"');</text>
+            }
+            
+            @if (!string.IsNullOrEmpty(Model.AddressSearch))
+            {
+                <text>searchInfo.push('Địa chỉ: "@Model.AddressSearch"');</text>
+            }
+            
+            @if (!string.IsNullOrEmpty(Model.StatusFilter) && Model.StatusFilter != "all")
+            {
+                <text>searchInfo.push('Trạng thái: "@(Model.StatusFilter == "active" ? "Hoạt động" : "Bị khóa")"');</text>
+            }
+            
+            @if (Model.CreatedFrom.HasValue)
+            {
+                <text>searchInfo.push('Từ ngày: "@Model.CreatedFrom.Value.ToString("dd/MM/yyyy")"');</text>
+            }
+            
+            @if (Model.CreatedTo.HasValue)
+            {
+                <text>searchInfo.push('Đến ngày: "@Model.CreatedTo.Value.ToString("dd/MM/yyyy")"');</text>
+            }
+            
+            if (searchInfo.length > 0) {
+                var infoHtml = '<div style="background: #e3f2fd; border: 1px solid #2196f3; border-radius: 5px; padding: 10px; margin-bottom: 15px; font-size: 14px;">' +
+                    '<strong><i class="fas fa-info-circle"></i> Bộ lọc hiện tại:</strong> ' + searchInfo.join(' | ') +
+                    '<button type="button" onclick="clearAllFilters()" style="float: right; background: #2196f3; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">' +
+                    '<i class="fas fa-times"></i> Xóa tất cả</button>' +
+                    '</div>';
+                $('.admin-card-body').prepend(infoHtml);
+            }
+        }
+
+        function clearAllFilters() {
+            $('#clearAdvancedSearch').click();
         }
 
         function showAlert(type, message) {

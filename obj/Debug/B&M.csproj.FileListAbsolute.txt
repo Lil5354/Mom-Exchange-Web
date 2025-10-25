@@ -157,6 +157,7 @@ E:\Mom-Exchange-Web\bin\roslyn\VBCSCompiler.exe.config
 E:\Mom-Exchange-Web\bin\Antlr3.Runtime.dll
 E:\Mom-Exchange-Web\bin\EntityFramework.dll
 E:\Mom-Exchange-Web\bin\EntityFramework.SqlServer.dll
+E:\Mom-Exchange-Web\bin\EPPlus.dll
 E:\Mom-Exchange-Web\bin\Microsoft.AspNet.Identity.Core.dll
 E:\Mom-Exchange-Web\bin\Microsoft.AspNet.Identity.Owin.dll
 E:\Mom-Exchange-Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
@@ -197,6 +198,7 @@ E:\Mom-Exchange-Web\bin\System.Web.Razor.xml
 E:\Mom-Exchange-Web\bin\System.Web.WebPages.xml
 E:\Mom-Exchange-Web\bin\System.Web.WebPages.Deployment.xml
 E:\Mom-Exchange-Web\bin\System.Web.WebPages.Razor.xml
+E:\Mom-Exchange-Web\bin\EPPlus.xml
 E:\Mom-Exchange-Web\obj\Debug\B&M.csproj.AssemblyReference.cache
 E:\Mom-Exchange-Web\obj\Debug\B_M.Migrations.InitialCreate.resources
 E:\Mom-Exchange-Web\obj\Debug\B_M.Migrations.AddUserNameField.resources

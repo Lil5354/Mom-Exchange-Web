@@ -34,3 +34,5 @@ namespace B_M.Models
         public double ReputationScore { get; set; }
     }
 }
+
+
