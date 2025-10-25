@@ -77,5 +77,50 @@ namespace B_M.Controllers // Namespace của bạn có thể khác
             return PartialView("_BrandDropdown", brands);
         }
 
+
+        // GET: Brand/Dashboard
+        // Brand dashboard - only accessible by brand users
+        public ActionResult Dashboard()
+        {
+            // Validate user authentication and authorization
+            if (!IsBrandUser())
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Get brand associated with this user
+            var brand = unitOfWork.Brands.GetBrandByUserId((int)Session["UserID"]);
+            if (brand == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Get brand's products
+            var products = unitOfWork.Products.GetByBrandId(brand.Id)?.ToList() ?? new List<Product>();
+
+            // Create dashboard view model
+            var viewModel = new BrandDashboardViewModel
+            {
+                Brand = brand,
+                Products = products,
+                TotalProducts = products.Count,
+                ActiveProducts = products.Count(p => p.IsActive)
+            };
+
+            return View(viewModel);
+        }
+
+        // Helper method to check if current user is a brand
+        private bool IsBrandUser()
+        {
+            var userId = Session["UserID"];
+            var userRole = Session["Role"];
+            
+            return userId != null && 
+                   userRole != null && 
+                   byte.TryParse(userRole.ToString(), out byte roleValue) && 
+                   roleValue == 3;
+        }
+
     }
 }

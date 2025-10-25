@@ -32,5 +32,11 @@ namespace B_M.Data.Repositories
                 b.Name.Contains(searchTerm) || 
                 b.Description.Contains(searchTerm));
         }
+
+        // Get brand by user ID
+        public Brand GetBrandByUserId(int userId)
+        {
+            return _dbSet.FirstOrDefault(b => b.UserId == userId);
+        }
     }
 }

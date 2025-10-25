@@ -91,8 +91,6 @@ namespace B_M.Controllers
                     new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Name, user.Email),
                     new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.NameIdentifier, user.UserID.ToString()),
                     new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Role, user.Role.ToString()),
-                    new System.Security.Claims.Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "ASP.NET Identity"),
-                    new System.Security.Claims.Claim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", user.UserID.ToString())
                 }, "ApplicationCookie");
 
                 var authManager = HttpContext.GetOwinContext().Authentication;
@@ -108,14 +106,23 @@ namespace B_M.Controllers
                 Session["Role"] = user.Role;
                 Session["IsActive"] = user.IsActive;
 
-                // Chuyển hướng
+                // Chuyển hướng dựa trên role
                 if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                 {
                     return Redirect(returnUrl);
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Home");
+                    // Redirect based on user role
+                    switch (user.Role)
+                    {
+                        case 1: // Admin
+                            return RedirectToAction("Index", "Admin", new { area = "Admin" });
+                        case 3: // Brand
+                            return RedirectToAction("Dashboard", "Brand");
+                        default:
+                            return RedirectToAction("Index", "Home");
+                    }
                 }
             }
             catch (Exception ex)

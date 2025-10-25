@@ -15,17 +15,18 @@ namespace B_M.Data
             // Seed Users and UserDetails
             SeedUsers(context);
             
-            // Seed Brands
+            // Seed Brands with UserId relationships
             context.Brands.AddOrUpdate(
                 b => b.Name,
-                new Brand { Id = 1, Name = "Bobby", Description = "Tã bỉm Nhật Bản số 1 Việt Nam", LogoUrl = "/images/logo-bobby.png" },
-                new Brand { Id = 2, Name = "Huggies", Description = "Thoải mái cho bé, an tâm cho mẹ", LogoUrl = "/images/logo-huggies.png" },
-                new Brand { Id = 3, Name = "Moony", Description = "Tã dán siêu mềm, siêu thấm hút", LogoUrl = "/images/logo-moony.png" },
-                new Brand { Id = 4, Name = "Aptamil", Description = "Dinh dưỡng chuyên sâu từ Anh Quốc", LogoUrl = "/images/logo-aptamil.png" },
-                new Brand { Id = 5, Name = "Pigeon", Description = "Sản phẩm chăm sóc mẹ và bé toàn diện", LogoUrl = "/images/logo-pigeon.png" },
-                new Brand { Id = 6, Name = "Comotomo", Description = "Bình sữa silicon cao cấp cho bé", LogoUrl = "/images/logo-comotomo.png" },
-                new Brand { Id = 7, Name = "BioGaia", Description = "Men vi sinh cho hệ tiêu hóa khỏe mạnh", LogoUrl = "/images/logo-biogaia.png" },
-                new Brand { Id = 8, Name = "Chicco", Description = "Thương hiệu mẹ và bé từ Ý", LogoUrl = "/images/logo-chicco.png" }
+                new Brand { Id = 1, Name = "Bobby", Description = "Tã bỉm Nhật Bản số 1 Việt Nam", LogoUrl = "/images/logo-bobby.png", UserId = 4 },
+                new Brand { Id = 2, Name = "Huggies", Description = "Thoải mái cho bé, an tâm cho mẹ", LogoUrl = "/images/logo-huggies.png", UserId = 5 },
+                new Brand { Id = 3, Name = "Moony", Description = "Tã dán siêu mềm, siêu thấm hút", LogoUrl = "/images/logo-moony.png", UserId = 6 },
+                new Brand { Id = 4, Name = "Aptamil", Description = "Dinh dưỡng chuyên sâu từ Anh Quốc", LogoUrl = "/images/logo-aptamil.png", UserId = 7 },
+                new Brand { Id = 5, Name = "Pigeon", Description = "Sản phẩm chăm sóc mẹ và bé toàn diện", LogoUrl = "/images/logo-pigeon.png", UserId = 8 },
+                new Brand { Id = 6, Name = "Comotomo", Description = "Bình sữa silicon cao cấp cho bé", LogoUrl = "/images/logo-comotomo.png", UserId = 9 },
+                new Brand { Id = 7, Name = "BioGaia", Description = "Men vi sinh cho hệ tiêu hóa khỏe mạnh", LogoUrl = "/images/logo-biogaia.png", UserId = 10 },
+                new Brand { Id = 8, Name = "Chicco", Description = "Thương hiệu mẹ và bé từ Ý", LogoUrl = "/images/logo-chicco.png", UserId = 11 },
+                new Brand { Id = 9, Name = "MomExchange Brand", Description = "Thương hiệu chính thức của MomExchange", LogoUrl = "/images/logo-momexchange.png", UserId = 2 }
             );
             
             // Save Brands first
@@ -40,10 +41,11 @@ namespace B_M.Data
             var comotomoBrand = context.Brands.FirstOrDefault(b => b.Name == "Comotomo");
             var biogaiaBrand = context.Brands.FirstOrDefault(b => b.Name == "BioGaia");
             var chiccoBrand = context.Brands.FirstOrDefault(b => b.Name == "Chicco");
+            var momexchangeBrand = context.Brands.FirstOrDefault(b => b.Name == "MomExchange Brand");
             
             if (bobbyBrand != null && huggiesBrand != null && moonyBrand != null && 
                 aptamilBrand != null && pigeonBrand != null && comotomoBrand != null && 
-                biogaiaBrand != null && chiccoBrand != null)
+                biogaiaBrand != null && chiccoBrand != null && momexchangeBrand != null)
             {
                 context.Products.AddOrUpdate(
                     p => p.Name,
@@ -138,6 +140,24 @@ namespace B_M.Data
                         Price = "650.000₫", 
                         ImageUrls = new List<string> { "https://concung.com/2024/05/64564-110429-large_mobile/aptamil-profutura-cesarbiotik-1-800g-0-12-thang.png" }, 
                         SellerName = "Nhà phân phối chính hãng" 
+                    },
+                    new Product { 
+                        Id = 14, 
+                        Name = "Bộ sản phẩm MomExchange Premium", 
+                        BrandId = momexchangeBrand.Id,
+                        Price = "1.200.000₫", 
+                        ImageUrls = new List<string> { "https://via.placeholder.com/300x300/d63384/ffffff?Text=MomExchange" }, 
+                        SellerName = "MomExchange Official",
+                        IsActive = true
+                    },
+                    new Product { 
+                        Id = 15, 
+                        Name = "Gói dịch vụ tư vấn MomExchange", 
+                        BrandId = momexchangeBrand.Id,
+                        Price = "500.000₫", 
+                        ImageUrls = new List<string> { "https://via.placeholder.com/300x300/e91e63/ffffff?Text=Consulting" }, 
+                        SellerName = "MomExchange Official",
+                        IsActive = true
                     }
                 );
             }
@@ -311,6 +331,95 @@ namespace B_M.Data
                     Role = 2, // Mom
                     IsActive = true,
                     CreatedAt = DateTime.Now.AddDays(-10)
+                },
+                // Brand user accounts
+                new User
+                {
+                    UserID = 4,
+                    UserName = "bobby_brand",
+                    Email = "bobby@momexchange.com",
+                    PhoneNumber = "0901234567",
+                    PasswordHash = hashedPassword,
+                    Role = 3, // Brand
+                    IsActive = true,
+                    CreatedAt = DateTime.Now.AddDays(-25)
+                },
+                new User
+                {
+                    UserID = 5,
+                    UserName = "huggies_brand",
+                    Email = "huggies@momexchange.com",
+                    PhoneNumber = "0901234568",
+                    PasswordHash = hashedPassword,
+                    Role = 3, // Brand
+                    IsActive = true,
+                    CreatedAt = DateTime.Now.AddDays(-24)
+                },
+                new User
+                {
+                    UserID = 6,
+                    UserName = "moony_brand",
+                    Email = "moony@momexchange.com",
+                    PhoneNumber = "0901234569",
+                    PasswordHash = hashedPassword,
+                    Role = 3, // Brand
+                    IsActive = true,
+                    CreatedAt = DateTime.Now.AddDays(-23)
+                },
+                new User
+                {
+                    UserID = 7,
+                    UserName = "aptamil_brand",
+                    Email = "aptamil@momexchange.com",
+                    PhoneNumber = "0901234570",
+                    PasswordHash = hashedPassword,
+                    Role = 3, // Brand
+                    IsActive = true,
+                    CreatedAt = DateTime.Now.AddDays(-22)
+                },
+                new User
+                {
+                    UserID = 8,
+                    UserName = "pigeon_brand",
+                    Email = "pigeon@momexchange.com",
+                    PhoneNumber = "0901234571",
+                    PasswordHash = hashedPassword,
+                    Role = 3, // Brand
+                    IsActive = true,
+                    CreatedAt = DateTime.Now.AddDays(-21)
+                },
+                new User
+                {
+                    UserID = 9,
+                    UserName = "comotomo_brand",
+                    Email = "comotomo@momexchange.com",
+                    PhoneNumber = "0901234572",
+                    PasswordHash = hashedPassword,
+                    Role = 3, // Brand
+                    IsActive = true,
+                    CreatedAt = DateTime.Now.AddDays(-20)
+                },
+                new User
+                {
+                    UserID = 10,
+                    UserName = "biogaia_brand",
+                    Email = "biogaia@momexchange.com",
+                    PhoneNumber = "0901234573",
+                    PasswordHash = hashedPassword,
+                    Role = 3, // Brand
+                    IsActive = true,
+                    CreatedAt = DateTime.Now.AddDays(-19)
+                },
+                new User
+                {
+                    UserID = 11,
+                    UserName = "chicco_brand",
+                    Email = "chicco@momexchange.com",
+                    PhoneNumber = "0901234574",
+                    PasswordHash = hashedPassword,
+                    Role = 3, // Brand
+                    IsActive = true,
+                    CreatedAt = DateTime.Now.AddDays(-18)
                 }
             );
 
@@ -331,10 +440,10 @@ namespace B_M.Data
                 new UserDetails
                 {
                     UserID = 2,
-                    FullName = "Nguyễn Văn Brand",
-                    ProfilePictureURL = "https://via.placeholder.com/100/4ecdc4/ffffff?Text=B",
-                    Address = "Hà Nội",
-                    ReputationScore = 4.8
+                    FullName = "MomExchange Brand Manager",
+                    ProfilePictureURL = "/images/logo-momexchange.png",
+                    Address = "TP. Hồ Chí Minh",
+                    ReputationScore = 5.0
                 },
                 new UserDetails
                 {
@@ -343,6 +452,71 @@ namespace B_M.Data
                     ProfilePictureURL = "https://via.placeholder.com/100/45b7d1/ffffff?Text=M",
                     Address = "Quận Bình Tân, TP. Hồ Chí Minh",
                     ReputationScore = 4.9
+                },
+                // Brand user details
+                new UserDetails
+                {
+                    UserID = 4,
+                    FullName = "Bobby Vietnam",
+                    ProfilePictureURL = "/images/logo-bobby.png",
+                    Address = "TP. Hồ Chí Minh",
+                    ReputationScore = 4.9
+                },
+                new UserDetails
+                {
+                    UserID = 5,
+                    FullName = "Huggies Vietnam",
+                    ProfilePictureURL = "/images/logo-huggies.png",
+                    Address = "Hà Nội",
+                    ReputationScore = 4.8
+                },
+                new UserDetails
+                {
+                    UserID = 6,
+                    FullName = "Moony Vietnam",
+                    ProfilePictureURL = "/images/logo-moony.png",
+                    Address = "TP. Hồ Chí Minh",
+                    ReputationScore = 4.7
+                },
+                new UserDetails
+                {
+                    UserID = 7,
+                    FullName = "Aptamil Vietnam",
+                    ProfilePictureURL = "/images/logo-aptamil.png",
+                    Address = "Hà Nội",
+                    ReputationScore = 4.9
+                },
+                new UserDetails
+                {
+                    UserID = 8,
+                    FullName = "Pigeon Vietnam",
+                    ProfilePictureURL = "/images/logo-pigeon.png",
+                    Address = "TP. Hồ Chí Minh",
+                    ReputationScore = 4.6
+                },
+                new UserDetails
+                {
+                    UserID = 9,
+                    FullName = "Comotomo Vietnam",
+                    ProfilePictureURL = "/images/logo-comotomo.png",
+                    Address = "Hà Nội",
+                    ReputationScore = 4.8
+                },
+                new UserDetails
+                {
+                    UserID = 10,
+                    FullName = "BioGaia Vietnam",
+                    ProfilePictureURL = "/images/logo-biogaia.png",
+                    Address = "TP. Hồ Chí Minh",
+                    ReputationScore = 4.7
+                },
+                new UserDetails
+                {
+                    UserID = 11,
+                    FullName = "Chicco Vietnam",
+                    ProfilePictureURL = "/images/logo-chicco.png",
+                    Address = "Hà Nội",
+                    ReputationScore = 4.8
                 }
             );
 

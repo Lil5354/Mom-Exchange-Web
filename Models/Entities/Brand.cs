@@ -10,8 +10,12 @@ namespace B_M.Models.Entities
         public string Description { get; set; }
         public string LogoUrl { get; set; } // Đường dẫn đến file logo
         
-        // Navigation property
+        // Foreign key to User table for brand account
+        public int? UserId { get; set; }
+        
+        // Navigation properties
         public virtual ICollection<Product> Products { get; set; }
+        public virtual User User { get; set; } // Navigation to User account
         
         public Brand()
         {

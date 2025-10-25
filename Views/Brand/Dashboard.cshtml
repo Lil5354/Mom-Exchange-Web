@@ -1,0 +1,159 @@
+@model B_M.Models.ViewModels.BrandDashboardViewModel
+
+@{
+    ViewBag.Title = "Dashboard - " + Model.Brand.Name;
+    Layout = "~/Views/Shared/_BrandLayout.cshtml";
+    ViewBag.BrandId = Model.Brand.Id;
+}
+
+<!-- Statistics Cards -->
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i class="fas fa-box"></i>
+        </div>
+        <div class="stat-number">@Model.TotalProducts</div>
+        <div class="stat-label">Tổng sản phẩm</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="stat-number">@Model.ActiveProducts</div>
+        <div class="stat-label">Sản phẩm hoạt động</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i class="fas fa-pause-circle"></i>
+        </div>
+        <div class="stat-number">@Model.InactiveProducts</div>
+        <div class="stat-label">Sản phẩm tạm dừng</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="stat-number">@Model.Brand.Products.Count</div>
+        <div class="stat-label">Trong hệ thống</div>
+    </div>
+</div>
+
+
+<!-- Brand Information -->
+<div class="brand-card">
+    <div class="brand-card-header">
+        <h5>Thông tin thương hiệu</h5>
+        <a href="@Url.Action("Details", "Brand", new { id = Model.Brand.Id })" class="btn-brand">
+            <i class="fas fa-eye"></i> Xem trang thương hiệu
+        </a>
+    </div>
+    <div class="brand-card-body">
+        <div style="display: flex; align-items: center; gap: 30px;">
+            <div>
+                @if (!string.IsNullOrEmpty(Model.Brand.LogoUrl))
+                {
+                    <img src="@Model.Brand.LogoUrl" alt="@Model.Brand.Name" style="width: 120px; height: 120px; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 12px rgba(214, 51, 132, 0.2);">
+                }
+                else
+                {
+                    <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--pastel-pink), var(--light-pink)); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(214, 51, 132, 0.2);">
+                        <i class="fas fa-image" style="font-size: 36px; color: var(--primary-pink);"></i>
+                    </div>
+                }
+            </div>
+            <div style="flex: 1;">
+                <h3 style="margin: 0 0 10px 0; color: var(--text-dark); font-weight: 800;">@Model.Brand.Name</h3>
+                <p style="color: var(--text-light); font-size: 16px; margin-bottom: 20px;">@Model.Brand.Description</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <span class="badge badge-info">Thương hiệu</span>
+                    <span class="badge badge-success">@Model.TotalProducts sản phẩm</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Products List -->
+<div class="brand-card">
+    <div class="brand-card-header">
+        <h5>Sản phẩm của thương hiệu</h5>
+        <a href="@Url.Action("Create", "Product")" class="btn-brand">
+            <i class="fas fa-plus"></i> Thêm sản phẩm mới
+        </a>
+    </div>
+    <div class="brand-card-body">
+        @if (Model.Products.Any())
+        {
+            <table class="table-brand">
+                <thead>
+                    <tr>
+                        <th>Hình ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Trạng thái</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model.Products)
+                    {
+                        <tr>
+                            <td>
+                                @if (product.ImageUrls != null && product.ImageUrls.Any())
+                                {
+                                    <img src="@product.ImageUrls.First()" alt="@product.Name" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(214, 51, 132, 0.1);">
+                                }
+                                else
+                                {
+                                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--pastel-pink), var(--light-pink)); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-image" style="color: var(--primary-pink);"></i>
+                                    </div>
+                                }
+                            </td>
+                            <td>
+                                <strong style="color: var(--text-dark); font-size: 16px;">@product.Name</strong>
+                                <br>
+                                <small style="color: var(--text-light);">@product.Category</small>
+                            </td>
+                            <td style="font-weight: 600; color: var(--primary-pink);">@product.Price</td>
+                            <td>
+                                @if (product.IsActive)
+                                {
+                                    <span class="badge badge-success">Hoạt động</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning">Tạm dừng</span>
+                                }
+                            </td>
+                            <td>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="btn-brand-secondary" style="padding: 8px 12px; font-size: 12px;">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="@Url.Action("Edit", "Product", new { id = product.Id })" class="btn-brand-secondary" style="padding: 8px 12px; font-size: 12px;">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div style="text-align: center; padding: 60px 20px;">
+                <div style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--pastel-pink), var(--light-pink)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; box-shadow: 0 8px 32px rgba(214, 51, 132, 0.1);">
+                    <i class="fas fa-box" style="font-size: 48px; color: var(--primary-pink);"></i>
+                </div>
+                <h4 style="color: var(--text-dark); margin-bottom: 15px; font-weight: 700;">Chưa có sản phẩm nào</h4>
+                <p style="color: var(--text-light); margin-bottom: 30px; font-size: 16px;">Bắt đầu bằng cách thêm sản phẩm đầu tiên của bạn</p>
+                <a href="@Url.Action("Create", "Product")" class="btn-brand">
+                    <i class="fas fa-plus"></i> Thêm sản phẩm mới
+                </a>
+            </div>
+        }
+    </div>
+</div>
+

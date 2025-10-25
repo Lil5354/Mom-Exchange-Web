@@ -155,6 +155,10 @@
     <Compile Include="Migrations\202510251556222_Add-ProductImage.Designer.cs">
       <DependentUpon>202510251556222_Add-ProductImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202510251614154_Add-Brand-Relation.cs" />
+    <Compile Include="Migrations\202510251614154_Add-Brand-Relation.Designer.cs">
+      <DependentUpon>202510251614154_Add-Brand-Relation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewModels\AdminUserEditViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
@@ -190,6 +194,7 @@
     <Compile Include="Data\Repositories\UserRepository.cs" />
     <Compile Include="Models\Entities\Brand.cs" />
     <Compile Include="Models\ViewModels\BrandDetailViewModel.cs" />
+    <Compile Include="Models\ViewModels\BrandDashboardViewModel.cs" />
     <Compile Include="Models\ViewModels\CategoryViewModel.cs" />
     <Compile Include="Models\Entities\CommunityPost.cs" />
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
@@ -256,6 +261,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_BrandLayout.cshtml" />
+    <Content Include="Views\Shared\_BrandDropdown.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -267,6 +274,7 @@
     <Content Include="Views\Clearance\Index.cshtml" />
     <Content Include="Views\Trade\Index.cshtml" />
     <Content Include="Views\Brand\Details.cshtml" />
+    <Content Include="Views\Brand\Dashboard.cshtml" />
     <Content Include="Views\Blog\Details.cshtml" />
     <Content Include="Views\Community\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -318,6 +326,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202510251556222_Add-ProductImage.resx">
       <DependentUpon>202510251556222_Add-ProductImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202510251614154_Add-Brand-Relation.resx">
+      <DependentUpon>202510251614154_Add-Brand-Relation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

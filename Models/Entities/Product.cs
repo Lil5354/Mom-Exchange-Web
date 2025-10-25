@@ -29,6 +29,9 @@ namespace B_M.Models.Entities // Namespace của bạn có thể khác
         public double SellerRating { get; set; }
         public int SellerReviewCount { get; set; }
         
+        // Product status
+        public bool IsActive { get; set; } = true;
+        
         // Navigation property for images
         public virtual ICollection<ProductImage> ProductImages { get; set; }
         
