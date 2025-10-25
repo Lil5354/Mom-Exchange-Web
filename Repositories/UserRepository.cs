@@ -3,9 +3,9 @@ using System;
 using System.Linq;
 using System.Data.Entity;
 using System.Collections.Generic;
+using B_M.Models.Entities;
 
-
-namespace B_M.Models
+namespace B_M
 {
     public class UserRepository : IDisposable
     {

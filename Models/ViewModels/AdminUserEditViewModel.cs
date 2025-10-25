@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace B_M.Models
+namespace B_M.Models.ViewModels
 {
     public class AdminUserEditViewModel
     {

@@ -1,6 +1,8 @@
 ﻿// Controllers/BrandController.cs
 
 using B_M.Models;
+using B_M.Models.Entities;
+using B_M.Models.ViewModels;
 using System.Collections.Generic;
 using System.Linq; // Cần thêm để sử dụng .Where()
 using System.Web.Mvc;

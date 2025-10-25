@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace B_M.Models // Đảm bảo namespace này khớp với dự án của bạn
+namespace B_M.Models.Entities // Đảm bảo namespace này khớp với dự án của bạn
 {
     public class SocialPost
     {

@@ -1,8 +1,8 @@
-// File: Models/User.cs
+// File: Models/Entities/User.cs
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace B_M.Models
+namespace B_M.Models.Entities
 {
     public class User
     {

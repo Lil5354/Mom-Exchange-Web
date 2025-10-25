@@ -1,7 +1,8 @@
-// File: Models/ApplicationDbContext.cs
+// File: Data/Context/ApplicationDbContext.cs
 using System.Data.Entity;
+using B_M.Models.Entities;
 
-namespace B_M.Models
+namespace B_M
 {
     public class ApplicationDbContext : DbContext
     {

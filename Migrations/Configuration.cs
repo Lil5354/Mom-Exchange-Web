@@ -6,7 +6,7 @@ namespace B_M.Migrations
     using System.Linq;
     using B_M.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<B_M.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
@@ -14,7 +14,7 @@ namespace B_M.Migrations
             ContextKey = "B_M.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(B_M.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

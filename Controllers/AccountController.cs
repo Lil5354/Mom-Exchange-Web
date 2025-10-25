@@ -1,5 +1,6 @@
 ﻿// File: Controllers/AccountController.cs
-using B_M.Models;
+using B_M.Models.Entities;
+using B_M.Models.ViewModels;
 using B_M.Helpers;
 using System;
 using System.Web;

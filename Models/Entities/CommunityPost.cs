@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace B_M.Models
+namespace B_M.Models.Entities
 {
     public class CommunityPost
     {

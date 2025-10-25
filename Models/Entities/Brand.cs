@@ -1,6 +1,6 @@
 ﻿// Models/Brand.cs
 
-namespace B_M.Models
+namespace B_M.Models.Entities
 {
     public class Brand
     {

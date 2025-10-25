@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using B_M.Models.Entities;
 
-namespace B_M.Models
+namespace B_M.Models.ViewModels
 {
     public class CategoryViewModel
     {

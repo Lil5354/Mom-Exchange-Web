@@ -1,7 +1,7 @@
 // File: Models/UserDetails.cs
 using System.ComponentModel.DataAnnotations;
 
-namespace B_M.Models
+namespace B_M.Models.Entities
 {
     public class UserDetails
     {

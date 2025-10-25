@@ -2,7 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using B_M.Models;
+using B_M.Models.Entities;
+using B_M.Models.ViewModels;
 using B_M.Filters;
 
 namespace B_M.Areas.Admin.Controllers
@@ -126,7 +127,7 @@ namespace B_M.Areas.Admin.Controllers
                     return RedirectToAction("Users");
                 }
 
-                var viewModel = new B_M.Models.AdminUserEditViewModel
+                var viewModel = new AdminUserEditViewModel
                 {
                     UserID = user.UserID,
                     Email = user.Email,
@@ -254,7 +255,7 @@ namespace B_M.Areas.Admin.Controllers
         // POST: Admin/UpdateUserProfile
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UpdateUserProfile(B_M.Models.AdminUserEditViewModel model)
+        public ActionResult UpdateUserProfile(AdminUserEditViewModel model)
         {
             try
             {

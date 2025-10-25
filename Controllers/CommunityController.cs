@@ -1,6 +1,6 @@
 ﻿// Controllers/CommunityController.cs
 
-using B_M.Models; // Thêm dòng này để sử dụng các Model
+using B_M.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

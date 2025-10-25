@@ -1,7 +1,7 @@
 ﻿// Models/Product.cs
 using System.Collections.Generic;
 
-namespace B_M.Models // Namespace của bạn có thể khác
+namespace B_M.Models.Entities // Namespace của bạn có thể khác
 {
     public class Product
     {
