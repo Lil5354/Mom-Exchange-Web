@@ -18,6 +18,7 @@ namespace B_M.Models
         [StringLength(500)]
         public string Address { get; set; }
 
+        [Required]
         public double ReputationScore { get; set; }
 
         // Navigation property

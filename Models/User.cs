@@ -23,10 +23,13 @@ namespace B_M.Models
         public string PasswordHash { get; set; }
 
         // Role: 1 = Admin, 2 = Mom, 3 = Brand
+        [Required]
         public byte Role { get; set; }
 
+        [Required]
         public bool IsActive { get; set; }
 
+        [Required]
         public DateTime CreatedAt { get; set; }
 
         // Navigation property
