@@ -2,6 +2,7 @@ using System;
 using System.Web;
 using System.Web.Mvc;
 using B_M.Models.Entities;
+using B_M.Data;
 
 namespace B_M.Filters
 {
@@ -45,9 +46,9 @@ namespace B_M.Filters
                 {
                     try
                     {
-                        using (var userRepo = new UserRepository())
+                        using (var unitOfWork = new UnitOfWork())
                         {
-                            var user = userRepo.GetUserByEmail(email);
+                            var user = unitOfWork.Users.GetUserByEmail(email);
                             if (user != null)
                             {
                                 // Reload session data
@@ -107,6 +108,7 @@ namespace B_M.Filters
                 filterContext.Result = new RedirectToRouteResult(
                     new System.Web.Routing.RouteValueDictionary
                     {
+                        { "area", "" },
                         { "controller", "Error" },
                         { "action", "Forbidden" }
                     });

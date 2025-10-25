@@ -2,6 +2,7 @@
 using B_M.Models.Entities;
 using B_M.Models.ViewModels;
 using B_M.Helpers;
+using B_M.Data;
 using System;
 using System.Web;
 using System.Web.Mvc;
@@ -12,18 +13,13 @@ namespace B_M.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserRepository userRepository;
-
-        public AccountController()
-        {
-            userRepository = new UserRepository();
-        }
+        private UnitOfWork unitOfWork = new UnitOfWork();
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                userRepository?.Dispose();
+                unitOfWork?.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -66,7 +62,7 @@ namespace B_M.Controllers
             try
             {
                 // Lấy user từ database (theo email hoặc username)
-                User user = userRepository.GetUserByEmailOrUsername(model.EmailOrUsername);
+                User user = unitOfWork.Users.GetUserByEmailOrUsername(model.EmailOrUsername);
 
                 if (user == null)
                 {
@@ -141,7 +137,7 @@ namespace B_M.Controllers
                 try
                 {
                     // Kiểm tra username đã tồn tại chưa (chỉ khi có nhập username)
-                    if (!string.IsNullOrEmpty(model.UserName) && userRepository.UsernameExists(model.UserName))
+                    if (!string.IsNullOrEmpty(model.UserName) && unitOfWork.Users.UsernameExists(model.UserName))
                     {
                         ModelState.AddModelError("UserName", "Tên đăng nhập này đã được sử dụng.");
                         ViewBag.ShowRegister = true;
@@ -149,7 +145,7 @@ namespace B_M.Controllers
                     }
 
                     // Kiểm tra email đã tồn tại chưa
-                    if (userRepository.EmailExists(model.Email))
+                    if (unitOfWork.Users.EmailExists(model.Email))
                     {
                         ModelState.AddModelError("Email", "Email này đã được đăng ký.");
                         ViewBag.ShowRegister = true;
@@ -176,7 +172,7 @@ namespace B_M.Controllers
                     };
 
                     // Lưu vào database
-                    bool result = userRepository.CreateUser(newUser, newUserDetails);
+                    bool result = unitOfWork.Users.CreateUser(newUser, newUserDetails);
 
                     if (result)
                     {
@@ -267,7 +263,7 @@ namespace B_M.Controllers
                 }
 
                 // Kiểm tra user đã tồn tại chưa
-                var existingUser = userRepository.GetUserByEmail(email);
+                var existingUser = unitOfWork.Users.GetUserByEmail(email);
                 
                 if (existingUser != null)
                 {
@@ -317,12 +313,12 @@ namespace B_M.Controllers
                     System.Diagnostics.Debug.WriteLine($"Attempting to create user: {email}");
                     System.Diagnostics.Debug.WriteLine($"User details: FullName={newUserDetails.FullName}");
                     
-                    bool result = userRepository.CreateUser(newUser, newUserDetails);
+                    bool result = unitOfWork.Users.CreateUser(newUser, newUserDetails);
 
                     if (result)
                     {
                         // Đăng nhập sau khi tạo account
-                        var createdUser = userRepository.GetUserByEmail(email);
+                        var createdUser = unitOfWork.Users.GetUserByEmail(email);
                         if (createdUser != null)
                         {
                             // Sử dụng OWIN Authentication như Login action
@@ -412,14 +408,14 @@ namespace B_M.Controllers
                 }
 
                 // Kiểm tra username đã tồn tại chưa
-                if (!string.IsNullOrEmpty(model.UserName) && userRepository.UsernameExists(model.UserName))
+                if (!string.IsNullOrEmpty(model.UserName) && unitOfWork.Users.UsernameExists(model.UserName))
                 {
                     ModelState.AddModelError("UserName", "Tên đăng nhập này đã được sử dụng.");
                     return View(model);
                 }
 
                 // Lấy user hiện tại
-                var user = userRepository.GetUserByEmail(model.Email);
+                var user = unitOfWork.Users.GetUserByEmail(model.Email);
                 if (user == null)
                 {
                     TempData["ErrorMessage"] = "Không tìm thấy thông tin người dùng.";
@@ -432,17 +428,17 @@ namespace B_M.Controllers
                 user.PhoneNumber = model.PhoneNumber;
 
                 // Cập nhật user details
-                var userDetails = userRepository.GetUserDetails(user.UserID);
+                var userDetails = unitOfWork.Users.GetUserDetails(user.UserID);
                 if (userDetails != null)
                 {
                     userDetails.Address = model.Address;
                 }
 
                 // Lưu thay đổi
-                bool updateResult = userRepository.UpdateUser(user);
+                bool updateResult = unitOfWork.Users.UpdateUser(user);
                 if (userDetails != null)
                 {
-                    userRepository.UpdateUserDetails(userDetails);
+                    unitOfWork.Users.UpdateUserDetails(userDetails);
                 }
 
                 if (updateResult)

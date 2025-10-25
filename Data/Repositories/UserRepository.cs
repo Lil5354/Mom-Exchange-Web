@@ -1,19 +1,18 @@
-// File: Models/UserRepository.cs
+// File: Data/Repositories/UserRepository.cs
 using System;
 using System.Linq;
 using System.Data.Entity;
 using System.Collections.Generic;
 using B_M.Models.Entities;
+using B_M.Data;
+using B_M.Data.Repositories;
 
-namespace B_M
+namespace B_M.Data.Repositories
 {
-    public class UserRepository : IDisposable
+    public class UserRepository : Repository<User>
     {
-        private readonly ApplicationDbContext _context;
-
-        public UserRepository()
+        public UserRepository(ApplicationDbContext context) : base(context)
         {
-            _context = new ApplicationDbContext();
         }
 
         public bool CreateUser(User user, UserDetails userDetails)
@@ -22,12 +21,12 @@ namespace B_M
             {
                 try
                 {
-                    _context.Users.Add(user);
+                    _dbSet.Add(user);
                     _context.SaveChanges(); 
 
                     userDetails.UserID = user.UserID;
 
-                    _context.UserDetails.Add(userDetails);
+                    _context.Set<UserDetails>().Add(userDetails);
                     _context.SaveChanges();
 
                     transaction.Commit();
@@ -52,40 +51,40 @@ namespace B_M
 
         public bool EmailExists(string email)
         {
-            return _context.Users.Any(u => u.Email == email);
+            return _dbSet.Any(u => u.Email == email);
         }
 
         public bool UsernameExists(string username)
         {
             if (string.IsNullOrEmpty(username))
                 return false;
-            return _context.Users.Any(u => u.UserName == username);
+            return _dbSet.Any(u => u.UserName == username);
         }
 
         public User GetUserByEmail(string email)
         {
-            return _context.Users
+            return _dbSet
                 .Include("UserDetails")
                 .FirstOrDefault(u => u.Email == email);
         }
 
         public User GetUserByUsername(string username)
         {
-            return _context.Users
+            return _dbSet
                 .Include("UserDetails")
                 .FirstOrDefault(u => u.UserName == username);
         }
 
         public User GetUserByEmailOrUsername(string emailOrUsername)
         {
-            return _context.Users
+            return _dbSet
                 .Include("UserDetails")
                 .FirstOrDefault(u => u.Email == emailOrUsername || u.UserName == emailOrUsername);
         }
 
         public UserDetails GetUserDetails(int userId)
         {
-            return _context.UserDetails.Find(userId);
+            return _context.Set<UserDetails>().Find(userId);
         }
 
         public bool UpdateUser(User user)
@@ -121,7 +120,7 @@ namespace B_M
 
         public List<User> GetAllUsers()
         {
-            return _context.Users
+            return _dbSet
                 .Include("UserDetails")
                 .OrderByDescending(u => u.CreatedAt)
                 .ToList();
@@ -129,14 +128,14 @@ namespace B_M
 
         public User GetUserById(int userId)
         {
-            return _context.Users
+            return _dbSet
                 .Include("UserDetails")
                 .FirstOrDefault(u => u.UserID == userId);
         }
 
         public List<User> GetUsersByRole(byte role)
         {
-            return _context.Users
+            return _dbSet
                 .Include("UserDetails")
                 .Where(u => u.Role == role)
                 .OrderByDescending(u => u.CreatedAt)
@@ -145,7 +144,7 @@ namespace B_M
 
         public List<User> GetActiveUsers()
         {
-            return _context.Users
+            return _dbSet
                 .Include("UserDetails")
                 .Where(u => u.IsActive)
                 .OrderByDescending(u => u.CreatedAt)
@@ -154,7 +153,7 @@ namespace B_M
 
         public List<User> GetRecentUsers(int count = 10)
         {
-            return _context.Users
+            return _dbSet
                 .Include("UserDetails")
                 .OrderByDescending(u => u.CreatedAt)
                 .Take(count)
@@ -163,23 +162,23 @@ namespace B_M
 
         public int GetUserCount()
         {
-            return _context.Users.Count();
+            return _dbSet.Count();
         }
 
         public int GetActiveUserCount()
         {
-            return _context.Users.Count(u => u.IsActive);
+            return _dbSet.Count(u => u.IsActive);
         }
 
         public int GetUserCountByRole(byte role)
         {
-            return _context.Users.Count(u => u.Role == role);
+            return _dbSet.Count(u => u.Role == role);
         }
 
         public int GetNewUsersThisMonth()
         {
             var startOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            return _context.Users.Count(u => u.CreatedAt >= startOfMonth);
+            return _dbSet.Count(u => u.CreatedAt >= startOfMonth);
         }
 
         public bool DeleteUser(int userId)
@@ -189,22 +188,22 @@ namespace B_M
                 try
                 {
                     // Tìm user và user details
-                    var user = _context.Users.Find(userId);
+                    var user = _dbSet.Find(userId);
                     if (user == null)
                     {
                         return false;
                     }
 
-                    var userDetails = _context.UserDetails.Find(userId);
+                    var userDetails = _context.Set<UserDetails>().Find(userId);
                     
                     // Xóa user details trước (foreign key constraint)
                     if (userDetails != null)
                     {
-                        _context.UserDetails.Remove(userDetails);
+                        _context.Set<UserDetails>().Remove(userDetails);
                     }
 
                     // Xóa user
-                    _context.Users.Remove(user);
+                    _dbSet.Remove(user);
                     
                     _context.SaveChanges();
                     transaction.Commit();
@@ -230,7 +229,7 @@ namespace B_M
         // Admin CRUD Methods
         public User GetUserForAdminEdit(int userId)
         {
-            return _context.Users
+            return _dbSet
                 .Include("UserDetails")
                 .FirstOrDefault(u => u.UserID == userId);
         }
@@ -260,7 +259,7 @@ namespace B_M
         {
             try
             {
-                var user = _context.Users.Find(userId);
+                var user = _dbSet.Find(userId);
                 if (user == null) return false;
                 
                 user.Role = newRole;
@@ -279,7 +278,7 @@ namespace B_M
         {
             try
             {
-                var user = _context.Users.Find(userId);
+                var user = _dbSet.Find(userId);
                 if (user == null) return false;
                 
                 user.IsActive = isActive;
@@ -298,17 +297,12 @@ namespace B_M
         {
             if (string.IsNullOrEmpty(username))
                 return false;
-            return _context.Users.Any(u => u.UserName == username && u.UserID != excludeUserId);
+            return _dbSet.Any(u => u.UserName == username && u.UserID != excludeUserId);
         }
         
         public bool EmailExistsExcludingUser(string email, int excludeUserId)
         {
-            return _context.Users.Any(u => u.Email == email && u.UserID != excludeUserId);
-        }
-
-        public void Dispose()
-        {
-            _context?.Dispose();
+            return _dbSet.Any(u => u.Email == email && u.UserID != excludeUserId);
         }
     }
 }

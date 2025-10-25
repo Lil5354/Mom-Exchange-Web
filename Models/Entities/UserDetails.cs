@@ -1,11 +1,13 @@
 // File: Models/UserDetails.cs
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace B_M.Models.Entities
 {
     public class UserDetails
     {
         [Key]
+        [ForeignKey("User")]
         public int UserID { get; set; }
 
         [Required]
@@ -22,6 +24,7 @@ namespace B_M.Models.Entities
         public double ReputationScore { get; set; }
 
         // Navigation property
+        [Required]
         public User User { get; set; }
     }
 }

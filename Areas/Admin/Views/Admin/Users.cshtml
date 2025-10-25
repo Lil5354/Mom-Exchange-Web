@@ -1,4 +1,4 @@
-@model B_M.Models.AdminUsersViewModel
+@model B_M.Models.ViewModels.AdminUsersViewModel
 @{
     ViewBag.Title = "Quản lý người dùng";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -17,9 +17,9 @@
         <!-- Search and Filter -->
         <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
             @using (Html.BeginForm("Users", "Admin", new { area = "Admin" }, FormMethod.Get, new { @style = "display: flex; gap: 15px; flex-wrap: wrap; width: 100%;" }))
-            {
+        {
                 <div style="flex: 1; min-width: 200px;">
-                    <input type="text" name="search" value="@Model.SearchTerm" placeholder="Tìm kiếm theo tên, email..." 
+                    <input type="text" name="search" value="@Model.SearchTerm" placeholder="Tìm kiếm theo tên, email..."
                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;" />
                 </div>
                 <div>
@@ -36,7 +36,7 @@
                 <a href="@Url.Action("Users", "Admin", new { area = "Admin" })" class="btn-admin-secondary" style="padding: 10px 20px; text-decoration: none;">
                     <i class="fas fa-refresh"></i> Làm mới
                 </a>
-            }
+        }
         </div>
 
         <!-- Users Table -->

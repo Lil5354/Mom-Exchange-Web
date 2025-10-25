@@ -1,4 +1,5 @@
 ﻿// Models/Brand.cs
+using System.Collections.Generic;
 
 namespace B_M.Models.Entities
 {
@@ -8,5 +9,13 @@ namespace B_M.Models.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public string LogoUrl { get; set; } // Đường dẫn đến file logo
+        
+        // Navigation property
+        public virtual ICollection<Product> Products { get; set; }
+        
+        public Brand()
+        {
+            Products = new List<Product>();
+        }
     }
 }

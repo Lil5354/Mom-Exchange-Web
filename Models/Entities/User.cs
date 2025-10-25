@@ -1,6 +1,7 @@
 // File: Models/Entities/User.cs
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace B_M.Models.Entities
 {
@@ -33,6 +34,7 @@ namespace B_M.Models.Entities
         public DateTime CreatedAt { get; set; }
 
         // Navigation property
+        [ForeignKey("UserID")]
         public UserDetails UserDetails { get; set; }
     }
 }

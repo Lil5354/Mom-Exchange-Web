@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Helpers;
 
 namespace B_M
 {
@@ -19,7 +20,7 @@ namespace B_M
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             
             // Cấu hình AntiForgeryToken cho Claims-based authentication
-            AntiForgeryConfig.UniqueClaimTypeIdentifier = System.Security.Claims.ClaimTypes.NameIdentifier;
+            AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimsIdentity.DefaultNameClaimType;
         }
 
         protected void Application_Error()

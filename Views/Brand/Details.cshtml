@@ -1,4 +1,4 @@
-﻿@model B_M.Models.Entities.BrandDetailViewModel
+﻿@model B_M.Models.ViewModels.BrandDetailViewModel
 
 @{
     ViewBag.Title = Model.BrandInfo.Name;
@@ -56,23 +56,33 @@
         </div>
 
         <div class="product-grid">
-            @foreach (var product in Model.Products)
+            @if (Model.Products != null && Model.Products.Any())
             {
-                <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="product-card-link">
-                    <div class="product-card">
-                        <div class="card-image-container">
-                            <img src="@product.ImageUrls.FirstOrDefault()" alt="@product.Name">
-                            <div class="card-overlay">
-                                <span class="overlay-text">Xem chi tiết</span>
+                foreach (var product in Model.Products)
+                {
+                    <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="product-card-link">
+                        <div class="product-card">
+                            <div class="card-image-container">
+                                <img src="@(product.ImageUrls?.FirstOrDefault() ?? "/images/no-image.jpg")" alt="@product.Name">
+                                <div class="card-overlay">
+                                    <span class="overlay-text">Xem chi tiết</span>
+                                </div>
                             </div>
-                        </div>
                         <div class="card-text-content">
                             <h3>@product.Name</h3>
-                            <p class="brand">@product.Brand</p>
+                            <p class="brand">@(product.Brand?.Name ?? "Unknown Brand")</p>
                             <p class="price">@product.Price</p>
                         </div>
                     </div>
                 </a>
+                }
+            }
+            else
+            {
+                <div class="no-products-message">
+                    <h3>Chưa có sản phẩm nào</h3>
+                    <p>Hiện tại chưa có sản phẩm nào thuộc thương hiệu này.</p>
+                </div>
             }
         </div>
     </main>

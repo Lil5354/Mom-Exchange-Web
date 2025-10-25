@@ -130,9 +130,7 @@
                             <div class="nav-item-dropdown" style="position: relative;">
                                 <a href="@Url.Action("Index", "Brand")" style="color: #333; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 20px; transition: all 0.3s ease; position: relative; white-space: nowrap;">Nhãn hàng <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
                                 <div class="dropdown-content" style="position: absolute; top: 100%; left: 0; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 10px; padding: 10px 0; min-width: 200px; z-index: 1000; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease;">
-                                    <a href="#" style="display: block; padding: 8px 20px; color: #333; text-decoration: none; transition: background 0.3s ease;">Bobby</a>
-                                    <a href="#" style="display: block; padding: 8px 20px; color: #333; text-decoration: none; transition: background 0.3s ease;">Huggies</a>
-                                    <a href="@Url.Action("Index", "Brand")" style="display: block; padding: 8px 20px; color: #d63384; text-decoration: none; font-weight: 600; transition: background 0.3s ease;">Xem tất cả nhãn hàng</a>
+                                    @{Html.RenderAction("BrandDropdown", "Brand");}
                      </div>
                 </div>
                             <a href="@Url.Action("Index", "Community")" style="color: #333; text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 20px; transition: all 0.3s ease; position: relative; white-space: nowrap;">Cộng đồng</a>

@@ -6,14 +6,14 @@ namespace B_M.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class FixModelChanges : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
+    public sealed partial class AddAllEntities : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FixModelChanges));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAllEntities));
         
         string IMigrationMetadata.Id
         {
-            get { return "202510140652089_FixModelChanges"; }
+            get { return "202510251516067_AddAllEntities"; }
         }
         
         string IMigrationMetadata.Source

@@ -5,24 +5,20 @@ using System.Web.Mvc;
 using B_M.Models.Entities;
 using B_M.Models.ViewModels;
 using B_M.Filters;
+using B_M.Data;
 
 namespace B_M.Areas.Admin.Controllers
 {
     [AdminAuthorize]
     public class AdminController : Controller
     {
-        private readonly UserRepository userRepository;
-
-        public AdminController()
-        {
-            userRepository = new UserRepository();
-        }
+        private UnitOfWork unitOfWork = new UnitOfWork();
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                userRepository?.Dispose();
+                unitOfWork?.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -74,7 +70,7 @@ namespace B_M.Areas.Admin.Controllers
         {
             try
             {
-                var users = userRepository.GetAllUsers();
+                var users = unitOfWork.Users.GetAllUsers();
                 
                 // Lọc theo tìm kiếm
                 if (!string.IsNullOrEmpty(search))
@@ -120,7 +116,7 @@ namespace B_M.Areas.Admin.Controllers
         {
             try
             {
-                var user = userRepository.GetUserForAdminEdit(id);
+                var user = unitOfWork.Users.GetUserForAdminEdit(id);
                 if (user == null)
                 {
                     TempData["ErrorMessage"] = "Không tìm thấy người dùng.";
@@ -159,7 +155,7 @@ namespace B_M.Areas.Admin.Controllers
         {
             try
             {
-                var user = userRepository.GetUserById(UserID);
+                var user = unitOfWork.Users.GetUserById(UserID);
                 if (user == null)
                 {
                     return Json(new { success = false, message = "Không tìm thấy người dùng." });
@@ -171,7 +167,7 @@ namespace B_M.Areas.Admin.Controllers
                     return Json(new { success = false, message = "Bạn không thể khóa tài khoản của chính mình." });
                 }
 
-                bool result = userRepository.UpdateUserStatus(UserID, IsActive);
+                bool result = unitOfWork.Users.UpdateUserStatus(UserID, IsActive);
 
                 if (result)
                 {
@@ -208,7 +204,7 @@ namespace B_M.Areas.Admin.Controllers
         {
             try
             {
-                var user = userRepository.GetUserById(UserID);
+                var user = unitOfWork.Users.GetUserById(UserID);
                 if (user == null)
                 {
                     return Json(new { success = false, message = "Không tìm thấy người dùng." });
@@ -226,7 +222,7 @@ namespace B_M.Areas.Admin.Controllers
                     return Json(new { success = false, message = "Quyền không hợp lệ." });
                 }
 
-                bool result = userRepository.UpdateUserRole(UserID, NewRole);
+                bool result = unitOfWork.Users.UpdateUserRole(UserID, NewRole);
 
                 if (result)
                 {
@@ -265,21 +261,21 @@ namespace B_M.Areas.Admin.Controllers
                 }
 
                 // Get current user
-                var user = userRepository.GetUserForAdminEdit(model.UserID);
+                var user = unitOfWork.Users.GetUserForAdminEdit(model.UserID);
                 if (user == null)
                 {
                     return Json(new { success = false, message = "Không tìm thấy người dùng." });
                 }
 
                 // Validation: Check for duplicate email (excluding current user)
-                if (userRepository.EmailExistsExcludingUser(model.Email, model.UserID))
+                if (unitOfWork.Users.EmailExistsExcludingUser(model.Email, model.UserID))
                 {
                     return Json(new { success = false, message = "Email này đã được sử dụng bởi người dùng khác." });
                 }
 
                 // Validation: Check for duplicate username (excluding current user)
                 if (!string.IsNullOrEmpty(model.UserName) && 
-                    userRepository.UsernameExistsExcludingUser(model.UserName, model.UserID))
+                    unitOfWork.Users.UsernameExistsExcludingUser(model.UserName, model.UserID))
                 {
                     return Json(new { success = false, message = "Tên đăng nhập này đã được sử dụng bởi người dùng khác." });
                 }
@@ -290,7 +286,7 @@ namespace B_M.Areas.Admin.Controllers
                 user.PhoneNumber = string.IsNullOrEmpty(model.PhoneNumber) ? null : model.PhoneNumber;
 
                 // Update UserDetails
-                var userDetails = userRepository.GetUserDetails(model.UserID);
+                var userDetails = unitOfWork.Users.GetUserDetails(model.UserID);
                 if (userDetails != null)
                 {
                     userDetails.FullName = model.FullName;
@@ -309,7 +305,7 @@ namespace B_M.Areas.Admin.Controllers
                 }
 
                 // Save changes
-                bool result = userRepository.UpdateUserProfile(user, userDetails);
+                bool result = unitOfWork.Users.UpdateUserProfile(user, userDetails);
 
                 if (result)
                 {
@@ -391,7 +387,7 @@ namespace B_M.Areas.Admin.Controllers
         {
             try
             {
-                var user = userRepository.GetUserById(userId);
+                var user = unitOfWork.Users.GetUserById(userId);
                 if (user == null)
                 {
                     return Json(new { success = false, message = "Không tìm thấy người dùng." });
@@ -403,7 +399,7 @@ namespace B_M.Areas.Admin.Controllers
                     return Json(new { success = false, message = "Bạn không thể xóa tài khoản của chính mình." });
                 }
 
-                bool result = userRepository.DeleteUser(userId);
+                bool result = unitOfWork.Users.DeleteUser(userId);
 
                 if (result)
                 {
@@ -428,7 +424,7 @@ namespace B_M.Areas.Admin.Controllers
         {
             try
             {
-                var users = userRepository.GetAllUsers();
+                var users = unitOfWork.Users.GetAllUsers();
                 // TODO: Implement CSV/Excel export
                 return Json(new { success = false, message = "Chức năng export chưa được implement." }, JsonRequestBehavior.AllowGet);
             }
@@ -441,7 +437,7 @@ namespace B_M.Areas.Admin.Controllers
         // Helper methods
         private AdminDashboardViewModel GetDashboardStats()
         {
-            var users = userRepository.GetAllUsers();
+            var users = unitOfWork.Users.GetAllUsers();
             
             return new AdminDashboardViewModel
             {

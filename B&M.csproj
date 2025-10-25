@@ -151,6 +151,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Migrations\202510251556222_Add-ProductImage.cs" />
+    <Compile Include="Migrations\202510251556222_Add-ProductImage.Designer.cs">
+      <DependentUpon>202510251556222_Add-ProductImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewModels\AdminUserEditViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
@@ -171,20 +175,19 @@
     <Compile Include="Filters\AdminAuthorizeAttribute.cs" />
     <Compile Include="Models\ViewModels\AdminDashboardViewModel.cs" />
     <Compile Include="Models\ViewModels\AdminUsersViewModel.cs" />
-    <Compile Include="Migrations\202510140441587_InitialCreate.cs" />
-    <Compile Include="Migrations\202510140441587_InitialCreate.Designer.cs">
-      <DependentUpon>202510140441587_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202510140601006_AddUserNameField.cs" />
-    <Compile Include="Migrations\202510140601006_AddUserNameField.Designer.cs">
-      <DependentUpon>202510140601006_AddUserNameField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202510140652089_FixModelChanges.cs" />
-    <Compile Include="Migrations\202510140652089_FixModelChanges.Designer.cs">
-      <DependentUpon>202510140652089_FixModelChanges.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Data\Context\ApplicationDbContext.cs" />
+    <Compile Include="Data\Repositories\IRepository.cs" />
+    <Compile Include="Data\Repositories\Repository.cs" />
+    <Compile Include="Data\Repositories\BrandRepository.cs" />
+    <Compile Include="Data\Repositories\ProductRepository.cs" />
+    <Compile Include="Data\Repositories\CommunityPostRepository.cs" />
+    <Compile Include="Data\Repositories\SocialPostRepository.cs" />
+    <Compile Include="Data\Repositories\TradePostRepository.cs" />
+    <Compile Include="Data\Repositories\MilkDonationPostRepository.cs" />
+    <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Data\SeedData.cs" />
+    <Compile Include="Data\Repositories\UserRepository.cs" />
     <Compile Include="Models\Entities\Brand.cs" />
     <Compile Include="Models\ViewModels\BrandDetailViewModel.cs" />
     <Compile Include="Models\ViewModels\CategoryViewModel.cs" />
@@ -192,13 +195,13 @@
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Models\Entities\MilkDonationPost.cs" />
     <Compile Include="Models\Entities\Product.cs" />
+    <Compile Include="Models\Entities\ProductImage.cs" />
     <Compile Include="Models\ViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\Entities\SocialPost.cs" />
     <Compile Include="Models\Entities\TradePost.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\Entities\UserDetails.cs" />
     <Compile Include="Models\ViewModels\CompleteProfileViewModel.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -286,17 +289,6 @@
     <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202510140441587_InitialCreate.resx">
-      <DependentUpon>202510140441587_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202510140601006_AddUserNameField.resx">
-      <DependentUpon>202510140601006_AddUserNameField.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202510140652089_FixModelChanges.resx">
-      <DependentUpon>202510140652089_FixModelChanges.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
@@ -322,6 +314,11 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202510251556222_Add-ProductImage.resx">
+      <DependentUpon>202510251556222_Add-ProductImage.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
